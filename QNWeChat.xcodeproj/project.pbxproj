@@ -126,6 +126,7 @@
 		E0ABB1331D1277FB00899618 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ABB1321D1277FB00899618 /* libsqlite3.0.tbd */; };
 		E0ABB1351D12780300899618 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ABB1341D12780300899618 /* libz.tbd */; };
 		E0ABB1381D1299B300899618 /* QNAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1371D1299B300899618 /* QNAddressBookViewController.m */; };
+		E0ABB1401D12A40B00899618 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB13E1D12A40B00899618 /* pinyin.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,6 +383,8 @@
 		E0ABB1341D12780300899618 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E0ABB1361D1299B300899618 /* QNAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAddressBookViewController.h; sourceTree = "<group>"; };
 		E0ABB1371D1299B300899618 /* QNAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAddressBookViewController.m; sourceTree = "<group>"; };
+		E0ABB13E1D12A40B00899618 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		E0ABB13F1D12A40B00899618 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -481,6 +484,7 @@
 		E0ABAF8B1D123BFB00899618 /* 3party */ = {
 			isa = PBXGroup;
 			children = (
+				E0ABB13D1D12A40B00899618 /* Pinyin */,
 				E0ABB01A1D1256C900899618 /* YYKit */,
 				E0ABAFE81D12549800899618 /* SDWebImage */,
 			);
@@ -1017,6 +1021,15 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		E0ABB13D1D12A40B00899618 /* Pinyin */ = {
+			isa = PBXGroup;
+			children = (
+				E0ABB13E1D12A40B00899618 /* pinyin.c */,
+				E0ABB13F1D12A40B00899618 /* pinyin.h */,
+			);
+			path = Pinyin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1239,6 +1252,7 @@
 				E0ABB1151D1256C900899618 /* YYReachability.m in Sources */,
 				E0ABB0F01D1256C900899618 /* UIButton+YYWebImage.m in Sources */,
 				E0ABB0DB1D1256C900899618 /* UIApplication+YYAdd.m in Sources */,
+				E0ABB1401D12A40B00899618 /* pinyin.c in Sources */,
 				E0ABB00B1D12549800899618 /* NSData+ImageContentType.m in Sources */,
 				E0ABB1091D1256C900899618 /* YYTextAttribute.m in Sources */,
 				E0ABB0F11D1256C900899618 /* UIImageView+YYWebImage.m in Sources */,

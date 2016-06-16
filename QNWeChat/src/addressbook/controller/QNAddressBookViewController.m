@@ -7,6 +7,7 @@
 //
 
 #import "QNAddressBookViewController.h"
+#import "pinyin.h"
 
 @interface QNAddressBookViewController ()
 
@@ -17,7 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSString *hanyu = @"中国共产党万岁！";
+    NSString *firstLetter = [NSString stringWithFormat:@"%c",pinyinFirstLetter([hanyu characterAtIndex:0])];
+    NSLog(@"%@",[firstLetter uppercaseString]);
+    
 }
 
 - (void)didReceiveMemoryWarning {

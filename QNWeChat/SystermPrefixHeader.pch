@@ -14,5 +14,10 @@
 
 #endif /* SystermPrefixHeader_pch */
 
+#ifdef __OBJC__
+
 #import "YYKit.h"
 #import "QNDataSource.h"
+
+#endif
+
