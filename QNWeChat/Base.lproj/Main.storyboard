@@ -97,7 +97,7 @@
         <!--通讯录-->
         <scene sceneID="kDw-yJ-sxf">
             <objects>
-                <viewController id="vzF-a1-Lmv" sceneMemberID="viewController">
+                <viewController id="vzF-a1-Lmv" customClass="QNAddressBookViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5BW-B3-4tY"/>
                         <viewControllerLayoutGuide type="bottom" id="eT1-dw-1ta"/>
@@ -105,9 +105,24 @@
                     <view key="view" contentMode="scaleToFill" id="Q8w-uU-qu3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="72t-HR-LPt">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eT1-dw-1ta" firstAttribute="top" secondItem="72t-HR-LPt" secondAttribute="bottom" id="3ok-65-P9P"/>
+                            <constraint firstItem="72t-HR-LPt" firstAttribute="leading" secondItem="Q8w-uU-qu3" secondAttribute="leading" id="5NN-Kf-Lp4"/>
+                            <constraint firstAttribute="trailing" secondItem="72t-HR-LPt" secondAttribute="trailing" id="Cma-Ii-y93"/>
+                            <constraint firstItem="72t-HR-LPt" firstAttribute="top" secondItem="5BW-B3-4tY" secondAttribute="bottom" id="pYI-Mz-bqu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="通讯录" id="Qzc-Pz-6oj"/>
+                    <connections>
+                        <outlet property="tableView" destination="72t-HR-LPt" id="87g-u3-wah"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMJ-t9-jhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

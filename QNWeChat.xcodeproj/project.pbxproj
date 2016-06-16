@@ -125,6 +125,7 @@
 		E0ABB1311D1277F400899618 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ABB1301D1277F400899618 /* SystemConfiguration.framework */; };
 		E0ABB1331D1277FB00899618 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ABB1321D1277FB00899618 /* libsqlite3.0.tbd */; };
 		E0ABB1351D12780300899618 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ABB1341D12780300899618 /* libz.tbd */; };
+		E0ABB1381D1299B300899618 /* QNAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1371D1299B300899618 /* QNAddressBookViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -379,6 +380,8 @@
 		E0ABB1301D1277F400899618 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E0ABB1321D1277FB00899618 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E0ABB1341D12780300899618 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E0ABB1361D1299B300899618 /* QNAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAddressBookViewController.h; sourceTree = "<group>"; };
+		E0ABB1371D1299B300899618 /* QNAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAddressBookViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -526,6 +529,8 @@
 		E0ABAF941D123CA900899618 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				E0ABB1361D1299B300899618 /* QNAddressBookViewController.h */,
+				E0ABB1371D1299B300899618 /* QNAddressBookViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1203,6 +1208,7 @@
 				E0ABB0D11D1256C900899618 /* NSNotificationCenter+YYAdd.m in Sources */,
 				E0ABB1021D1256C900899618 /* YYTextLine.m in Sources */,
 				E0ABB1011D1256C900899618 /* YYTextLayout.m in Sources */,
+				E0ABB1381D1299B300899618 /* QNAddressBookViewController.m in Sources */,
 				E0ABB1061D1256C900899618 /* NSParagraphStyle+YYText.m in Sources */,
 				E0ABB0D31D1256C900899618 /* NSObject+YYAdd.m in Sources */,
 				E0ABB0E51D1256C900899618 /* UIScrollView+YYAdd.m in Sources */,
@@ -1478,6 +1484,7 @@
 				E0ABAF841D12392800899618 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0ABAF851D12392800899618 /* Build configuration list for PBXNativeTarget "QNWeChatTests" */ = {
 			isa = XCConfigurationList;
@@ -1486,6 +1493,7 @@
 				E0ABAF871D12392800899618 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0ABAF881D12392800899618 /* Build configuration list for PBXNativeTarget "QNWeChatUITests" */ = {
 			isa = XCConfigurationList;
@@ -1494,6 +1502,7 @@
 				E0ABAF8A1D12392800899618 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
