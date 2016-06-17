@@ -130,6 +130,7 @@
 		E0ABB1431D138DE700899618 /* QNAddressBookContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1421D138DE700899618 /* QNAddressBookContactModel.m */; };
 		E0ABB1471D139CB600899618 /* QNAddressBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1451D139CB600899618 /* QNAddressBookTableViewCell.m */; };
 		E0ABB1481D139CB600899618 /* QNAddressBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1461D139CB600899618 /* QNAddressBookTableViewCell.xib */; };
+		E0ABB14D1D13D77F00899618 /* UIColor+QNHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB14C1D13D77F00899618 /* UIColor+QNHexColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -394,6 +395,8 @@
 		E0ABB1451D139CB600899618 /* QNAddressBookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAddressBookTableViewCell.m; sourceTree = "<group>"; };
 		E0ABB1461D139CB600899618 /* QNAddressBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNAddressBookTableViewCell.xib; sourceTree = "<group>"; };
 		E0ABB1491D13CA9400899618 /* QNMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNMacro.h; sourceTree = "<group>"; };
+		E0ABB14B1D13D77F00899618 /* UIColor+QNHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+QNHexColor.h"; sourceTree = "<group>"; };
+		E0ABB14C1D13D77F00899618 /* UIColor+QNHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QNHexColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -643,6 +646,7 @@
 		E0ABAFA01D123CA900899618 /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				E0ABB14A1D13D73B00899618 /* category */,
 				E0ABAFE71D12537D00899618 /* macro */,
 			);
 			path = tools;
@@ -1037,6 +1041,15 @@
 			path = Pinyin;
 			sourceTree = "<group>";
 		};
+		E0ABB14A1D13D73B00899618 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				E0ABB14B1D13D77F00899618 /* UIColor+QNHexColor.h */,
+				E0ABB14C1D13D77F00899618 /* UIColor+QNHexColor.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1178,6 +1191,7 @@
 				E0ABB0FD1D1256C900899618 /* YYTextDebugOption.m in Sources */,
 				E0ABB0CD1D1256C900899618 /* NSData+YYAdd.m in Sources */,
 				E0ABB10D1D1256C900899618 /* YYTextUtilities.m in Sources */,
+				E0ABB14D1D13D77F00899618 /* UIColor+QNHexColor.m in Sources */,
 				E0ABB0FF1D1256C900899618 /* YYTextInput.m in Sources */,
 				E0ABB0CC1D1256C900899618 /* NSBundle+YYAdd.m in Sources */,
 				E0ABB0181D12549800899618 /* UIImageView+WebCache.m in Sources */,

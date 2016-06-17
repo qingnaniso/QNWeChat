@@ -62,9 +62,10 @@
                                    @"http://mmocgame.qpic.cn/wechatgame/mEMdfrX5RU0ibiaKicrwF4PvbdR5KaTYoNpv7eqUjPwoiaavYicibzmZ94Qdlk8hH9A1xZ/0",
                                    @"http://mmocgame.qpic.cn/wechatgame/mEMdfrX5RU29fFSor34SdM2R5MxBV3icTic6ABxx9lr141X5NRoXx8Cnww7wZBeRwN/0",
                                    @"http://mmocgame.qpic.cn/wechatgame/mEMdfrX5RU2NV106GSMsukMd2ILXgxR4BBfQgSQOticwW0nrh1dnfjJaiaCtOgzxLq/0",
+                                   @"http://mmocgame.qpic.cn/wechatgame/mEMdfrX5RU29fFSor34SdM2R5MxBV3icTic6ABxx9lr141X5NRoXx8Cnww7wZBeRwN/0",
                                    @"http://mmocgame.qpic.cn/wechatgame/mEMdfrX5RU29fFSor34SdM2R5MxBV3icTic6ABxx9lr141X5NRoXx8Cnww7wZBeRwN/0"];
         
-        NSArray *nameArray = @[@"张三",@"李四",@"王五",@"赵六",@"啊七",@"钱八",@"陈九",@"周十",@"吴十一",@"祁庆男",@"高十二",@"燕儿",@"黑蛋子太黑了",@"杜海洋大灰狼",@"而紫的",@"xbox360",@"破落户儿",@"科比布莱恩特",@"uber司机王师傅"];
+        NSArray *nameArray = @[@"张三",@"李四",@"王五",@"赵六",@"啊七",@"钱八",@"陈九",@"周十",@"吴十一",@"祁庆男",@"高十二",@"燕儿",@"黑蛋子太黑了",@"杜海洋大灰狼",@"而紫的",@"xbox360",@"破落户儿",@"科比布莱恩特",@"uber司机王师傅",@"爱美丽小姐ooxx！@＃"];
         
         
         [vatarURLArray enumerateObjectsUsingBlock:^(NSString*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
