@@ -52,10 +52,22 @@
     self.searchBar.placeholder = @"搜索";
     self.searchBar.backgroundImage = [UIImage imageWithColor:[UIColor colorWithRed:240.0/255 green:240.0/255 blue:246.0/255 alpha:1.0]]; /* remove top and bottom black lines */
     
-    UITextField *searchField = [self.searchBar valueForKey:@"searchField"];
+    UITextField *searchField = [self.searchBar valueForKey:@"searchField"];    /* set edit cursor color which come from wechat ios client. */
     [searchField setTintColor:[UIColor colorWithRed:38.0/255 green:192.0/255 blue:40.0/255 alpha:1.0]];
-
     
+    
+//    UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(searchField.frame.origin.x + searchField.frame.size.width - 30, 10, 20, 20)];
+//    imageview.image = [UIImage imageNamed:@"searchbar_macrophone"];
+//    [searchField addSubview:imageview];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+//        NSLog(@"haaha");
+//    }];
+//    imageview.userInteractionEnabled = YES;
+//    [imageview addGestureRecognizer:tap];
+    
+    
+    
+//    
     UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 40)];
     backgroundView.backgroundColor = [UIColor colorWithRed:240.0/255 green:240.0/255 blue:246.0/255 alpha:1.0];
     [backgroundView addSubview:self.searchBar];
@@ -127,8 +139,10 @@
         
         NSString *firstLetter = [weakSelf firstLetterForString:name];
         
-        if (![weakSelf.sectionIndexArray containsObject:firstLetter]) {
-            [weakSelf.sectionIndexArray addObject:firstLetter];
+        if (firstLetter) {
+            if (![weakSelf.sectionIndexArray containsObject:firstLetter]) {
+                [weakSelf.sectionIndexArray addObject:firstLetter];
+            }
         }
     }];
     
@@ -152,13 +166,15 @@
         
         NSString *firstLetter = [weakSelf firstLetterForString:model.name];
         
-        [self.sectionIndexArray enumerateObjectsUsingBlock:^(NSString*  _Nonnull firstLetterInSectionIndex, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            if ([firstLetter isEqualToString:firstLetterInSectionIndex]) {
-                NSMutableArray *array = arrayByGrouped[idx];
-                [array addObject:model];
-            }
-        }];
+        if (firstLetter) {
+            [self.sectionIndexArray enumerateObjectsUsingBlock:^(NSString*  _Nonnull firstLetterInSectionIndex, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                if ([firstLetter isEqualToString:firstLetterInSectionIndex]) {
+                    NSMutableArray *array = arrayByGrouped[idx];
+                    [array addObject:model];
+                }
+            }];
+        }
     }];
     self.modelArrayGroupedByFirstLetter = [arrayByGrouped copy];
 }
