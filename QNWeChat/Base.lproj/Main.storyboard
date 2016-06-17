@@ -109,6 +109,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="72t-HR-LPt">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vzF-a1-Lmv" id="XWA-RI-kYO"/>
+                                    <outlet property="delegate" destination="vzF-a1-Lmv" id="9NZ-5x-Wfm"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,7 +120,7 @@
                             <constraint firstItem="eT1-dw-1ta" firstAttribute="top" secondItem="72t-HR-LPt" secondAttribute="bottom" id="3ok-65-P9P"/>
                             <constraint firstItem="72t-HR-LPt" firstAttribute="leading" secondItem="Q8w-uU-qu3" secondAttribute="leading" id="5NN-Kf-Lp4"/>
                             <constraint firstAttribute="trailing" secondItem="72t-HR-LPt" secondAttribute="trailing" id="Cma-Ii-y93"/>
-                            <constraint firstItem="72t-HR-LPt" firstAttribute="top" secondItem="5BW-B3-4tY" secondAttribute="bottom" id="pYI-Mz-bqu"/>
+                            <constraint firstItem="72t-HR-LPt" firstAttribute="top" secondItem="5BW-B3-4tY" secondAttribute="bottom" id="Nxq-uL-6GX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="通讯录" id="Qzc-Pz-6oj"/>

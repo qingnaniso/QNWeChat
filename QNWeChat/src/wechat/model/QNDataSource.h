@@ -16,4 +16,6 @@
 
 - (NSArray *)getWechatMainPageDataSourceByUser;
 
+- (NSArray *)getAddressBookContactList;
+
 @end

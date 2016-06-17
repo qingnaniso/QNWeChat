@@ -127,6 +127,9 @@
 		E0ABB1351D12780300899618 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ABB1341D12780300899618 /* libz.tbd */; };
 		E0ABB1381D1299B300899618 /* QNAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1371D1299B300899618 /* QNAddressBookViewController.m */; };
 		E0ABB1401D12A40B00899618 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB13E1D12A40B00899618 /* pinyin.c */; };
+		E0ABB1431D138DE700899618 /* QNAddressBookContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1421D138DE700899618 /* QNAddressBookContactModel.m */; };
+		E0ABB1471D139CB600899618 /* QNAddressBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1451D139CB600899618 /* QNAddressBookTableViewCell.m */; };
+		E0ABB1481D139CB600899618 /* QNAddressBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1461D139CB600899618 /* QNAddressBookTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,7 +171,7 @@
 		E0ABAFAD1D123F5B00899618 /* QNWeChatRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNWeChatRootViewController.m; sourceTree = "<group>"; };
 		E0ABAFB01D1241CB00899618 /* QNWeChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNWeChatTableViewCell.h; path = ../xibs/QNWeChatTableViewCell.h; sourceTree = "<group>"; };
 		E0ABAFB11D1241CB00899618 /* QNWeChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNWeChatTableViewCell.m; path = ../xibs/QNWeChatTableViewCell.m; sourceTree = "<group>"; };
-		E0ABAFB21D1241CB00899618 /* QNWeChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNWeChatTableViewCell.xib; sourceTree = "<group>"; };
+		E0ABAFB21D1241CB00899618 /* QNWeChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QNWeChatTableViewCell.xib; path = ../xibs/QNWeChatTableViewCell.xib; sourceTree = "<group>"; };
 		E0ABAFE91D12549800899618 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		E0ABAFEA1D12549800899618 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		E0ABAFEB1D12549800899618 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -385,6 +388,12 @@
 		E0ABB1371D1299B300899618 /* QNAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAddressBookViewController.m; sourceTree = "<group>"; };
 		E0ABB13E1D12A40B00899618 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
 		E0ABB13F1D12A40B00899618 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		E0ABB1411D138DE700899618 /* QNAddressBookContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAddressBookContactModel.h; sourceTree = "<group>"; };
+		E0ABB1421D138DE700899618 /* QNAddressBookContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAddressBookContactModel.m; sourceTree = "<group>"; };
+		E0ABB1441D139CB600899618 /* QNAddressBookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAddressBookTableViewCell.h; sourceTree = "<group>"; };
+		E0ABB1451D139CB600899618 /* QNAddressBookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAddressBookTableViewCell.m; sourceTree = "<group>"; };
+		E0ABB1461D139CB600899618 /* QNAddressBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNAddressBookTableViewCell.xib; sourceTree = "<group>"; };
+		E0ABB1491D13CA9400899618 /* QNMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,6 +551,8 @@
 		E0ABAF951D123CA900899618 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				E0ABB1411D138DE700899618 /* QNAddressBookContactModel.h */,
+				E0ABB1421D138DE700899618 /* QNAddressBookContactModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -549,6 +560,9 @@
 		E0ABAF961D123CA900899618 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				E0ABB1441D139CB600899618 /* QNAddressBookTableViewCell.h */,
+				E0ABB1451D139CB600899618 /* QNAddressBookTableViewCell.m */,
+				E0ABB1461D139CB600899618 /* QNAddressBookTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -640,7 +654,6 @@
 				E0ABAFA21D123CA900899618 /* controller */,
 				E0ABAFA31D123CA900899618 /* model */,
 				E0ABAFA41D123CA900899618 /* view */,
-				E0ABAFAF1D12419900899618 /* xibs */,
 			);
 			path = wechat;
 			sourceTree = "<group>";
@@ -670,6 +683,7 @@
 			children = (
 				E0ABAFB01D1241CB00899618 /* QNWeChatTableViewCell.h */,
 				E0ABAFB11D1241CB00899618 /* QNWeChatTableViewCell.m */,
+				E0ABAFB21D1241CB00899618 /* QNWeChatTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -699,17 +713,10 @@
 			path = systemLib;
 			sourceTree = "<group>";
 		};
-		E0ABAFAF1D12419900899618 /* xibs */ = {
-			isa = PBXGroup;
-			children = (
-				E0ABAFB21D1241CB00899618 /* QNWeChatTableViewCell.xib */,
-			);
-			path = xibs;
-			sourceTree = "<group>";
-		};
 		E0ABAFE71D12537D00899618 /* macro */ = {
 			isa = PBXGroup;
 			children = (
+				E0ABB1491D13CA9400899618 /* QNMacro.h */,
 			);
 			path = macro;
 			sourceTree = "<group>";
@@ -1133,6 +1140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0ABB1481D139CB600899618 /* QNAddressBookTableViewCell.xib in Resources */,
 				E0ABAFA81D123D6100899618 /* Login.storyboard in Resources */,
 				E0ABAF681D12392700899618 /* LaunchScreen.storyboard in Resources */,
 				E0ABAFB41D1241CB00899618 /* QNWeChatTableViewCell.xib in Resources */,
@@ -1193,6 +1201,7 @@
 				E0ABB00E1D12549800899618 /* SDWebImageDecoder.m in Sources */,
 				E0ABB1181D1256C900899618 /* YYThreadSafeDictionary.m in Sources */,
 				E0ABB0D81D1256C900899618 /* NSTimer+YYAdd.m in Sources */,
+				E0ABB1431D138DE700899618 /* QNAddressBookContactModel.m in Sources */,
 				E0ABB0E01D1256C900899618 /* UIDevice+YYAdd.m in Sources */,
 				E0ABB1131D1256C900899618 /* YYGestureRecognizer.m in Sources */,
 				E0ABB0EC1D1256C900899618 /* YYMemoryCache.m in Sources */,
@@ -1260,6 +1269,7 @@
 				E0ABB0ED1D1256C900899618 /* _YYWebImageSetter.m in Sources */,
 				E0ABB0E81D1256C900899618 /* UIView+YYAdd.m in Sources */,
 				E0ABB0EA1D1256C900899618 /* YYDiskCache.m in Sources */,
+				E0ABB1471D139CB600899618 /* QNAddressBookTableViewCell.m in Sources */,
 				E0ABB00A1D12549800899618 /* MKAnnotationView+WebCache.m in Sources */,
 				E0ABB0CB1D1256C900899618 /* NSArray+YYAdd.m in Sources */,
 				E0ABB0F31D1256C900899618 /* YYFrameImage.m in Sources */,

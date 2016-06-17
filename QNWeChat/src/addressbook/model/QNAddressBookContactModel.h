@@ -1,0 +1,16 @@
+//
+//  QNAddressBookContactModel.h
+//  QNWeChat
+//
+//  Created by smartrookie on 16/6/17.
+//  Copyright © 2016年 smartrookie. All rights reserved.
+//
+
+#import "QNBaseModel.h"
+
+@interface QNAddressBookContactModel : QNBaseModel
+
+@property (strong, nonatomic) NSString *vatarURL;
+@property (strong, nonatomic) NSString *name;
+
+@end

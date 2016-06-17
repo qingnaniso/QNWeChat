@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QNBaseModel : NSObject
+@interface QNBaseModel : NSObject<NSCopying,NSCoding>
 
 @end
