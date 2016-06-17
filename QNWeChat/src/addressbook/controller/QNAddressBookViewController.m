@@ -91,6 +91,7 @@
     self.tableView.allowsSelection = YES;
     self.tableView.sectionIndexColor = [UIColor grayColor];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    self.automaticallyAdjustsScrollViewInsets = false;
 }
 
 -(NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView
