@@ -131,6 +131,7 @@
 		E0ABB1471D139CB600899618 /* QNAddressBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1451D139CB600899618 /* QNAddressBookTableViewCell.m */; };
 		E0ABB1481D139CB600899618 /* QNAddressBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1461D139CB600899618 /* QNAddressBookTableViewCell.xib */; };
 		E0ABB14D1D13D77F00899618 /* UIColor+QNHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB14C1D13D77F00899618 /* UIColor+QNHexColor.m */; };
+		E0ABB1501D14E2A900899618 /* QNSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB14F1D14E2A900899618 /* QNSearchResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -397,6 +398,8 @@
 		E0ABB1491D13CA9400899618 /* QNMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNMacro.h; sourceTree = "<group>"; };
 		E0ABB14B1D13D77F00899618 /* UIColor+QNHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+QNHexColor.h"; sourceTree = "<group>"; };
 		E0ABB14C1D13D77F00899618 /* UIColor+QNHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QNHexColor.m"; sourceTree = "<group>"; };
+		E0ABB14E1D14E2A900899618 /* QNSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSearchResultViewController.h; sourceTree = "<group>"; };
+		E0ABB14F1D14E2A900899618 /* QNSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSearchResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +550,8 @@
 			children = (
 				E0ABB1361D1299B300899618 /* QNAddressBookViewController.h */,
 				E0ABB1371D1299B300899618 /* QNAddressBookViewController.m */,
+				E0ABB14E1D14E2A900899618 /* QNSearchResultViewController.h */,
+				E0ABB14F1D14E2A900899618 /* QNSearchResultViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1261,6 +1266,7 @@
 				E0ABB1051D1256C900899618 /* NSAttributedString+YYText.m in Sources */,
 				E0ABB0FB1D1256C900899618 /* YYClassInfo.m in Sources */,
 				E0ABB0F61D1256C900899618 /* YYImageCoder.m in Sources */,
+				E0ABB1501D14E2A900899618 /* QNSearchResultViewController.m in Sources */,
 				E0ABB0E31D1256C900899618 /* UIImage+YYAdd.m in Sources */,
 				E0ABB1241D12720F00899618 /* QNDataSource.m in Sources */,
 				E0ABB1081D1256C900899618 /* YYTextArchiver.m in Sources */,
