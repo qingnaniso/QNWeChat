@@ -132,6 +132,17 @@
 		E0ABB1481D139CB600899618 /* QNAddressBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1461D139CB600899618 /* QNAddressBookTableViewCell.xib */; };
 		E0ABB14D1D13D77F00899618 /* UIColor+QNHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB14C1D13D77F00899618 /* UIColor+QNHexColor.m */; };
 		E0ABB1501D14E2A900899618 /* QNSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB14F1D14E2A900899618 /* QNSearchResultViewController.m */; };
+		E0ABB1531D17984E00899618 /* QNDetailProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1521D17984E00899618 /* QNDetailProfileViewController.m */; };
+		E0ABB15A1D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1581D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.m */; };
+		E0ABB15B1D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1591D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.xib */; };
+		E0ABB1621D17A05200899618 /* QNDetailTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1601D17A05200899618 /* QNDetailTagTableViewCell.m */; };
+		E0ABB1631D17A05200899618 /* QNDetailTagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1611D17A05200899618 /* QNDetailTagTableViewCell.xib */; };
+		E0ABB1671D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1651D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.m */; };
+		E0ABB1681D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1661D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.xib */; };
+		E0ABB16C1D17C40600899618 /* QNDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB16A1D17C40600899618 /* QNDetailButtonTableViewCell.m */; };
+		E0ABB16D1D17C40600899618 /* QNDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB16B1D17C40600899618 /* QNDetailButtonTableViewCell.xib */; };
+		E0ABB1701D17E92C00899618 /* QNDetailTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB16F1D17E92C00899618 /* QNDetailTableViewFooterView.m */; };
+		E0ABB1721D17E9C500899618 /* QNDetailTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1711D17E9C500899618 /* QNDetailTableViewFooterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -400,6 +411,23 @@
 		E0ABB14C1D13D77F00899618 /* UIColor+QNHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QNHexColor.m"; sourceTree = "<group>"; };
 		E0ABB14E1D14E2A900899618 /* QNSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSearchResultViewController.h; sourceTree = "<group>"; };
 		E0ABB14F1D14E2A900899618 /* QNSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSearchResultViewController.m; sourceTree = "<group>"; };
+		E0ABB1511D17984E00899618 /* QNDetailProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDetailProfileViewController.h; sourceTree = "<group>"; };
+		E0ABB1521D17984E00899618 /* QNDetailProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDetailProfileViewController.m; sourceTree = "<group>"; };
+		E0ABB1571D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDetailProfileVatarImageTableViewCell.h; sourceTree = "<group>"; };
+		E0ABB1581D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDetailProfileVatarImageTableViewCell.m; sourceTree = "<group>"; };
+		E0ABB1591D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNDetailProfileVatarImageTableViewCell.xib; sourceTree = "<group>"; };
+		E0ABB15F1D17A05200899618 /* QNDetailTagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDetailTagTableViewCell.h; sourceTree = "<group>"; };
+		E0ABB1601D17A05200899618 /* QNDetailTagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDetailTagTableViewCell.m; sourceTree = "<group>"; };
+		E0ABB1611D17A05200899618 /* QNDetailTagTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNDetailTagTableViewCell.xib; sourceTree = "<group>"; };
+		E0ABB1641D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDetailPersonalAlbumTableViewCell.h; sourceTree = "<group>"; };
+		E0ABB1651D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDetailPersonalAlbumTableViewCell.m; sourceTree = "<group>"; };
+		E0ABB1661D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNDetailPersonalAlbumTableViewCell.xib; sourceTree = "<group>"; };
+		E0ABB1691D17C40600899618 /* QNDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDetailButtonTableViewCell.h; sourceTree = "<group>"; };
+		E0ABB16A1D17C40600899618 /* QNDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDetailButtonTableViewCell.m; sourceTree = "<group>"; };
+		E0ABB16B1D17C40600899618 /* QNDetailButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNDetailButtonTableViewCell.xib; sourceTree = "<group>"; };
+		E0ABB16E1D17E92C00899618 /* QNDetailTableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDetailTableViewFooterView.h; sourceTree = "<group>"; };
+		E0ABB16F1D17E92C00899618 /* QNDetailTableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDetailTableViewFooterView.m; sourceTree = "<group>"; };
+		E0ABB1711D17E9C500899618 /* QNDetailTableViewFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNDetailTableViewFooterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -552,6 +580,8 @@
 				E0ABB1371D1299B300899618 /* QNAddressBookViewController.m */,
 				E0ABB14E1D14E2A900899618 /* QNSearchResultViewController.h */,
 				E0ABB14F1D14E2A900899618 /* QNSearchResultViewController.m */,
+				E0ABB1511D17984E00899618 /* QNDetailProfileViewController.h */,
+				E0ABB1521D17984E00899618 /* QNDetailProfileViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -571,6 +601,21 @@
 				E0ABB1441D139CB600899618 /* QNAddressBookTableViewCell.h */,
 				E0ABB1451D139CB600899618 /* QNAddressBookTableViewCell.m */,
 				E0ABB1461D139CB600899618 /* QNAddressBookTableViewCell.xib */,
+				E0ABB1571D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.h */,
+				E0ABB1581D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.m */,
+				E0ABB1591D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.xib */,
+				E0ABB15F1D17A05200899618 /* QNDetailTagTableViewCell.h */,
+				E0ABB1601D17A05200899618 /* QNDetailTagTableViewCell.m */,
+				E0ABB1611D17A05200899618 /* QNDetailTagTableViewCell.xib */,
+				E0ABB1641D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.h */,
+				E0ABB1651D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.m */,
+				E0ABB1661D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.xib */,
+				E0ABB1691D17C40600899618 /* QNDetailButtonTableViewCell.h */,
+				E0ABB16A1D17C40600899618 /* QNDetailButtonTableViewCell.m */,
+				E0ABB16B1D17C40600899618 /* QNDetailButtonTableViewCell.xib */,
+				E0ABB16E1D17E92C00899618 /* QNDetailTableViewFooterView.h */,
+				E0ABB16F1D17E92C00899618 /* QNDetailTableViewFooterView.m */,
+				E0ABB1711D17E9C500899618 /* QNDetailTableViewFooterView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1158,11 +1203,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0ABB15B1D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.xib in Resources */,
 				E0ABB1481D139CB600899618 /* QNAddressBookTableViewCell.xib in Resources */,
 				E0ABAFA81D123D6100899618 /* Login.storyboard in Resources */,
 				E0ABAF681D12392700899618 /* LaunchScreen.storyboard in Resources */,
 				E0ABAFB41D1241CB00899618 /* QNWeChatTableViewCell.xib in Resources */,
 				E0ABAF651D12392700899618 /* Assets.xcassets in Resources */,
+				E0ABB1631D17A05200899618 /* QNDetailTagTableViewCell.xib in Resources */,
+				E0ABB16D1D17C40600899618 /* QNDetailButtonTableViewCell.xib in Resources */,
+				E0ABB1721D17E9C500899618 /* QNDetailTableViewFooterView.xib in Resources */,
+				E0ABB1681D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.xib in Resources */,
 				E0ABAF631D12392700899618 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1214,8 +1264,10 @@
 				E0ABB0F41D1256C900899618 /* YYImage.m in Sources */,
 				E0ABB0121D12549800899618 /* SDWebImagePrefetcher.m in Sources */,
 				E0ABB0EF1D1256C900899618 /* MKAnnotationView+YYWebImage.m in Sources */,
+				E0ABB1621D17A05200899618 /* QNDetailTagTableViewCell.m in Sources */,
 				E0ABB1031D1256C900899618 /* YYTextMagnifier.m in Sources */,
 				E0ABAFAE1D123F5B00899618 /* QNWeChatRootViewController.m in Sources */,
+				E0ABB1531D17984E00899618 /* QNDetailProfileViewController.m in Sources */,
 				E0ABB0F51D1256C900899618 /* YYImageCache.m in Sources */,
 				E0ABB00E1D12549800899618 /* SDWebImageDecoder.m in Sources */,
 				E0ABB1181D1256C900899618 /* YYThreadSafeDictionary.m in Sources */,
@@ -1258,6 +1310,7 @@
 				E0ABB0FA1D1256C900899618 /* NSObject+YYModel.m in Sources */,
 				E0ABB0D71D1256C900899618 /* NSThread+YYAdd.m in Sources */,
 				E0ABB0E71D1256C900899618 /* UITextField+YYAdd.m in Sources */,
+				E0ABB1671D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.m in Sources */,
 				E0ABB0F91D1256C900899618 /* YYWebImageOperation.m in Sources */,
 				E0ABB10A1D1256C900899618 /* YYTextParser.m in Sources */,
 				E0ABB1041D1256C900899618 /* YYTextSelectionView.m in Sources */,
@@ -1279,6 +1332,7 @@
 				E0ABB0DE1D1256C900899618 /* UIColor+YYAdd.m in Sources */,
 				E0ABB0D21D1256C900899618 /* NSNumber+YYAdd.m in Sources */,
 				E0ABB1151D1256C900899618 /* YYReachability.m in Sources */,
+				E0ABB15A1D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.m in Sources */,
 				E0ABB0F01D1256C900899618 /* UIButton+YYWebImage.m in Sources */,
 				E0ABB0DB1D1256C900899618 /* UIApplication+YYAdd.m in Sources */,
 				E0ABB1401D12A40B00899618 /* pinyin.c in Sources */,
@@ -1287,8 +1341,10 @@
 				E0ABB0F11D1256C900899618 /* UIImageView+YYWebImage.m in Sources */,
 				E0ABAF5A1D12392700899618 /* main.m in Sources */,
 				E0ABB0ED1D1256C900899618 /* _YYWebImageSetter.m in Sources */,
+				E0ABB1701D17E92C00899618 /* QNDetailTableViewFooterView.m in Sources */,
 				E0ABB0E81D1256C900899618 /* UIView+YYAdd.m in Sources */,
 				E0ABB0EA1D1256C900899618 /* YYDiskCache.m in Sources */,
+				E0ABB16C1D17C40600899618 /* QNDetailButtonTableViewCell.m in Sources */,
 				E0ABB1471D139CB600899618 /* QNAddressBookTableViewCell.m in Sources */,
 				E0ABB00A1D12549800899618 /* MKAnnotationView+WebCache.m in Sources */,
 				E0ABB0CB1D1256C900899618 /* NSArray+YYAdd.m in Sources */,

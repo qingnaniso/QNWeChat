@@ -11,6 +11,7 @@
 #import "QNAddressBookContactModel.h"
 #import "QNAddressBookTableViewCell.h"
 #import "QNSearchResultViewController.h"
+#import "QNDetailProfileViewController.h"
 
 @interface QNAddressBookViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating>
 
@@ -146,6 +147,15 @@
     return 40;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *subGroupModelArray = self.modelArrayGroupedByFirstLetter[indexPath.section];
+    
+    QNAddressBookContactModel *model = subGroupModelArray[indexPath.row];
+    
+    [self performSegueWithIdentifier:@"AddressToDetail" sender:model];
+}
+
 #pragma mark - Seciton Index DataSource Factory
 
 - (void)setupSectionIndexDataSource
@@ -214,14 +224,17 @@
     [super didReceiveMemoryWarning]; 
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    QNDetailProfileViewController *vc = segue.destinationViewController;
+    vc.model = sender;
+    
+    
 }
-*/
+
 
 @end

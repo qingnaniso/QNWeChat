@@ -12,5 +12,9 @@
 
 @property (strong, nonatomic) NSString *vatarURL;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *sex;
+@property (strong, nonatomic) NSString *homeAddress;
+@property (strong, nonatomic) NSArray *personalAlbum;
+@property (strong, nonatomic) NSString *macroNumber;
 
 @end

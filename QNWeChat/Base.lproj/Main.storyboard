@@ -126,11 +126,50 @@
                     <navigationItem key="navigationItem" title="通讯录" id="Qzc-Pz-6oj"/>
                     <connections>
                         <outlet property="tableView" destination="72t-HR-LPt" id="87g-u3-wah"/>
+                        <segue destination="DO1-K2-YZz" kind="push" identifier="AddressToDetail" id="mRk-DR-1SN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMJ-t9-jhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="971" y="364"/>
+        </scene>
+        <!--详细资料-->
+        <scene sceneID="cpn-44-jxB">
+            <objects>
+                <viewController id="DO1-K2-YZz" customClass="QNDetailProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="djc-Hr-JmD"/>
+                        <viewControllerLayoutGuide type="bottom" id="XJ2-71-kOw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wjq-PI-3uf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="WHn-Cg-Ite">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="DO1-K2-YZz" id="esy-fB-UuN"/>
+                                    <outlet property="delegate" destination="DO1-K2-YZz" id="WYo-4u-JaN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WHn-Cg-Ite" firstAttribute="top" secondItem="djc-Hr-JmD" secondAttribute="bottom" id="5hf-x3-l1d"/>
+                            <constraint firstAttribute="trailing" secondItem="WHn-Cg-Ite" secondAttribute="trailing" id="7U3-n7-iMI"/>
+                            <constraint firstItem="WHn-Cg-Ite" firstAttribute="leading" secondItem="Wjq-PI-3uf" secondAttribute="leading" id="J2f-HE-LBs"/>
+                            <constraint firstItem="XJ2-71-kOw" firstAttribute="top" secondItem="WHn-Cg-Ite" secondAttribute="bottom" id="zfo-z5-cik"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="详细资料" id="4GV-JW-VlS"/>
+                    <connections>
+                        <outlet property="tableView" destination="WHn-Cg-Ite" id="sT4-pM-XJA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iN2-vT-pNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1460" y="364"/>
         </scene>
         <!--微信-->
         <scene sceneID="4PN-wD-DzL">
