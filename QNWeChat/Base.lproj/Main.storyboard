@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KL4-Wj-Qh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="959" y="1793"/>
+            <point key="canvasLocation" x="965" y="1804"/>
         </scene>
         <!--发现-->
         <scene sceneID="5LJ-HE-vZp">
@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPK-I3-Xyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="1043"/>
+            <point key="canvasLocation" x="971" y="1047"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="yrg-Eu-cna">
@@ -165,6 +165,7 @@
                     <navigationItem key="navigationItem" title="详细资料" id="4GV-JW-VlS"/>
                     <connections>
                         <outlet property="tableView" destination="WHn-Cg-Ite" id="sT4-pM-XJA"/>
+                        <segue destination="L50-e6-gY5" kind="push" identifier="detailToChatMain" id="pAV-f4-WDJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iN2-vT-pNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -220,11 +221,31 @@
                     <navigationItem key="navigationItem" title="微信" id="Rrg-aI-sPr"/>
                     <connections>
                         <outlet property="tableview" destination="iGN-44-tb9" id="apz-sN-hMD"/>
+                        <segue destination="L50-e6-gY5" kind="push" id="9F7-k9-fYT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckh-3W-oQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="-318"/>
+            <point key="canvasLocation" x="971" y="-318"/>
+        </scene>
+        <!--Chat Main Page View Controller-->
+        <scene sceneID="Uth-6q-PGG">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="L50-e6-gY5" customClass="QNChatMainPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Ir-rW-5SI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jex-B7-1ok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="slB-We-g11">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ybX-iw-Yei"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7RK-7w-N66" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2038" y="89"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oXG-SF-68X">
@@ -247,4 +268,7 @@
             <point key="canvasLocation" x="-454" y="862"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pAV-f4-WDJ"/>
+    </inferredMetricsTieBreakers>
 </document>

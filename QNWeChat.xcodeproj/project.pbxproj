@@ -143,6 +143,22 @@
 		E0ABB16D1D17C40600899618 /* QNDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB16B1D17C40600899618 /* QNDetailButtonTableViewCell.xib */; };
 		E0ABB1701D17E92C00899618 /* QNDetailTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB16F1D17E92C00899618 /* QNDetailTableViewFooterView.m */; };
 		E0ABB1721D17E9C500899618 /* QNDetailTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1711D17E9C500899618 /* QNDetailTableViewFooterView.xib */; };
+		E0ABB1751D18D13E00899618 /* QNChatMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1741D18D13E00899618 /* QNChatMainPageViewController.m */; };
+		E0ABB1961D18DA5300899618 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1801D18DA5300899618 /* MASCompositeConstraint.m */; };
+		E0ABB1971D18DA5300899618 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1831D18DA5300899618 /* MASConstraint.m */; };
+		E0ABB1981D18DA5300899618 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1851D18DA5300899618 /* MASConstraintMaker.m */; };
+		E0ABB1991D18DA5300899618 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1871D18DA5300899618 /* MASLayoutConstraint.m */; };
+		E0ABB19A1D18DA5300899618 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB18B1D18DA5300899618 /* MASViewAttribute.m */; };
+		E0ABB19B1D18DA5300899618 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB18D1D18DA5300899618 /* MASViewConstraint.m */; };
+		E0ABB19C1D18DA5300899618 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB18F1D18DA5300899618 /* NSArray+MASAdditions.m */; };
+		E0ABB19D1D18DA5300899618 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1921D18DA5300899618 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		E0ABB19E1D18DA5300899618 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1941D18DA5300899618 /* View+MASAdditions.m */; };
+		E0ABB1AD1D18DC7B00899618 /* ACHeadImageChooseDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1A61D18DC7A00899618 /* ACHeadImageChooseDetailView.m */; };
+		E0ABB1AE1D18DC7B00899618 /* ACHeadImageChooseDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1A71D18DC7A00899618 /* ACHeadImageChooseDetailView.xib */; };
+		E0ABB1AF1D18DC7B00899618 /* ACHeadImageChooseOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1A91D18DC7B00899618 /* ACHeadImageChooseOptionCell.m */; };
+		E0ABB1B01D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1AA1D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib */; };
+		E0ABB1B11D18DC7B00899618 /* ACHeadImageChooseOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1AC1D18DC7B00899618 /* ACHeadImageChooseOptionView.m */; };
+		E0E239C61D195CF200825783 /* QNInputToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239C51D195CF200825783 /* QNInputToolView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -428,6 +444,41 @@
 		E0ABB16E1D17E92C00899618 /* QNDetailTableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDetailTableViewFooterView.h; sourceTree = "<group>"; };
 		E0ABB16F1D17E92C00899618 /* QNDetailTableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDetailTableViewFooterView.m; sourceTree = "<group>"; };
 		E0ABB1711D17E9C500899618 /* QNDetailTableViewFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNDetailTableViewFooterView.xib; sourceTree = "<group>"; };
+		E0ABB1731D18D13E00899618 /* QNChatMainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNChatMainPageViewController.h; sourceTree = "<group>"; };
+		E0ABB1741D18D13E00899618 /* QNChatMainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNChatMainPageViewController.m; sourceTree = "<group>"; };
+		E0ABB17F1D18DA5300899618 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		E0ABB1801D18DA5300899618 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		E0ABB1811D18DA5300899618 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		E0ABB1821D18DA5300899618 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		E0ABB1831D18DA5300899618 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		E0ABB1841D18DA5300899618 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		E0ABB1851D18DA5300899618 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		E0ABB1861D18DA5300899618 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		E0ABB1871D18DA5300899618 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		E0ABB1881D18DA5300899618 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		E0ABB1891D18DA5300899618 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		E0ABB18A1D18DA5300899618 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		E0ABB18B1D18DA5300899618 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		E0ABB18C1D18DA5300899618 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		E0ABB18D1D18DA5300899618 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		E0ABB18E1D18DA5300899618 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		E0ABB18F1D18DA5300899618 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		E0ABB1901D18DA5300899618 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		E0ABB1911D18DA5300899618 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		E0ABB1921D18DA5300899618 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		E0ABB1931D18DA5300899618 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		E0ABB1941D18DA5300899618 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		E0ABB1951D18DA5300899618 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		E0ABB1A51D18DC7A00899618 /* ACHeadImageChooseDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHeadImageChooseDetailView.h; sourceTree = "<group>"; };
+		E0ABB1A61D18DC7A00899618 /* ACHeadImageChooseDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHeadImageChooseDetailView.m; sourceTree = "<group>"; };
+		E0ABB1A71D18DC7A00899618 /* ACHeadImageChooseDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACHeadImageChooseDetailView.xib; sourceTree = "<group>"; };
+		E0ABB1A81D18DC7B00899618 /* ACHeadImageChooseOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHeadImageChooseOptionCell.h; sourceTree = "<group>"; };
+		E0ABB1A91D18DC7B00899618 /* ACHeadImageChooseOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHeadImageChooseOptionCell.m; sourceTree = "<group>"; };
+		E0ABB1AA1D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACHeadImageChooseOptionCell.xib; sourceTree = "<group>"; };
+		E0ABB1AB1D18DC7B00899618 /* ACHeadImageChooseOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHeadImageChooseOptionView.h; sourceTree = "<group>"; };
+		E0ABB1AC1D18DC7B00899618 /* ACHeadImageChooseOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHeadImageChooseOptionView.m; sourceTree = "<group>"; };
+		E0E239C41D195CF200825783 /* QNInputToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNInputToolView.h; sourceTree = "<group>"; };
+		E0E239C51D195CF200825783 /* QNInputToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInputToolView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,6 +578,7 @@
 		E0ABAF8B1D123BFB00899618 /* 3party */ = {
 			isa = PBXGroup;
 			children = (
+				E0ABB17E1D18DA5300899618 /* Masonry */,
 				E0ABB13D1D12A40B00899618 /* Pinyin */,
 				E0ABB01A1D1256C900899618 /* YYKit */,
 				E0ABAFE81D12549800899618 /* SDWebImage */,
@@ -717,6 +769,8 @@
 			children = (
 				E0ABAFAC1D123F5B00899618 /* QNWeChatRootViewController.h */,
 				E0ABAFAD1D123F5B00899618 /* QNWeChatRootViewController.m */,
+				E0ABB1731D18D13E00899618 /* QNChatMainPageViewController.h */,
+				E0ABB1741D18D13E00899618 /* QNChatMainPageViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -735,9 +789,12 @@
 		E0ABAFA41D123CA900899618 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				E0ABB1A41D18DC7A00899618 /* selectMenuFromBottom */,
 				E0ABAFB01D1241CB00899618 /* QNWeChatTableViewCell.h */,
 				E0ABAFB11D1241CB00899618 /* QNWeChatTableViewCell.m */,
 				E0ABAFB21D1241CB00899618 /* QNWeChatTableViewCell.xib */,
+				E0E239C41D195CF200825783 /* QNInputToolView.h */,
+				E0E239C51D195CF200825783 /* QNInputToolView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1100,6 +1157,51 @@
 			path = category;
 			sourceTree = "<group>";
 		};
+		E0ABB17E1D18DA5300899618 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				E0ABB17F1D18DA5300899618 /* MASCompositeConstraint.h */,
+				E0ABB1801D18DA5300899618 /* MASCompositeConstraint.m */,
+				E0ABB1811D18DA5300899618 /* MASConstraint+Private.h */,
+				E0ABB1821D18DA5300899618 /* MASConstraint.h */,
+				E0ABB1831D18DA5300899618 /* MASConstraint.m */,
+				E0ABB1841D18DA5300899618 /* MASConstraintMaker.h */,
+				E0ABB1851D18DA5300899618 /* MASConstraintMaker.m */,
+				E0ABB1861D18DA5300899618 /* MASLayoutConstraint.h */,
+				E0ABB1871D18DA5300899618 /* MASLayoutConstraint.m */,
+				E0ABB1881D18DA5300899618 /* Masonry.h */,
+				E0ABB1891D18DA5300899618 /* MASUtilities.h */,
+				E0ABB18A1D18DA5300899618 /* MASViewAttribute.h */,
+				E0ABB18B1D18DA5300899618 /* MASViewAttribute.m */,
+				E0ABB18C1D18DA5300899618 /* MASViewConstraint.h */,
+				E0ABB18D1D18DA5300899618 /* MASViewConstraint.m */,
+				E0ABB18E1D18DA5300899618 /* NSArray+MASAdditions.h */,
+				E0ABB18F1D18DA5300899618 /* NSArray+MASAdditions.m */,
+				E0ABB1901D18DA5300899618 /* NSArray+MASShorthandAdditions.h */,
+				E0ABB1911D18DA5300899618 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				E0ABB1921D18DA5300899618 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				E0ABB1931D18DA5300899618 /* View+MASAdditions.h */,
+				E0ABB1941D18DA5300899618 /* View+MASAdditions.m */,
+				E0ABB1951D18DA5300899618 /* View+MASShorthandAdditions.h */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		E0ABB1A41D18DC7A00899618 /* selectMenuFromBottom */ = {
+			isa = PBXGroup;
+			children = (
+				E0ABB1A51D18DC7A00899618 /* ACHeadImageChooseDetailView.h */,
+				E0ABB1A61D18DC7A00899618 /* ACHeadImageChooseDetailView.m */,
+				E0ABB1A71D18DC7A00899618 /* ACHeadImageChooseDetailView.xib */,
+				E0ABB1A81D18DC7B00899618 /* ACHeadImageChooseOptionCell.h */,
+				E0ABB1A91D18DC7B00899618 /* ACHeadImageChooseOptionCell.m */,
+				E0ABB1AA1D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib */,
+				E0ABB1AB1D18DC7B00899618 /* ACHeadImageChooseOptionView.h */,
+				E0ABB1AC1D18DC7B00899618 /* ACHeadImageChooseOptionView.m */,
+			);
+			path = selectMenuFromBottom;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1206,10 +1308,12 @@
 				E0ABB15B1D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.xib in Resources */,
 				E0ABB1481D139CB600899618 /* QNAddressBookTableViewCell.xib in Resources */,
 				E0ABAFA81D123D6100899618 /* Login.storyboard in Resources */,
+				E0ABB1AE1D18DC7B00899618 /* ACHeadImageChooseDetailView.xib in Resources */,
 				E0ABAF681D12392700899618 /* LaunchScreen.storyboard in Resources */,
 				E0ABAFB41D1241CB00899618 /* QNWeChatTableViewCell.xib in Resources */,
 				E0ABAF651D12392700899618 /* Assets.xcassets in Resources */,
 				E0ABB1631D17A05200899618 /* QNDetailTagTableViewCell.xib in Resources */,
+				E0ABB1B01D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib in Resources */,
 				E0ABB16D1D17C40600899618 /* QNDetailButtonTableViewCell.xib in Resources */,
 				E0ABB1721D17E9C500899618 /* QNDetailTableViewFooterView.xib in Resources */,
 				E0ABB1681D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.xib in Resources */,
@@ -1252,6 +1356,7 @@
 				E0ABB0181D12549800899618 /* UIImageView+WebCache.m in Sources */,
 				E0ABB0E21D1256C900899618 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				E0ABB0F21D1256C900899618 /* YYAnimatedImageView.m in Sources */,
+				E0ABB1981D18DA5300899618 /* MASConstraintMaker.m in Sources */,
 				E0ABB0161D12549800899618 /* UIImage+WebP.m in Sources */,
 				E0ABB1141D1256C900899618 /* YYKeychain.m in Sources */,
 				E0ABB0D51D1256C900899618 /* NSObject+YYAddForKVO.m in Sources */,
@@ -1266,11 +1371,13 @@
 				E0ABB0EF1D1256C900899618 /* MKAnnotationView+YYWebImage.m in Sources */,
 				E0ABB1621D17A05200899618 /* QNDetailTagTableViewCell.m in Sources */,
 				E0ABB1031D1256C900899618 /* YYTextMagnifier.m in Sources */,
+				E0ABB1B11D18DC7B00899618 /* ACHeadImageChooseOptionView.m in Sources */,
 				E0ABAFAE1D123F5B00899618 /* QNWeChatRootViewController.m in Sources */,
 				E0ABB1531D17984E00899618 /* QNDetailProfileViewController.m in Sources */,
 				E0ABB0F51D1256C900899618 /* YYImageCache.m in Sources */,
 				E0ABB00E1D12549800899618 /* SDWebImageDecoder.m in Sources */,
 				E0ABB1181D1256C900899618 /* YYThreadSafeDictionary.m in Sources */,
+				E0ABB1AD1D18DC7B00899618 /* ACHeadImageChooseDetailView.m in Sources */,
 				E0ABB0D81D1256C900899618 /* NSTimer+YYAdd.m in Sources */,
 				E0ABB1431D138DE700899618 /* QNAddressBookContactModel.m in Sources */,
 				E0ABB0E01D1256C900899618 /* UIDevice+YYAdd.m in Sources */,
@@ -1283,12 +1390,16 @@
 				E0ABB11A1D1256C900899618 /* YYTransaction.m in Sources */,
 				E0ABB1001D1256C900899618 /* YYTextKeyboardManager.m in Sources */,
 				E0ABB0DC1D1256C900899618 /* UIBarButtonItem+YYAdd.m in Sources */,
+				E0ABB19C1D18DA5300899618 /* NSArray+MASAdditions.m in Sources */,
 				E0ABB1071D1256C900899618 /* UIPasteboard+YYText.m in Sources */,
 				E0ABB0EE1D1256C900899618 /* CALayer+YYWebImage.m in Sources */,
 				E0ABB0111D12549800899618 /* SDWebImageManager.m in Sources */,
 				E0ABB0F81D1256C900899618 /* YYWebImageManager.m in Sources */,
+				E0ABB1751D18D13E00899618 /* QNChatMainPageViewController.m in Sources */,
+				E0ABB1991D18DA5300899618 /* MASLayoutConstraint.m in Sources */,
 				E0ABB1161D1256C900899618 /* YYSentinel.m in Sources */,
 				E0ABB1191D1256C900899618 /* YYTimer.m in Sources */,
+				E0ABB19E1D18DA5300899618 /* View+MASAdditions.m in Sources */,
 				E0ABB10F1D1256C900899618 /* YYTextView.m in Sources */,
 				E0ABB0191D12549800899618 /* UIView+WebCacheOperation.m in Sources */,
 				E0ABB0F71D1256C900899618 /* YYSpriteSheetImage.m in Sources */,
@@ -1296,6 +1407,7 @@
 				E0ABB0D91D1256C900899618 /* CALayer+YYAdd.m in Sources */,
 				E0ABB0E61D1256C900899618 /* UITableView+YYAdd.m in Sources */,
 				E0ABB0151D12549800899618 /* UIImage+MultiFormat.m in Sources */,
+				E0ABB1971D18DA5300899618 /* MASConstraint.m in Sources */,
 				E0ABAFAB1D123F3800899618 /* QNBaseViewController.m in Sources */,
 				E0ABB0D01D1256C900899618 /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				E0ABB0D11D1256C900899618 /* NSNotificationCenter+YYAdd.m in Sources */,
@@ -1313,10 +1425,13 @@
 				E0ABB1671D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.m in Sources */,
 				E0ABB0F91D1256C900899618 /* YYWebImageOperation.m in Sources */,
 				E0ABB10A1D1256C900899618 /* YYTextParser.m in Sources */,
+				E0E239C61D195CF200825783 /* QNInputToolView.m in Sources */,
+				E0ABB19B1D18DA5300899618 /* MASViewConstraint.m in Sources */,
 				E0ABB1041D1256C900899618 /* YYTextSelectionView.m in Sources */,
 				E0ABB0141D12549800899618 /* UIImage+GIF.m in Sources */,
 				E0ABB0D61D1256C900899618 /* NSString+YYAdd.m in Sources */,
 				E0ABB1051D1256C900899618 /* NSAttributedString+YYText.m in Sources */,
+				E0ABB19D1D18DA5300899618 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E0ABB0FB1D1256C900899618 /* YYClassInfo.m in Sources */,
 				E0ABB0F61D1256C900899618 /* YYImageCoder.m in Sources */,
 				E0ABB1501D14E2A900899618 /* QNSearchResultViewController.m in Sources */,
@@ -1325,9 +1440,11 @@
 				E0ABB1081D1256C900899618 /* YYTextArchiver.m in Sources */,
 				E0ABB0E11D1256C900899618 /* UIFont+YYAdd.m in Sources */,
 				E0ABB1111D1256C900899618 /* YYDispatchQueuePool.m in Sources */,
+				E0ABB1AF1D18DC7B00899618 /* ACHeadImageChooseOptionCell.m in Sources */,
 				E0ABB00D1D12549800899618 /* SDWebImageCompat.m in Sources */,
 				E0ABB10C1D1256C900899618 /* YYTextRunDelegate.m in Sources */,
 				E0ABB0FE1D1256C900899618 /* YYTextEffectWindow.m in Sources */,
+				E0ABB1961D18DA5300899618 /* MASCompositeConstraint.m in Sources */,
 				E0ABB1121D1256C900899618 /* YYFileHash.m in Sources */,
 				E0ABB0DE1D1256C900899618 /* UIColor+YYAdd.m in Sources */,
 				E0ABB0D21D1256C900899618 /* NSNumber+YYAdd.m in Sources */,
@@ -1341,6 +1458,7 @@
 				E0ABB0F11D1256C900899618 /* UIImageView+YYWebImage.m in Sources */,
 				E0ABAF5A1D12392700899618 /* main.m in Sources */,
 				E0ABB0ED1D1256C900899618 /* _YYWebImageSetter.m in Sources */,
+				E0ABB19A1D18DA5300899618 /* MASViewAttribute.m in Sources */,
 				E0ABB1701D17E92C00899618 /* QNDetailTableViewFooterView.m in Sources */,
 				E0ABB0E81D1256C900899618 /* UIView+YYAdd.m in Sources */,
 				E0ABB0EA1D1256C900899618 /* YYDiskCache.m in Sources */,

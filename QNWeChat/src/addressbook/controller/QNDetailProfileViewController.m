@@ -12,6 +12,8 @@
 #import "QNDetailPersonalAlbumTableViewCell.h"
 #import "QNDetailButtonTableViewCell.h"
 #import "QNDetailTableViewFooterView.h"
+#import "QNChatMainPageViewController.h"
+#import "ACHeadImageChooseOptionView.h"
 
 @interface QNDetailProfileViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -133,15 +135,21 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if (section == 2) {
         QNDetailTableViewFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"QNDetailTableViewFooterViewIdentifier"];
         footer.QNDetailTableViewFooterViewBtnBlock = ^(QNDetailFooterBtnType type){
             if (type == QNDetailFooterBtnTypeSendMsg) {
-                NSLog(@"发消息");
+                [self performSegueWithIdentifier:@"detailToChatMain" sender:self.model];
             } else {
-                NSLog(@"视频聊天");
+                ACHeadImageChooseOptionView *optionView = [[ACHeadImageChooseOptionView alloc] initWithFrame:self.view.frame];
+                [optionView show];
             }
         };
         return footer;
@@ -150,14 +158,14 @@
     }
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    QNChatMainPageViewController *chatVC = segue.destinationViewController;
+    chatVC.personModel = sender;
 }
-*/
+
 
 @end

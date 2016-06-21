@@ -154,6 +154,8 @@
     QNAddressBookContactModel *model = subGroupModelArray[indexPath.row];
     
     [self performSegueWithIdentifier:@"AddressToDetail" sender:model];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Seciton Index DataSource Factory
