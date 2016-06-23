@@ -7,12 +7,15 @@
 //
 
 #import "QNInputToolView.h"
+#import "QNFacePad.h"
 
 @interface QNInputToolView ()
 @property (strong, nonatomic) UITextField *textField;
 @property (strong, nonatomic) UIButton *voiceButton;
 @property (strong, nonatomic) UIButton *addButton;
 @property (strong, nonatomic) UIButton *faceButton;
+@property (strong, nonatomic) UIButton *speakButton;
+@property (strong, nonatomic) QNFacePad *facePad;
 @end
 
 @implementation QNInputToolView
@@ -50,7 +53,7 @@
 - (void)initVoiceButton
 {
     self.voiceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.voiceButton setImage:[UIImage imageNamed:@"voiceBtn"] forState:UIControlStateNormal];
+    [self.voiceButton setBackgroundImage:[UIImage imageNamed:@"voiceBtn"] forState:UIControlStateNormal];
     [self.voiceButton addTarget:self action:@selector(voiceButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.voiceButton];
     [self.voiceButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -62,7 +65,32 @@
 
 - (void)voiceButtonClicked:(UIButton *)btn
 {
-    
+    if (!self.speakButton) {
+        self.speakButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.speakButton setBackgroundImage:[[UIImage imageNamed:@"voiceButtonBgd"] stretchableImageWithLeftCapWidth:10.0f topCapHeight:10.0f] forState:UIControlStateNormal];
+        [self.speakButton setTitle:@"按住 说话" forState:UIControlStateNormal];
+        [self.speakButton setTitle:@"松开 结束" forState:UIControlStateHighlighted];
+        self.speakButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        [self.speakButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [self addSubview:self.speakButton];
+        [self.speakButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.voiceButton).offset = 38.0;
+            make.right.equalTo(self.faceButton).offset = -40;
+            make.centerY.equalTo(self);
+            make.top.equalTo(self).offset = 7;
+            make.bottom.equalTo(self).offset = -7;
+        }];
+
+        self.textField.hidden = YES;
+        [self.textField resignFirstResponder];
+        [self.voiceButton setBackgroundImage:[UIImage imageNamed:@"faceButton"] forState:UIControlStateNormal];
+    } else {
+        [self.speakButton removeFromSuperview];
+        self.speakButton = nil;
+        self.textField.hidden = NO;
+        [self.textField becomeFirstResponder];
+        [self.voiceButton setBackgroundImage:[UIImage imageNamed:@"voiceBtn"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)addButtonClicked:(UIButton *)btn
@@ -72,15 +100,24 @@
 
 - (void)faceButtonClicked:(UIButton *)btn
 {
-    
+    if (!self.textField.inputView) {
+        
+        self.facePad = [[QNFacePad alloc] initWithFrame:CGRectMake(0, 0, 100, 250)];
+        self.textField.inputView = self.facePad;
+        [self.textField reloadInputViews];
+        
+    } else {
+        
+        self.textField.inputView = nil;
+        [self.textField reloadInputViews];
+    }
 }
 
 
 - (void)initTextField
 {
     self.textField = [[UITextField alloc] init];
-    self.textField.backgroundColor = [UIColor whiteColor];
-    self.textField.borderStyle = UITextBorderStyleRoundedRect;
+    [self.textField setBackground:[[UIImage imageNamed:@"textFieldBgd"] stretchableImageWithLeftCapWidth:5.0f topCapHeight:5.0f]];
     [self.textField setTintColor:[UIColor colorWithRed:38.0/255 green:192.0/255 blue:40.0/255 alpha:1.0]];
     [self addSubview:self.textField];
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,7 +132,7 @@
 {
 
     self.faceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.faceButton setImage:[UIImage imageNamed:@"faceButton"] forState:UIControlStateNormal];
+    [self.faceButton setBackgroundImage:[UIImage imageNamed:@"faceButton"] forState:UIControlStateNormal];
     [self.faceButton addTarget:self action:@selector(faceButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.faceButton];
     [self.faceButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -108,7 +145,7 @@
 - (void)initAddButton
 {
     self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.addButton setImage:[UIImage imageNamed:@"addButton"] forState:UIControlStateNormal];
+    [self.addButton setBackgroundImage:[UIImage imageNamed:@"addButton"] forState:UIControlStateNormal];
     [self.addButton addTarget:self action:@selector(addButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.addButton];
     [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {

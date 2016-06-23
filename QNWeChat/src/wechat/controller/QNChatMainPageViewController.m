@@ -43,12 +43,9 @@
 
 - (void)keyNotification:(NSNotification *)notification
 {
-    NSLog(@"%@", notification.userInfo);
-    
     self.keyBoardDic = notification.userInfo;
     CGRect rect = [self.keyBoardDic[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
     CGRect r1 = [self.view convertRect:rect fromView:self.view.window];
-    NSLogRect(r1);
     
     [UIView animateWithDuration:[self.keyBoardDic[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
         [UIView setAnimationCurve:[self.keyBoardDic[UIKeyboardAnimationCurveUserInfoKey] doubleValue]];

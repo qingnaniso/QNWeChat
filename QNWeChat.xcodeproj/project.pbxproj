@@ -159,6 +159,10 @@
 		E0ABB1B01D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1AA1D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib */; };
 		E0ABB1B11D18DC7B00899618 /* ACHeadImageChooseOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1AC1D18DC7B00899618 /* ACHeadImageChooseOptionView.m */; };
 		E0E239C61D195CF200825783 /* QNInputToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239C51D195CF200825783 /* QNInputToolView.m */; };
+		E0E239C91D1A656100825783 /* QNFacePad.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239C81D1A656100825783 /* QNFacePad.m */; };
+		E0E239CB1D1A68F800825783 /* faceConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0E239CA1D1A68F800825783 /* faceConfig.plist */; };
+		E0E239CF1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239CD1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m */; };
+		E0E239D01D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E239CE1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -479,6 +483,12 @@
 		E0ABB1AC1D18DC7B00899618 /* ACHeadImageChooseOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHeadImageChooseOptionView.m; sourceTree = "<group>"; };
 		E0E239C41D195CF200825783 /* QNInputToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNInputToolView.h; sourceTree = "<group>"; };
 		E0E239C51D195CF200825783 /* QNInputToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInputToolView.m; sourceTree = "<group>"; };
+		E0E239C71D1A656100825783 /* QNFacePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFacePad.h; sourceTree = "<group>"; };
+		E0E239C81D1A656100825783 /* QNFacePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFacePad.m; sourceTree = "<group>"; };
+		E0E239CA1D1A68F800825783 /* faceConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = faceConfig.plist; sourceTree = "<group>"; };
+		E0E239CC1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFacePadChooseTypeCollectionViewCell.h; sourceTree = "<group>"; };
+		E0E239CD1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFacePadChooseTypeCollectionViewCell.m; sourceTree = "<group>"; };
+		E0E239CE1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNFacePadChooseTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -590,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				E0ABAF691D12392700899618 /* Info.plist */,
+				E0E239CA1D1A68F800825783 /* faceConfig.plist */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -795,6 +806,11 @@
 				E0ABAFB21D1241CB00899618 /* QNWeChatTableViewCell.xib */,
 				E0E239C41D195CF200825783 /* QNInputToolView.h */,
 				E0E239C51D195CF200825783 /* QNInputToolView.m */,
+				E0E239C71D1A656100825783 /* QNFacePad.h */,
+				E0E239C81D1A656100825783 /* QNFacePad.m */,
+				E0E239CC1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.h */,
+				E0E239CD1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m */,
+				E0E239CE1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1318,6 +1334,8 @@
 				E0ABB1721D17E9C500899618 /* QNDetailTableViewFooterView.xib in Resources */,
 				E0ABB1681D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.xib in Resources */,
 				E0ABAF631D12392700899618 /* Main.storyboard in Resources */,
+				E0E239CB1D1A68F800825783 /* faceConfig.plist in Resources */,
+				E0E239D01D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1399,6 +1417,7 @@
 				E0ABB1991D18DA5300899618 /* MASLayoutConstraint.m in Sources */,
 				E0ABB1161D1256C900899618 /* YYSentinel.m in Sources */,
 				E0ABB1191D1256C900899618 /* YYTimer.m in Sources */,
+				E0E239C91D1A656100825783 /* QNFacePad.m in Sources */,
 				E0ABB19E1D18DA5300899618 /* View+MASAdditions.m in Sources */,
 				E0ABB10F1D1256C900899618 /* YYTextView.m in Sources */,
 				E0ABB0191D12549800899618 /* UIView+WebCacheOperation.m in Sources */,
@@ -1437,6 +1456,7 @@
 				E0ABB1501D14E2A900899618 /* QNSearchResultViewController.m in Sources */,
 				E0ABB0E31D1256C900899618 /* UIImage+YYAdd.m in Sources */,
 				E0ABB1241D12720F00899618 /* QNDataSource.m in Sources */,
+				E0E239CF1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m in Sources */,
 				E0ABB1081D1256C900899618 /* YYTextArchiver.m in Sources */,
 				E0ABB0E11D1256C900899618 /* UIFont+YYAdd.m in Sources */,
 				E0ABB1111D1256C900899618 /* YYDispatchQueuePool.m in Sources */,
