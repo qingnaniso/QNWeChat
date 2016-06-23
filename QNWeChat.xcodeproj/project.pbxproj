@@ -163,6 +163,7 @@
 		E0E239CB1D1A68F800825783 /* faceConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0E239CA1D1A68F800825783 /* faceConfig.plist */; };
 		E0E239CF1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239CD1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m */; };
 		E0E239D01D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E239CE1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib */; };
+		E0E239D31D1BCF6500825783 /* UITextField+ExtentRange.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239D21D1BCF6500825783 /* UITextField+ExtentRange.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -489,6 +490,8 @@
 		E0E239CC1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFacePadChooseTypeCollectionViewCell.h; sourceTree = "<group>"; };
 		E0E239CD1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFacePadChooseTypeCollectionViewCell.m; sourceTree = "<group>"; };
 		E0E239CE1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNFacePadChooseTypeCollectionViewCell.xib; sourceTree = "<group>"; };
+		E0E239D11D1BCF6500825783 /* UITextField+ExtentRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+ExtentRange.h"; sourceTree = "<group>"; };
+		E0E239D21D1BCF6500825783 /* UITextField+ExtentRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ExtentRange.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1169,6 +1172,8 @@
 			children = (
 				E0ABB14B1D13D77F00899618 /* UIColor+QNHexColor.h */,
 				E0ABB14C1D13D77F00899618 /* UIColor+QNHexColor.m */,
+				E0E239D11D1BCF6500825783 /* UITextField+ExtentRange.h */,
+				E0E239D21D1BCF6500825783 /* UITextField+ExtentRange.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -1413,6 +1418,7 @@
 				E0ABB0EE1D1256C900899618 /* CALayer+YYWebImage.m in Sources */,
 				E0ABB0111D12549800899618 /* SDWebImageManager.m in Sources */,
 				E0ABB0F81D1256C900899618 /* YYWebImageManager.m in Sources */,
+				E0E239D31D1BCF6500825783 /* UITextField+ExtentRange.m in Sources */,
 				E0ABB1751D18D13E00899618 /* QNChatMainPageViewController.m in Sources */,
 				E0ABB1991D18DA5300899618 /* MASLayoutConstraint.m in Sources */,
 				E0ABB1161D1256C900899618 /* YYSentinel.m in Sources */,

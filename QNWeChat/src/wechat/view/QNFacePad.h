@@ -10,5 +10,7 @@
 
 @interface QNFacePad : UIView
 
+- (void)handleIconButtonClicked:(void (^) (NSString *iconString))buttonClickedBlock
+            deleteButtonClicked:(void (^) (NSString *iconString))deleteButtonClickedBlock;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "QNInputToolView.h"
 #import "QNFacePad.h"
+#import "UITextField+ExtentRange.h"
 
 @interface QNInputToolView ()
 @property (strong, nonatomic) UITextField *textField;
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) UIButton *faceButton;
 @property (strong, nonatomic) UIButton *speakButton;
 @property (strong, nonatomic) QNFacePad *facePad;
+@property (strong, nonatomic) NSMutableString *textFieldContent;
 @end
 
 @implementation QNInputToolView
@@ -38,6 +40,7 @@
     [self initAddButton];
     [self initFaceButton];
     [self initTextField];
+    [self initFacePad];
 }
 
 - (void)iniBackgroundView
@@ -93,6 +96,86 @@
     }
 }
 
+- (void)initFacePad
+{
+    int iconCountPerRow = 8;
+    int iconRowCount = 3;
+    CGFloat buttonPadding = 8.0;
+    CGFloat buttonWidth =( kScreenWidth - ((iconCountPerRow + 1) * buttonPadding)) / 8;
+    CGFloat padHeight = buttonWidth * iconRowCount + buttonPadding * (iconRowCount + 1);
+    
+    self.facePad = [[QNFacePad alloc] initWithFrame:CGRectMake(0, 0, 100, padHeight + 50 + 10)];
+    [self.facePad handleIconButtonClicked:^(NSString *iconString) {
+        
+        self.textFieldContent = [NSMutableString stringWithString:self.textField.text];
+        [self.textFieldContent appendString:iconString];
+        self.textField.text = self.textFieldContent;
+        
+    } deleteButtonClicked:^(NSString *lastClickedFaceString){
+        
+        if (self.textFieldContent.length > 0 && [[self.textFieldContent substringFromIndex:[self textFieldCurrentCurseRange].location] isEqualToString:@"]"]) {
+           
+            NSRange textRange;
+            textRange.length = self.textFieldContent.length;
+            textRange.location = 0;
+            
+            
+            __block NSRange destiRange;
+            [self.textFieldContent enumerateSubstringsInRange:textRange options:NSStringEnumerationReverse usingBlock:^(NSString * _Nullable substring, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+               
+                if ([substring isEqualToString:@"["]) {
+                    destiRange.location = substringRange.location;
+                    destiRange.length = enclosingRange.length;
+                }
+            }];
+            
+            if (destiRange.length > 0) {
+//                [self.textFieldContent replaceCharactersInRange:destiRange withString:@""];
+//                self.textField.text = self.textFieldContent;
+            } else {
+                [self textFieldDeleteCharactor];
+            }
+            
+        } else {
+            
+            if (self.textField.text.length > 0) {
+                
+                [self textFieldDeleteCharactor];
+            }
+        }
+        
+    }];
+}
+
+- (void)textFieldDeleteCharactor
+{
+    
+    NSRange selectedRange = [self.textField selectedRange];
+    
+    selectedRange.length = 1;
+    
+    if (selectedRange.location != 0) {
+        
+        selectedRange.location = selectedRange.location - 1;
+        NSString *str = [self.textField.text stringByReplacingCharactersInRange:selectedRange withString:@""];
+        self.textField.text = self.textFieldContent = [NSMutableString stringWithString:str];
+        NSRange afterRange;
+        afterRange.location = selectedRange.location;
+        afterRange.length = 0;
+        [self.textField setSelectedRange:afterRange];
+    }
+}
+
+- (NSRange)textFieldCurrentCurseRange
+{
+    NSRange selectedRange = [self.textField selectedRange];
+    selectedRange.length = 1;
+    if (selectedRange.location !=0) {
+        selectedRange.location = selectedRange.location - 1;
+    }
+    return selectedRange;
+}
+
 - (void)addButtonClicked:(UIButton *)btn
 {
     
@@ -102,8 +185,9 @@
 {
     if (!self.textField.inputView) {
         
-        self.facePad = [[QNFacePad alloc] initWithFrame:CGRectMake(0, 0, 100, 250)];
         self.textField.inputView = self.facePad;
+        
+        
         [self.textField reloadInputViews];
         
     } else {
@@ -119,6 +203,7 @@
     self.textField = [[UITextField alloc] init];
     [self.textField setBackground:[[UIImage imageNamed:@"textFieldBgd"] stretchableImageWithLeftCapWidth:5.0f topCapHeight:5.0f]];
     [self.textField setTintColor:[UIColor colorWithRed:38.0/255 green:192.0/255 blue:40.0/255 alpha:1.0]];
+    self.textField.font = [UIFont systemFontOfSize:13];
     [self addSubview:self.textField];
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.voiceButton).offset = 38.0;
@@ -127,6 +212,7 @@
         make.top.equalTo(self).offset = 7;
         make.bottom.equalTo(self).offset = -7;
     }];
+    self.textFieldContent = [NSMutableString string];
 }
 - (void)initFaceButton
 {

@@ -17,6 +17,10 @@
 @property (strong, nonatomic) NSDictionary *collectionDataSource;
 @property (strong, nonatomic) UIScrollView *scrollView;
 
+@property (strong, nonatomic) void (^clickBlock)(NSString *iconString);
+@property (strong, nonatomic) void (^deleteBlock)(NSString *);
+@property (copy, nonatomic) NSString *lastClickedButtonFaceString;
+
 @end
 
 @implementation QNFacePad
@@ -103,7 +107,8 @@
 - (void)initMainIconPad
 {
     self.scrollView = [[UIScrollView alloc] init];
-    self.scrollView.backgroundColor = [UIColor redColor];
+    self.scrollView.backgroundColor = [UIColor colorWithRed:239.0/255 green:239.0/255 blue:244.0/255 alpha:1];
+    self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.pagingEnabled = YES;
     [self addSubview:self.scrollView];
     [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -114,35 +119,94 @@
         make.bottom.mas_equalTo(self.plusButton.mas_top);
         
     }];
+    [self loadFace];
+}
+
+- (void)loadFace
+{
+    int iconCountPerRow = 8;
+    int iconRowCount = 3;
+    CGFloat buttonPadding = 8.0;
+    CGFloat buttonWidth =( kScreenWidth - ((iconCountPerRow + 1) * buttonPadding)) / 8;
     
     NSNumber *iconNumber = self.collectionDataSource[@"smiley_"];
     
-    int scrollViewPage = (iconNumber.intValue /  (3 * 8 - 1)) + ((iconNumber.intValue % (3 * 8 - 1)) == 0 ? 0 : 1);
+    int scrollViewPage = (iconNumber.intValue /  (iconRowCount * iconCountPerRow - 1)) + ((iconNumber.intValue % (iconRowCount * iconCountPerRow - 1)) == 0 ? 0 : 1);
     
     self.scrollView.contentSize = CGSizeMake(kScreenWidth * scrollViewPage, CGRectGetHeight(self.scrollView.frame));
     
-    CGFloat buttonWidth = 20.0;
-    CGFloat buttonPadding = 5.0;
-    
+    /* all the icons */
     for (int i = 0; i < iconNumber.intValue; i++) {
         
-        int currentPage = i / (3 * 8 - 1);
+        int currentPage = i / (iconRowCount * iconCountPerRow - 1);
         
-        int currentPageIndex = i - (currentPage * (3 * 8 - 1));
+        int currentPageIndex = i - (currentPage * (iconRowCount * iconCountPerRow - 1));
         
-        int currentRow = (currentPageIndex / 3) + ((currentPageIndex % 3) == 0 ? 0 : 1);
+        int currentRow = currentPageIndex / iconCountPerRow;
         
-        int currentRowIndex = currentPageIndex - 8 * currentRow;
+        int currentRowIndex = currentPageIndex - iconCountPerRow * currentRow;
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        button.frame = CGRectMake(currentPage * kScreenWidth + currentRowIndex * buttonWidth + ( currentRowIndex + 1) * buttonPadding, currentRow * buttonWidth, buttonWidth, buttonWidth);
+        button.frame = CGRectMake(currentPage * kScreenWidth + currentRowIndex * buttonWidth + ( currentRowIndex + 1) * buttonPadding, currentRow * buttonWidth + (currentRow + 1) * buttonPadding, buttonWidth, buttonWidth);
         
         [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"smiley_%i",i]] forState:UIControlStateNormal];
         
-        [self.scrollView addSubview:button];
+        [button setTag:1000 + i];
         
+        [button setTarget:self action:@selector(iconButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.scrollView addSubview:button];
     }
+    
+    /* all the GoBack button */
+    for (int currentPage = 0; currentPage < scrollViewPage; currentPage++) {
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        if (currentPage == scrollViewPage - 1) {
+            
+            int lastIconIndex = iconNumber.intValue % (iconRowCount * iconCountPerRow - 1);
+            int lastIconRow = lastIconIndex / iconCountPerRow;
+            int lastIconRowIndex = lastIconIndex % iconCountPerRow;
+            
+            button.frame = CGRectMake(currentPage * kScreenWidth + lastIconRowIndex * buttonWidth + (lastIconRowIndex + 1) * buttonPadding, (lastIconRow + 1)* buttonPadding + buttonWidth * lastIconRow + 5, 26, 26);
+            
+        } else {
+            
+            button.frame = CGRectMake(currentPage * kScreenWidth + iconCountPerRow * buttonPadding + (iconCountPerRow - 1) * buttonWidth, iconRowCount * buttonPadding + buttonWidth * (iconRowCount - 1) + 5, 26, 26);
+        }
+
+        [button setImage:[UIImage imageNamed:@"facePadgoBack"] forState:UIControlStateNormal];
+        
+        [button setTag:9000];
+        
+        [button setTarget:self action:@selector(deleteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
+        [self.scrollView addSubview:button];
+    }
+}
+
+- (void)iconButtonClicked:(UIButton *)iconButton
+{
+    NSInteger tag = iconButton.tag;
+    if (self.clickBlock) {
+        self.lastClickedButtonFaceString = [NSString stringWithFormat:@"[smiley_%i]",tag-1000];
+        self.clickBlock([NSString stringWithFormat:@"[smiley_%i]",tag-1000]);
+    }
+}
+
+- (void)deleteButtonClicked:(UIButton *)deleteButton
+{
+    if (self.deleteBlock) {
+        self.deleteBlock(self.lastClickedButtonFaceString);
+    }
+}
+
+-(void)handleIconButtonClicked:(void (^)(NSString *))buttonClickedBlock deleteButtonClicked:(void (^)(NSString *))deleteButtonClickedBlock
+{
+    self.clickBlock = buttonClickedBlock;
+    self.deleteBlock = deleteButtonClickedBlock;
 }
 
 - (void)plusButtonClicked:(UIButton *)button
