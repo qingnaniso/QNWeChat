@@ -115,25 +115,18 @@
         
         if (self.textFieldContent.length > 0 && [[self.textFieldContent substringFromIndex:[self textFieldCurrentCurseRange].location] isEqualToString:@"]"]) {
            
-            NSRange textRange;
-            textRange.length = self.textFieldContent.length;
-            textRange.location = 0;
-            
-            
-            __block NSRange destiRange;
-            [self.textFieldContent enumerateSubstringsInRange:textRange options:NSStringEnumerationReverse usingBlock:^(NSString * _Nullable substring, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
-               
-                if ([substring isEqualToString:@"["]) {
-                    destiRange.location = substringRange.location;
-                    destiRange.length = enclosingRange.length;
-                }
-            }];
-            
-            if (destiRange.length > 0) {
-//                [self.textFieldContent replaceCharactersInRange:destiRange withString:@""];
-//                self.textField.text = self.textFieldContent;
-            } else {
-                [self textFieldDeleteCharactor];
+            NSRange beginRange = [self.textFieldContent rangeOfString:@"[smiley_" options:NSBackwardsSearch];
+            NSLog(@"location=%i,lenth=%i",beginRange.location,beginRange.length);
+            if (beginRange.length > 0) {
+                
+                NSRange curseRange = [self textFieldCurrentCurseRange];
+                int faceStringLength = curseRange.location - beginRange.location;
+                NSRange deleteRange;
+                deleteRange.location = beginRange.location;
+                deleteRange.length = faceStringLength + 1;
+                
+                [self.textFieldContent replaceCharactersInRange:deleteRange withString:@""];
+                self.textField.text = self.textFieldContent;
             }
             
         } else {

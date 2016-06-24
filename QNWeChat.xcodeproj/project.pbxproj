@@ -164,6 +164,7 @@
 		E0E239CF1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239CD1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.m */; };
 		E0E239D01D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E239CE1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib */; };
 		E0E239D31D1BCF6500825783 /* UITextField+ExtentRange.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239D21D1BCF6500825783 /* UITextField+ExtentRange.m */; };
+		E0E239D61D1CD5B700825783 /* QNChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239D51D1CD5B700825783 /* QNChatModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -492,6 +493,8 @@
 		E0E239CE1D1A733300825783 /* QNFacePadChooseTypeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNFacePadChooseTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0E239D11D1BCF6500825783 /* UITextField+ExtentRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+ExtentRange.h"; sourceTree = "<group>"; };
 		E0E239D21D1BCF6500825783 /* UITextField+ExtentRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ExtentRange.m"; sourceTree = "<group>"; };
+		E0E239D41D1CD5B700825783 /* QNChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNChatModel.h; sourceTree = "<group>"; };
+		E0E239D51D1CD5B700825783 /* QNChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNChatModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -794,6 +797,8 @@
 			children = (
 				E0ABB11F1D125D4900899618 /* MainChatRecordModel.h */,
 				E0ABB1201D125D4900899618 /* MainChatRecordModel.m */,
+				E0E239D41D1CD5B700825783 /* QNChatModel.h */,
+				E0E239D51D1CD5B700825783 /* QNChatModel.m */,
 				E0ABB1221D12720F00899618 /* QNDataSource.h */,
 				E0ABB1231D12720F00899618 /* QNDataSource.m */,
 			);
@@ -1499,6 +1504,7 @@
 				E0ABB0CE1D1256C900899618 /* NSDate+YYAdd.m in Sources */,
 				E0ABB10E1D1256C900899618 /* YYLabel.m in Sources */,
 				E0ABB0E41D1256C900899618 /* UIScreen+YYAdd.m in Sources */,
+				E0E239D61D1CD5B700825783 /* QNChatModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
