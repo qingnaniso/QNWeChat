@@ -8,12 +8,16 @@
 
 #import "QNChatMainPageViewController.h"
 #import "QNInputToolView.h"
+#import "QNChatModel.h"
 
 @interface QNChatMainPageViewController ()
 
 @property (strong, nonatomic) UITextField *textField;
 @property (strong, nonatomic) QNInputToolView *inputView;
 @property (strong, nonatomic) NSDictionary *keyBoardDic;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *chatDataSource;
+@property (nonatomic) CGPoint tableViewContentOffSet;
 
 @end
 
@@ -21,24 +25,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = self.personModel.name;
+    [self initData];
     [self initKeyboardAccessoryView];
+    [self initTableView];
+    self.title = self.personModel.name;
+
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     [self.view addGestureRecognizer:tap];
-    
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(keyNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
+}
+
+- (void)initData
+{
+    self.chatDataSource = [NSMutableArray array];
+}
+
+- (void)initTableView
+{
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.automaticallyAdjustsScrollViewInsets = false;  /* fix a top blank area bug in UITableView .. */
 }
 
 - (void)tap
 {
     [self.inputView makeKeyBoardHidden];
-}
-
-- (void)tap2
-{
-    [self.textField becomeFirstResponder];
 }
 
 - (void)keyNotification:(NSNotification *)notification
@@ -52,14 +61,57 @@
         CGRect frame = self.inputView.frame;
         frame.origin.y = r1.origin.y - frame.size.height;
         self.inputView.frame = frame;
+        NSLog(@"x=%fy=%f",r1.origin.x,r1.origin.y);
     }];
 }
 
 - (void)initKeyboardAccessoryView
 {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(keyNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
     self.inputView = [[QNInputToolView alloc] initWithFrame:CGRectMake(0, kScreenHeight - 50, kScreenWidth, 50)];
-    self.inputView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.inputView];
+    WS(weakSelf);
+    self.inputView.QNInputToolViewSendMessageBlock = ^(NSString *textContent){
+        
+        QNChatModel *model = [[QNChatModel alloc] init];
+        model.chatType = QNChatModelWord;
+        model.chatContent = textContent;
+        model.chatFromMe = YES;
+        model.vatarURL = weakSelf.personModel.vatarURL;
+        
+        [weakSelf.chatDataSource addObject:model];
+        
+        [weakSelf.tableView reloadData];
+        
+        if (weakSelf.chatDataSource.count > 6) {
+            
+            CGPoint point = weakSelf.tableViewContentOffSet;
+            point.y += 44;
+            weakSelf.tableView.contentOffset = point;
+            weakSelf.tableViewContentOffSet = point;
+            
+        }
+    };
+}
+
+#pragma mark - UITABLEVIEW DELEGATE AND DATASOURCE
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.chatDataSource.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    QNChatModel *model = self.chatDataSource[indexPath.row];
+    
+    cell.textLabel.text = model.chatContent;
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {

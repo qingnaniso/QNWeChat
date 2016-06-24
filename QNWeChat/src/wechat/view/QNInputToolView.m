@@ -18,6 +18,9 @@
 @property (strong, nonatomic) UIButton *speakButton;
 @property (strong, nonatomic) QNFacePad *facePad;
 @property (strong, nonatomic) NSMutableString *textFieldContent;
+@property (strong, nonatomic) void (^sendMessageBlock)(NSString *);
+@property (strong, nonatomic) void (^sendVoiceBlock)(NSString *);
+@property (strong, nonatomic) void (^sendPictureBlock)(NSString *);
 @end
 
 @implementation QNInputToolView
@@ -105,39 +108,66 @@
     CGFloat padHeight = buttonWidth * iconRowCount + buttonPadding * (iconRowCount + 1);
     
     self.facePad = [[QNFacePad alloc] initWithFrame:CGRectMake(0, 0, 100, padHeight + 50 + 10)];
+    
+    WS(weakSelf);
+    
     [self.facePad handleIconButtonClicked:^(NSString *iconString) {
         
-        self.textFieldContent = [NSMutableString stringWithString:self.textField.text];
-        [self.textFieldContent appendString:iconString];
-        self.textField.text = self.textFieldContent;
+        weakSelf.textFieldContent = [NSMutableString stringWithString:weakSelf.textField.text];
+        [weakSelf.textFieldContent appendString:iconString];
+        weakSelf.textField.text = weakSelf.textFieldContent;
+
         
     } deleteButtonClicked:^(NSString *lastClickedFaceString){
         
-        if (self.textFieldContent.length > 0 && [[self.textFieldContent substringFromIndex:[self textFieldCurrentCurseRange].location] isEqualToString:@"]"]) {
+        if (weakSelf.textFieldContent.length > 0 && [[weakSelf.textFieldContent substringFromIndex:[weakSelf textFieldCurrentCurseRange].location] isEqualToString:@"]"]) {
            
-            NSRange beginRange = [self.textFieldContent rangeOfString:@"[smiley_" options:NSBackwardsSearch];
+            NSRange beginRange = [weakSelf.textFieldContent rangeOfString:@"[smiley_" options:NSBackwardsSearch];
             NSLog(@"location=%i,lenth=%i",beginRange.location,beginRange.length);
             if (beginRange.length > 0) {
                 
-                NSRange curseRange = [self textFieldCurrentCurseRange];
+                NSRange curseRange = [weakSelf textFieldCurrentCurseRange];
                 int faceStringLength = curseRange.location - beginRange.location;
                 NSRange deleteRange;
                 deleteRange.location = beginRange.location;
                 deleteRange.length = faceStringLength + 1;
                 
-                [self.textFieldContent replaceCharactersInRange:deleteRange withString:@""];
-                self.textField.text = self.textFieldContent;
+                [weakSelf.textFieldContent replaceCharactersInRange:deleteRange withString:@""];
+                weakSelf.textField.text = weakSelf.textFieldContent;
             }
             
         } else {
             
-            if (self.textField.text.length > 0) {
+            if (weakSelf.textField.text.length > 0) {
                 
-                [self textFieldDeleteCharactor];
+                [weakSelf textFieldDeleteCharactor];
             }
         }
         
     }];
+    
+    [self.facePad handelAddButtonClicked:^{
+        
+        if (weakSelf.sendMessageBlock) {
+            weakSelf.sendMessageBlock(weakSelf.textField.text);
+            weakSelf.textField.text = @"";
+            weakSelf.textFieldContent = [NSMutableString string];
+        }
+        
+    } sendButtonClicked:^{
+        
+        if (weakSelf.sendMessageBlock) {
+            weakSelf.sendMessageBlock(weakSelf.textField.text);
+            weakSelf.textField.text = @"";
+            weakSelf.textFieldContent = [NSMutableString string];
+        }
+        
+    }];
+}
+
+-(void)setQNInputToolViewSendMessageBlock:(void (^)(NSString *))QNInputToolViewSendMessageBlock
+{
+    self.sendMessageBlock = QNInputToolViewSendMessageBlock;
 }
 
 - (void)textFieldDeleteCharactor
@@ -171,7 +201,7 @@
 
 - (void)addButtonClicked:(UIButton *)btn
 {
-    
+    NSLog(@"add button clicked");
 }
 
 - (void)faceButtonClicked:(UIButton *)btn
@@ -179,7 +209,6 @@
     if (!self.textField.inputView) {
         
         self.textField.inputView = self.facePad;
-        
         
         [self.textField reloadInputViews];
         

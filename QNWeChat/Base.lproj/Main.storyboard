@@ -239,9 +239,28 @@
                     <view key="view" contentMode="scaleToFill" id="slB-We-g11">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XvH-L5-Sgg">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="L50-e6-gY5" id="Sgg-X5-y0I"/>
+                                    <outlet property="delegate" destination="L50-e6-gY5" id="8RA-Qf-6g0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jex-B7-1ok" firstAttribute="top" secondItem="XvH-L5-Sgg" secondAttribute="bottom" id="Hn7-pV-kNm"/>
+                            <constraint firstItem="XvH-L5-Sgg" firstAttribute="leading" secondItem="slB-We-g11" secondAttribute="leading" id="bOh-El-JIO"/>
+                            <constraint firstAttribute="trailing" secondItem="XvH-L5-Sgg" secondAttribute="trailing" id="h0D-Ju-HOa"/>
+                            <constraint firstItem="XvH-L5-Sgg" firstAttribute="top" secondItem="1Ir-rW-5SI" secondAttribute="bottom" id="yjw-fb-EZL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ybX-iw-Yei"/>
+                    <connections>
+                        <outlet property="tableView" destination="XvH-L5-Sgg" id="36Z-A6-Bxj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7RK-7w-N66" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

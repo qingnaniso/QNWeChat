@@ -12,4 +12,6 @@
 
 - (void)makeKeyBoardHidden;
 
+@property (strong, nonatomic) void (^QNInputToolViewSendMessageBlock)(NSString *);
+
 @end

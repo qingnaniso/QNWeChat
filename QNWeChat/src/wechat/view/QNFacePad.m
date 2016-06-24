@@ -21,6 +21,11 @@
 @property (strong, nonatomic) void (^deleteBlock)(NSString *);
 @property (copy, nonatomic) NSString *lastClickedButtonFaceString;
 
+@property (strong, nonatomic) void (^addButtonBlock)();
+@property (strong, nonatomic) void (^sendButtonBlock)();
+
+@property (nonatomic) BOOL keyboardPop;
+
 @end
 
 @implementation QNFacePad
@@ -122,6 +127,8 @@
     [self loadFace];
 }
 
+
+
 - (void)loadFace
 {
     int iconCountPerRow = 8;
@@ -209,14 +216,24 @@
     self.deleteBlock = deleteButtonClickedBlock;
 }
 
+-(void)handelAddButtonClicked:(void (^)())addButtonClicked sendButtonClicked:(void (^)())sendMessageBlock
+{
+    self.addButtonBlock = addButtonClicked;
+    self.sendButtonBlock = sendMessageBlock;
+}
+
 - (void)plusButtonClicked:(UIButton *)button
 {
-    NSLog(@"plusButtonClicked");
+    if (self.addButtonBlock) {
+        self.addButtonBlock();
+    }
 }
 
 - (void)sendButtonClicked:(UIButton *)button
 {
-    NSLog(@"sendButtonClicked");
+    if (self.sendButtonBlock) {
+        self.sendButtonBlock();
+    }
 }
 
 - (NSDictionary *)getDictionaryFromPlist

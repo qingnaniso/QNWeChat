@@ -8,17 +8,24 @@
 
 #import "QNBaseModel.h"
 
+@class QNAddressBookContactModel;
+
 typedef enum : NSUInteger {
-    QNChatModelWord,
-    QNChatModelImage,
-    QNChatModelVoice,
-    QNChatModelInfoTip,
+    
+    QNChatModelWord,        /* word chat */
+    QNChatModelImage,       /* image */
+    QNChatModelVoice,       /* voice */
+    QNChatModelInfoTip,     
     QNChatModelVideo,
     QNChatModelGif,
+    QNChatModelFile,
+    QNChatModelShare,
+    
 } QNChatModelType;
 
 @interface QNChatModel : QNBaseModel
 
+@property (nonatomic) QNChatModelType chatType;
 @property (strong, nonatomic) NSString *chatContent;
 @property (nonatomic) BOOL chatFromMe;
 @property (strong, nonatomic) NSString *vatarURL;
@@ -27,5 +34,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSString *voiceURL;
 @property (strong, nonatomic) NSString *imageURL;
 @property (strong, nonatomic) NSString *chatModelInfoTipContent;
+@property (strong, nonatomic) QNAddressBookContactModel *master;        /* ME is chat master */
+@property (strong, nonatomic) NSArray *otherPerson;
 
 @end

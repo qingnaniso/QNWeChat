@@ -13,4 +13,6 @@
 - (void)handleIconButtonClicked:(void (^) (NSString *iconString))buttonClickedBlock
             deleteButtonClicked:(void (^) (NSString *iconString))deleteButtonClickedBlock;
 
+- (void)handelAddButtonClicked:(void (^) ())addButtonClicked sendButtonClicked:(void (^) ())sendMessageBlock;
+
 @end
