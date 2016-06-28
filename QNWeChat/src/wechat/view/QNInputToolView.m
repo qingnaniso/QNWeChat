@@ -10,7 +10,7 @@
 #import "QNFacePad.h"
 #import "UITextField+ExtentRange.h"
 
-@interface QNInputToolView ()
+@interface QNInputToolView () <UITextFieldDelegate>
 @property (strong, nonatomic) UITextField *textField;
 @property (strong, nonatomic) UIButton *voiceButton;
 @property (strong, nonatomic) UIButton *addButton;
@@ -33,7 +33,6 @@
         [self initSubView];
     }
     return self;
-    
 }
 
 - (void)initSubView
@@ -116,12 +115,15 @@
         weakSelf.textFieldContent = [NSMutableString stringWithString:weakSelf.textField.text];
         [weakSelf.textFieldContent appendString:iconString];
         weakSelf.textField.text = weakSelf.textFieldContent;
-
         
-    } deleteButtonClicked:^(NSString *lastClickedFaceString){
+    }   imageIconButtonClicked:^(NSString *iconString) {
+        
+        [self showImageIconWithIconString:iconString];
+        
+    }   deleteButtonClicked:^(NSString *iconString) {
         
         if (weakSelf.textFieldContent.length > 0 && [[weakSelf.textFieldContent substringFromIndex:[weakSelf textFieldCurrentCurseRange].location] isEqualToString:@"]"]) {
-           
+            
             NSRange beginRange = [weakSelf.textFieldContent rangeOfString:@"[smiley_" options:NSBackwardsSearch];
             NSLog(@"location=%i,lenth=%i",beginRange.location,beginRange.length);
             if (beginRange.length > 0) {
@@ -135,7 +137,6 @@
                 [weakSelf.textFieldContent replaceCharactersInRange:deleteRange withString:@""];
                 weakSelf.textField.text = weakSelf.textFieldContent;
             }
-            
         } else {
             
             if (weakSelf.textField.text.length > 0) {
@@ -143,7 +144,6 @@
                 [weakSelf textFieldDeleteCharactor];
             }
         }
-        
     }];
     
     [self.facePad handelAddButtonClicked:^{
@@ -156,13 +156,22 @@
         
     } sendButtonClicked:^{
         
-        if (weakSelf.sendMessageBlock) {
-            weakSelf.sendMessageBlock(weakSelf.textField.text);
-            weakSelf.textField.text = @"";
-            weakSelf.textFieldContent = [NSMutableString string];
-        }
-        
+        [weakSelf sendMessage];
     }];
+}
+
+- (void)sendMessage
+{
+    if (self.sendMessageBlock && ![self.textField.text isEqualToString:@""]) {
+        self.sendMessageBlock(self.textField.text);
+        self.textField.text = @"";
+        self.textFieldContent = [NSMutableString string];
+    }
+}
+
+- (void)showImageIconWithIconString:(NSString *)str
+{
+    NSLog(@"show iamge %@", str);
 }
 
 -(void)setQNInputToolViewSendMessageBlock:(void (^)(NSString *))QNInputToolViewSendMessageBlock
@@ -219,14 +228,17 @@
     }
 }
 
-
 - (void)initTextField
 {
     self.textField = [[UITextField alloc] init];
     [self.textField setBackground:[[UIImage imageNamed:@"textFieldBgd"] stretchableImageWithLeftCapWidth:5.0f topCapHeight:5.0f]];
     [self.textField setTintColor:[UIColor colorWithRed:38.0/255 green:192.0/255 blue:40.0/255 alpha:1.0]];
+    self.textField.returnKeyType = UIReturnKeySend;
+    self.textField.enablesReturnKeyAutomatically = YES;
     self.textField.font = [UIFont systemFontOfSize:13];
+    self.textField.delegate = self;
     [self addSubview:self.textField];
+    
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.voiceButton).offset = 38.0;
         make.right.equalTo(self.faceButton).offset = -40;
@@ -269,4 +281,15 @@
         [self.textField resignFirstResponder];
     }
 }
+
+#pragma mark - UITextFieldDelegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self sendMessage];
+    return YES;
+}
+
 @end
+
+

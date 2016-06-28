@@ -10,7 +10,13 @@
 
 @interface QNFacePad : UIView
 
+/**
+    buttonClickedBlock :        普通的icon
+    imageButtonClickedBlock:    动图
+    deleteButtonClickedBlock:   删除一个普通icon
+ */
 - (void)handleIconButtonClicked:(void (^) (NSString *iconString))buttonClickedBlock
+         imageIconButtonClicked:(void (^) (NSString *iconString))imageButtonClickedBlock
             deleteButtonClicked:(void (^) (NSString *iconString))deleteButtonClickedBlock;
 
 - (void)handelAddButtonClicked:(void (^) ())addButtonClicked sendButtonClicked:(void (^) ())sendMessageBlock;
