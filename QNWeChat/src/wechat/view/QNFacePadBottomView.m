@@ -113,7 +113,9 @@
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"type%i",(idx % 2)]] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"type%i",(idx % 2)]] forState:UIControlStateNormal];
+        
+        btn.imageEdgeInsets = UIEdgeInsetsMake(10, 15, 10, 15);
         
         btn.backgroundColor = [UIColor whiteColor];
         
@@ -126,9 +128,10 @@
         [self.iconTypeButtons addObject:btn];
         
         self.scrollView.contentSize = CGSizeMake(kScreenWidth - 100 + 1, 40);
+        
     }];
     UIButton *button = [self.iconTypeButtons firstObject];
-    [button setBackgroundColor:[UIColor grayColor]];
+    [button setBackgroundColor:[UIColor lightGrayColor]];
 
 }
 
@@ -136,7 +139,7 @@
 {
     [self.iconTypeButtons enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger btnIdx, BOOL * _Nonnull stop) {
         if (idx == btnIdx) {
-            [obj setBackgroundColor:[UIColor grayColor]];
+            [obj setBackgroundColor:[UIColor lightGrayColor]];
         } else {
             [obj setBackgroundColor:[UIColor whiteColor]];
         }
@@ -149,7 +152,7 @@
     [self.iconTypeButtons enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isEqual:button]) {
             i = idx;
-            [obj setBackgroundColor:[UIColor grayColor]];
+            [obj setBackgroundColor:[UIColor lightGrayColor]];
         } else {
             [obj setBackgroundColor:[UIColor whiteColor]];
         }

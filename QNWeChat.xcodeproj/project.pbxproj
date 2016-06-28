@@ -165,6 +165,8 @@
 		E0E239D61D1CD5B700825783 /* QNChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239D51D1CD5B700825783 /* QNChatModel.m */; };
 		E0E239D91D20DB7500825783 /* QNFaceSubPad.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239D81D20DB7500825783 /* QNFaceSubPad.m */; };
 		E0E239DC1D21260000825783 /* QNFacePadBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239DB1D21260000825783 /* QNFacePadBottomView.m */; };
+		E0E239E01D22524400825783 /* QNChatContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239DE1D22524400825783 /* QNChatContentTableViewCell.m */; };
+		E0E239E11D22524400825783 /* QNChatContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -496,6 +498,9 @@
 		E0E239D81D20DB7500825783 /* QNFaceSubPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFaceSubPad.m; sourceTree = "<group>"; };
 		E0E239DA1D21260000825783 /* QNFacePadBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFacePadBottomView.h; sourceTree = "<group>"; };
 		E0E239DB1D21260000825783 /* QNFacePadBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFacePadBottomView.m; sourceTree = "<group>"; };
+		E0E239DD1D22524400825783 /* QNChatContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNChatContentTableViewCell.h; sourceTree = "<group>"; };
+		E0E239DE1D22524400825783 /* QNChatContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNChatContentTableViewCell.m; sourceTree = "<group>"; };
+		E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNChatContentTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -821,6 +826,9 @@
 				E0E239D81D20DB7500825783 /* QNFaceSubPad.m */,
 				E0E239DA1D21260000825783 /* QNFacePadBottomView.h */,
 				E0E239DB1D21260000825783 /* QNFacePadBottomView.m */,
+				E0E239DD1D22524400825783 /* QNChatContentTableViewCell.h */,
+				E0E239DE1D22524400825783 /* QNChatContentTableViewCell.m */,
+				E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1345,6 +1353,7 @@
 				E0ABB16D1D17C40600899618 /* QNDetailButtonTableViewCell.xib in Resources */,
 				E0ABB1721D17E9C500899618 /* QNDetailTableViewFooterView.xib in Resources */,
 				E0ABB1681D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.xib in Resources */,
+				E0E239E11D22524400825783 /* QNChatContentTableViewCell.xib in Resources */,
 				E0ABAF631D12392700899618 /* Main.storyboard in Resources */,
 				E0E239CB1D1A68F800825783 /* faceConfig.plist in Resources */,
 			);
@@ -1412,6 +1421,7 @@
 				E0ABB0E01D1256C900899618 /* UIDevice+YYAdd.m in Sources */,
 				E0ABB1131D1256C900899618 /* YYGestureRecognizer.m in Sources */,
 				E0ABB0EC1D1256C900899618 /* YYMemoryCache.m in Sources */,
+				E0E239E01D22524400825783 /* QNChatContentTableViewCell.m in Sources */,
 				E0ABB00F1D12549800899618 /* SDWebImageDownloader.m in Sources */,
 				E0ABB10B1D1256C900899618 /* YYTextRubyAnnotation.m in Sources */,
 				E0ABB0E91D1256C900899618 /* YYCache.m in Sources */,

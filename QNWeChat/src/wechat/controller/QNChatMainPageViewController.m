@@ -9,8 +9,9 @@
 #import "QNChatMainPageViewController.h"
 #import "QNInputToolView.h"
 #import "QNChatModel.h"
+#import "QNChatContentTableViewCell.h"
 
-@interface QNChatMainPageViewController ()
+@interface QNChatMainPageViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITextField *textField;
 @property (strong, nonatomic) QNInputToolView *inputView;
@@ -41,7 +42,7 @@
 
 - (void)initTableView
 {
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"QNChatContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"chatContentCellIdentifier"];
     self.automaticallyAdjustsScrollViewInsets = false;  /* fix a top blank area bug in UITableView .. */
 }
 
@@ -105,13 +106,20 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    QNChatContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chatContentCellIdentifier"];
     
     QNChatModel *model = self.chatDataSource[indexPath.row];
     
-    cell.textLabel.text = model.chatContent;
+    [cell updateContent:model];
     
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    QNChatModel *model = self.chatDataSource[indexPath.row];
+    NSLog(@"%f",[QNChatContentTableViewCell cellHeightForContent:model]);
+    return [QNChatContentTableViewCell cellHeightForContent:model];
 }
 
 - (void)didReceiveMemoryWarning {

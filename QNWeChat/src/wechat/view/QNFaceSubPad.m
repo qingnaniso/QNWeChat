@@ -56,14 +56,6 @@
     } else {
         [self loadCommonIcons];
     }
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
-    [self addGestureRecognizer:tap];
-}
-
-- (void)tap
-{
-    NSLog(@"tap");
 }
 
 - (void)loadQQFaceIcons

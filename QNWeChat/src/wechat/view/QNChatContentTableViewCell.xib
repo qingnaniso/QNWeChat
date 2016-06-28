@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatContentCellIdentifier" rowHeight="308" id="KGk-i7-Jjw" customClass="QNChatContentTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="438" height="308"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="438" height="307"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZFN-aT-xzf">
+                        <rect key="frame" x="382" y="10" width="46" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="46" id="BHe-td-f8k"/>
+                            <constraint firstAttribute="width" constant="46" id="qOK-Da-rEc"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ZFN-aT-xzf" secondAttribute="trailing" constant="10" id="0hX-DL-jWI"/>
+                    <constraint firstItem="ZFN-aT-xzf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="KKf-Sm-trC"/>
+                    <constraint firstItem="ZFN-aT-xzf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ivM-Kr-Yhr"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="ivM-Kr-Yhr"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="vatarImage" destination="ZFN-aT-xzf" id="jM7-cm-yXg"/>
+            </connections>
+            <point key="canvasLocation" x="534" y="406"/>
+        </tableViewCell>
+    </objects>
+</document>
