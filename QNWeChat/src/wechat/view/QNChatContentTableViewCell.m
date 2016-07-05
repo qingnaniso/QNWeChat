@@ -7,7 +7,7 @@
 //
 
 #import "QNChatContentTableViewCell.h"
-
+#import "CTView.h"
 #define kEdgeOffSet 10;
 @interface QNChatContentTableViewCell ()
 
@@ -32,7 +32,7 @@
 {
     CGFloat height = 0;
     if (model.chatType == QNChatModelWord) {
-        height = 44;
+        height = 60;
     }
     return height + 2 * kEdgeOffSet;
 }
@@ -49,13 +49,29 @@
         make.height.equalTo([self cellHeightForContent:model]);
         
     }];
+    
+    BOOL flag = NO;
+    for (UIView *view in self.chatContentMaskView.subviews) {
+        
+        if ([view isKindOfClass:[CTView class]]) {
+            flag = YES;
+        }
+    }
+    
+    if (!flag) {
+        
+        CGRect frame = CGRectMake(2, 2, 150 - 15, [QNChatContentTableViewCell cellHeightForContent:model] - 20);
+        CTView *ctView = [[CTView alloc] initWithFrame:frame originalString:model.chatContent];
+        ctView.backgroundColor = [UIColor clearColor];
+        [self.chatContentMaskView addSubview:ctView];
+    }
 }
 
 - (NSNumber *)cellHeightForContent:(QNChatModel *)model
 {
     CGFloat height = 0;
     if (model.chatType == QNChatModelWord) {
-        height = 44;
+        height = 60;
     }
     return [NSNumber numberWithFloat:height];
 }

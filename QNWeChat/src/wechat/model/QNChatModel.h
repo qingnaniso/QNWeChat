@@ -38,3 +38,4 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSArray *otherPerson;
 
 @end
+

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA41D2BA4D500E47C14 /* CTView.m */; };
+		E0464EAA1D2BA4D500E47C14 /* IconFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA61D2BA4D500E47C14 /* IconFrame.m */; };
+		E0464EAB1D2BA4D500E47C14 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA81D2BA4D500E47C14 /* MarkupParser.m */; };
 		E0ABAF5A1D12392700899618 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABAF591D12392700899618 /* main.m */; };
 		E0ABAF5D1D12392700899618 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABAF5C1D12392700899618 /* AppDelegate.m */; };
 		E0ABAF631D12392700899618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ABAF611D12392700899618 /* Main.storyboard */; };
@@ -187,6 +190,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E0464EA31D2BA4D500E47C14 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
+		E0464EA41D2BA4D500E47C14 /* CTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTView.m; sourceTree = "<group>"; };
+		E0464EA51D2BA4D500E47C14 /* IconFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconFrame.h; sourceTree = "<group>"; };
+		E0464EA61D2BA4D500E47C14 /* IconFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconFrame.m; sourceTree = "<group>"; };
+		E0464EA71D2BA4D500E47C14 /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
+		E0464EA81D2BA4D500E47C14 /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
 		E0ABAF551D12392700899618 /* QNWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ABAF591D12392700899618 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E0ABAF5B1D12392700899618 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -829,6 +838,12 @@
 				E0E239DD1D22524400825783 /* QNChatContentTableViewCell.h */,
 				E0E239DE1D22524400825783 /* QNChatContentTableViewCell.m */,
 				E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */,
+				E0464EA31D2BA4D500E47C14 /* CTView.h */,
+				E0464EA41D2BA4D500E47C14 /* CTView.m */,
+				E0464EA51D2BA4D500E47C14 /* IconFrame.h */,
+				E0464EA61D2BA4D500E47C14 /* IconFrame.m */,
+				E0464EA71D2BA4D500E47C14 /* MarkupParser.h */,
+				E0464EA81D2BA4D500E47C14 /* MarkupParser.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1444,6 +1459,7 @@
 				E0ABB10F1D1256C900899618 /* YYTextView.m in Sources */,
 				E0ABB0191D12549800899618 /* UIView+WebCacheOperation.m in Sources */,
 				E0E239D91D20DB7500825783 /* QNFaceSubPad.m in Sources */,
+				E0464EAA1D2BA4D500E47C14 /* IconFrame.m in Sources */,
 				E0ABB0F71D1256C900899618 /* YYSpriteSheetImage.m in Sources */,
 				E0ABB0131D12549800899618 /* UIButton+WebCache.m in Sources */,
 				E0ABB0D91D1256C900899618 /* CALayer+YYAdd.m in Sources */,
@@ -1463,6 +1479,7 @@
 				E0ABB0101D12549800899618 /* SDWebImageDownloaderOperation.m in Sources */,
 				E0ABB0FA1D1256C900899618 /* NSObject+YYModel.m in Sources */,
 				E0ABB0D71D1256C900899618 /* NSThread+YYAdd.m in Sources */,
+				E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */,
 				E0ABB0E71D1256C900899618 /* UITextField+YYAdd.m in Sources */,
 				E0ABB1671D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.m in Sources */,
 				E0ABB0F91D1256C900899618 /* YYWebImageOperation.m in Sources */,
@@ -1496,6 +1513,7 @@
 				E0ABB0F01D1256C900899618 /* UIButton+YYWebImage.m in Sources */,
 				E0ABB0DB1D1256C900899618 /* UIApplication+YYAdd.m in Sources */,
 				E0ABB1401D12A40B00899618 /* pinyin.c in Sources */,
+				E0464EAB1D2BA4D500E47C14 /* MarkupParser.m in Sources */,
 				E0ABB00B1D12549800899618 /* NSData+ImageContentType.m in Sources */,
 				E0ABB1091D1256C900899618 /* YYTextAttribute.m in Sources */,
 				E0ABB0F11D1256C900899618 /* UIImageView+YYWebImage.m in Sources */,
