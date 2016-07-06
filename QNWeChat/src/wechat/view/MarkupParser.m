@@ -80,6 +80,27 @@
     
     CTFontRef font = CTFontCreateWithName(CFSTR("ArialMT"), 14, NULL);
     [markup addAttribute:(id)kCTFontAttributeName value:(__bridge id)font range:NSMakeRange(0, markup.length)];
+    //lineBreakMode
+    CTParagraphStyleSetting lineBreakMode;
+    CTLineBreakMode lineBreak = kCTLineBreakByCharWrapping;
+    lineBreakMode.spec        = kCTParagraphStyleSpecifierLineBreakMode;
+    lineBreakMode.value       = &lineBreak;
+    lineBreakMode.valueSize   = sizeof(lineBreak);
+    
+    //lineSpace
+    CGFloat lineSpace = 0;
+    CTParagraphStyleSetting lineSpaceStyle;
+    lineSpaceStyle.spec = kCTParagraphStyleSpecifierLineSpacing;
+    lineSpaceStyle.valueSize = sizeof(lineSpace);
+    lineSpaceStyle.value =&lineSpace;
+    
+    CTParagraphStyleSetting settings[] = {lineSpaceStyle,lineBreakMode};
+    CTParagraphStyleRef style = CTParagraphStyleCreate(settings, sizeof(settings)/sizeof(settings[0]));
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithObject:(__bridge id)style forKey:(id)kCTParagraphStyleAttributeName ];
+    CFRelease(style);
+    
+    [markup addAttributes:attributes range:NSMakeRange(0, [markup length])];
+
     return markup;
 }
 

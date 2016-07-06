@@ -44,12 +44,13 @@
     MarkupParser *parser = [[MarkupParser alloc] init];
     
     NSAttributedString *attString = [parser attrStringFromMarkup:originalString];
-    
+
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attString);
-    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, [attString length]), path, NULL);
+    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
     CTFrameDraw(frame, context);
     
     CFArrayRef lines = CTFrameGetLines(frame);
+    NSLog(@"lines = %li",CFArrayGetCount(lines));
     CGPoint lineOrigins[CFArrayGetCount(lines)];
     CTFrameGetLineOrigins(frame, CFRangeMake(0, 0), lineOrigins);
     
@@ -95,7 +96,7 @@
                     CGRect imageDrawRect;
                     imageDrawRect.size = CGSizeMake(18, 18);
                     imageDrawRect.origin.x = runRect.origin.x;
-                    imageDrawRect.origin.y = lineOrigin.y - 2;
+                    imageDrawRect.origin.y = lineOrigin.y - 4;
                     CGContextDrawImage(context, imageDrawRect, image.CGImage);
                 }
             }
