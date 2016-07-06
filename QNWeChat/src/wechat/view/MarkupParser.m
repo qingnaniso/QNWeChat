@@ -81,18 +81,6 @@
     CTFontRef font = CTFontCreateWithName(CFSTR("ArialMT"), 14, NULL);
     [markup addAttribute:(id)kCTFontAttributeName value:(__bridge id)font range:NSMakeRange(0, markup.length)];
     //lineBreakMode
-//    CTParagraphStyleSetting lineBreakMode;
-//    CTLineBreakMode lineBreak = kCTLineBreakByCharWrapping;
-//    lineBreakMode.spec        = kCTParagraphStyleSpecifierLineBreakMode;
-//    lineBreakMode.value       = &lineBreak;
-//    lineBreakMode.valueSize   = sizeof(lineBreak);
-//    
-//    CTParagraphStyleSetting settings[] = {lineBreakMode};
-//    CTParagraphStyleRef style = CTParagraphStyleCreate(settings, sizeof(settings)/sizeof(settings[0]));
-//    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithObject:(__bridge id)style forKey:(id)kCTParagraphStyleAttributeName];
-//    CFRelease(style);
-//    
-//    [markup addAttributes:attributes range:NSMakeRange(0, [markup length])];
     markup.lineBreakMode = NSLineBreakByCharWrapping;
 
     return markup;
@@ -134,7 +122,7 @@
         CTRunDelegateRef delegate = CTRunDelegateCreate(&imageCallBacks, (__bridge void * _Nullable)(obj.iconName));
         
         //placeholder with blank " "
-        NSMutableAttributedString *blankAttr = [[NSMutableAttributedString alloc] initWithString:@"xix"];
+        NSMutableAttributedString *blankAttr = [[NSMutableAttributedString alloc] initWithString:@"xix"];  //xix placeholder for icon image
         [blankAttr addAttribute:(NSString *)kCTRunDelegateAttributeName value:(__bridge id)delegate range:NSMakeRange(0, 1)];
         CFRelease(delegate);
         

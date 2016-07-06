@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *chatDataSource;
 @property (nonatomic) CGPoint tableViewContentOffSet;
+@property (nonatomic, strong) NSMutableDictionary *cellHeightCacheDic;
 
 @end
 
@@ -38,7 +39,7 @@
 - (void)initData
 {
     self.chatDataSource = [NSMutableArray array];
-    
+    self.cellHeightCacheDic = [NSMutableDictionary dictionary];
 }
 
 - (void)initTableView
@@ -82,7 +83,7 @@
         model.chatContent = textContent;
         model.chatFromMe = YES;
         model.vatarURL = weakSelf.personModel.vatarURL;
-        
+        model.chatID = [textContent md2String];
         [weakSelf.chatDataSource addObject:model];
         
         [weakSelf.tableView reloadData];
@@ -119,7 +120,20 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     QNChatModel *model = self.chatDataSource[indexPath.row];
-    return [QNChatContentTableViewCell cellHeightForContent:model];
+    
+    NSNumber *height = [self.cellHeightCacheDic objectForKey:model.chatID];
+    
+    CGFloat cellHeight;
+    
+    if (!height) {
+        
+        cellHeight = [QNChatContentTableViewCell cellHeightForContent:model];
+        
+        [self.cellHeightCacheDic setObject:[NSNumber numberWithFloat:cellHeight] forKey:model.chatID];
+    } else {
+        cellHeight = height.floatValue;
+    }
+    return cellHeight;
 }
 
 - (void)didReceiveMemoryWarning {

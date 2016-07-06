@@ -41,22 +41,21 @@
 
 -(void)updateContent:(QNChatModel *)model
 {
-    [self.vatarImage setImageWithURL:[NSURL URLWithString:model.vatarURL] placeholder:nil];
-    
-    CGSize size = [CTView sizeForStringByParser:model.chatContent];
-    
-    [self.chatContentMaskView mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.right.equalTo(self.vatarImage.mas_left).offset = -10.0f;
-        make.top.equalTo(self).offset = 10.0f;
-        make.width.equalTo([NSNumber numberWithFloat:size.width]);
-        make.height.equalTo([self cellHeightForContent:model]);
-        
-    }];
-    
     if (!self.flag) {
+        [self.vatarImage setImageWithURL:[NSURL URLWithString:model.vatarURL] placeholder:nil];
         
-        CGRect frame = CGRectMake(2, 2, 150 - 15, [QNChatContentTableViewCell cellHeightForContent:model] - 20);
+        CGSize size = [CTView sizeForStringByParser:model.chatContent];
+        
+        [self.chatContentMaskView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.right.equalTo(self.vatarImage.mas_left).offset = -10.0f;
+            make.top.equalTo(self).offset = 10.0f;
+            make.width.equalTo([NSNumber numberWithFloat:size.width]);
+            make.height.equalTo([self cellHeightForContent:model]);
+            
+        }];
+        
+        CGRect frame = CGRectMake(2, 2, 200 - 15, [QNChatContentTableViewCell cellHeightForContent:model] - 20);
         CTView *ctView = [[CTView alloc] initWithFrame:frame originalString:model.chatContent];
         ctView.backgroundColor = [UIColor clearColor];
         [self.chatContentMaskView addSubview:ctView];

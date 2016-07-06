@@ -115,7 +115,7 @@
 
     NSAttributedString *attString = [parser attrStringFromMarkupForMeasure:originalString];
     
-    CGSize boundingRect = [[measureTextTool sharedInstance] measure:attString widthLimit:150];
+    CGSize boundingRect = [[measureTextTool sharedInstance] measure:attString widthLimit:200];
 
     return boundingRect;
 }
