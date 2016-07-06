@@ -20,5 +20,6 @@
 @property (strong, nonatomic) NSMutableArray *images;
 
 - (NSAttributedString *)attrStringFromMarkup:(NSString *)string;
+-(NSAttributedString *)attrStringFromMarkupForMeasure:(NSString *)string;
 
 @end

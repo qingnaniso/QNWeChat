@@ -10,6 +10,7 @@
 		E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA41D2BA4D500E47C14 /* CTView.m */; };
 		E0464EAA1D2BA4D500E47C14 /* IconFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA61D2BA4D500E47C14 /* IconFrame.m */; };
 		E0464EAB1D2BA4D500E47C14 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA81D2BA4D500E47C14 /* MarkupParser.m */; };
+		E0464EAE1D2CE1EE00E47C14 /* measureTextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */; };
 		E0ABAF5A1D12392700899618 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABAF591D12392700899618 /* main.m */; };
 		E0ABAF5D1D12392700899618 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABAF5C1D12392700899618 /* AppDelegate.m */; };
 		E0ABAF631D12392700899618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ABAF611D12392700899618 /* Main.storyboard */; };
@@ -196,6 +197,8 @@
 		E0464EA61D2BA4D500E47C14 /* IconFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconFrame.m; sourceTree = "<group>"; };
 		E0464EA71D2BA4D500E47C14 /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
 		E0464EA81D2BA4D500E47C14 /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
+		E0464EAC1D2CE1EE00E47C14 /* measureTextTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = measureTextTool.h; sourceTree = "<group>"; };
+		E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = measureTextTool.m; sourceTree = "<group>"; };
 		E0ABAF551D12392700899618 /* QNWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ABAF591D12392700899618 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E0ABAF5B1D12392700899618 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -840,6 +843,8 @@
 				E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */,
 				E0464EA31D2BA4D500E47C14 /* CTView.h */,
 				E0464EA41D2BA4D500E47C14 /* CTView.m */,
+				E0464EAC1D2CE1EE00E47C14 /* measureTextTool.h */,
+				E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */,
 				E0464EA51D2BA4D500E47C14 /* IconFrame.h */,
 				E0464EA61D2BA4D500E47C14 /* IconFrame.m */,
 				E0464EA71D2BA4D500E47C14 /* MarkupParser.h */,
@@ -1489,6 +1494,7 @@
 				E0ABB1041D1256C900899618 /* YYTextSelectionView.m in Sources */,
 				E0ABB0141D12549800899618 /* UIImage+GIF.m in Sources */,
 				E0E239DC1D21260000825783 /* QNFacePadBottomView.m in Sources */,
+				E0464EAE1D2CE1EE00E47C14 /* measureTextTool.m in Sources */,
 				E0ABB0D61D1256C900899618 /* NSString+YYAdd.m in Sources */,
 				E0ABB1051D1256C900899618 /* NSAttributedString+YYText.m in Sources */,
 				E0ABB19D1D18DA5300899618 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,

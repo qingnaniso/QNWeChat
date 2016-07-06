@@ -81,28 +81,78 @@
     CTFontRef font = CTFontCreateWithName(CFSTR("ArialMT"), 14, NULL);
     [markup addAttribute:(id)kCTFontAttributeName value:(__bridge id)font range:NSMakeRange(0, markup.length)];
     //lineBreakMode
-    CTParagraphStyleSetting lineBreakMode;
-    CTLineBreakMode lineBreak = kCTLineBreakByCharWrapping;
-    lineBreakMode.spec        = kCTParagraphStyleSpecifierLineBreakMode;
-    lineBreakMode.value       = &lineBreak;
-    lineBreakMode.valueSize   = sizeof(lineBreak);
-    
-    //lineSpace
-    CGFloat lineSpace = 0;
-    CTParagraphStyleSetting lineSpaceStyle;
-    lineSpaceStyle.spec = kCTParagraphStyleSpecifierLineSpacing;
-    lineSpaceStyle.valueSize = sizeof(lineSpace);
-    lineSpaceStyle.value =&lineSpace;
-    
-    CTParagraphStyleSetting settings[] = {lineSpaceStyle,lineBreakMode};
-    CTParagraphStyleRef style = CTParagraphStyleCreate(settings, sizeof(settings)/sizeof(settings[0]));
-    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithObject:(__bridge id)style forKey:(id)kCTParagraphStyleAttributeName ];
-    CFRelease(style);
-    
-    [markup addAttributes:attributes range:NSMakeRange(0, [markup length])];
+//    CTParagraphStyleSetting lineBreakMode;
+//    CTLineBreakMode lineBreak = kCTLineBreakByCharWrapping;
+//    lineBreakMode.spec        = kCTParagraphStyleSpecifierLineBreakMode;
+//    lineBreakMode.value       = &lineBreak;
+//    lineBreakMode.valueSize   = sizeof(lineBreak);
+//    
+//    CTParagraphStyleSetting settings[] = {lineBreakMode};
+//    CTParagraphStyleRef style = CTParagraphStyleCreate(settings, sizeof(settings)/sizeof(settings[0]));
+//    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithObject:(__bridge id)style forKey:(id)kCTParagraphStyleAttributeName];
+//    CFRelease(style);
+//    
+//    [markup addAttributes:attributes range:NSMakeRange(0, [markup length])];
+    markup.lineBreakMode = NSLineBreakByCharWrapping;
 
     return markup;
 }
+-(NSAttributedString *)attrStringFromMarkupForMeasure:(NSString *)string
+{
+    NSMutableAttributedString *markup = [[NSMutableAttributedString alloc] initWithString:string];
+    
+    NSRegularExpression *regularEx = [NSRegularExpression regularExpressionWithPattern:@"\\[.+?\\]" options:NSRegularExpressionCaseInsensitive error:nil];
+    [regularEx enumerateMatchesInString:string options:NSMatchingWithTransparentBounds range:NSMakeRange(0, markup.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        
+        IconFrame *icon = [[IconFrame alloc] init];
+        icon.range = result.range;
+        
+        // [abc-11] tag's range
+        NSRange range;
+        range.location = result.range.location + 1;
+        range.length = result.range.length - 2;
+        NSString *imgName = [string substringWithRange:range];
+        icon.iconName = imgName;
+        
+        [self.iconsArray addObject:icon];
+    }];
+    
+    [self.iconsArray enumerateObjectsUsingBlock:^(IconFrame*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        // replace [abc-11] with ""
+        NSRange range;
+        range.location = obj.range.location - self.deleteRangeOffSet;
+        range.length = obj.range.length;
+        [markup replaceCharactersInRange:range withString:@""];
+        self.deleteRangeOffSet += obj.range.length;
+        
+        CTRunDelegateCallbacks imageCallBacks;
+        imageCallBacks.version = kCTRunDelegateVersion1;
+        imageCallBacks.getAscent = RunDelegateAscent;
+        imageCallBacks.getDescent = RunDelegateDecent;
+        imageCallBacks.getWidth = RunDelegateWidth;
+        imageCallBacks.dealloc = RunDealloc;
+        CTRunDelegateRef delegate = CTRunDelegateCreate(&imageCallBacks, (__bridge void * _Nullable)(obj.iconName));
+        
+        //placeholder with blank " "
+        NSMutableAttributedString *blankAttr = [[NSMutableAttributedString alloc] initWithString:@"xix"];
+        [blankAttr addAttribute:(NSString *)kCTRunDelegateAttributeName value:(__bridge id)delegate range:NSMakeRange(0, 1)];
+        CFRelease(delegate);
+        
+        [blankAttr addAttribute:@"imageName" value:obj.iconName range:NSMakeRange(0, 1)];
+        
+        [markup insertAttributedString:blankAttr atIndex:range.location];
+        
+        self.deleteRangeOffSet -= 1;
+    }];
+    
+    CTFontRef font = CTFontCreateWithName(CFSTR("ArialMT"), 14, NULL);
+    [markup addAttribute:(id)kCTFontAttributeName value:(__bridge id)font range:NSMakeRange(0, markup.length)];
+    //lineBreakMode
+    markup.lineBreakMode = NSLineBreakByCharWrapping;
+
+    return markup;
+}
+
 
 CGFloat RunDelegateAscent(void *refcon) {
     return 5;

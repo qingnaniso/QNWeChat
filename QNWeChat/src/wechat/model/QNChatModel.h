@@ -25,6 +25,7 @@ typedef enum : NSUInteger {
 
 @interface QNChatModel : QNBaseModel
 
+@property (strong, nonatomic) NSString *chatID;
 @property (nonatomic) QNChatModelType chatType;
 @property (strong, nonatomic) NSString *chatContent;
 @property (nonatomic) BOOL chatFromMe;

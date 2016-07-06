@@ -12,5 +12,6 @@
 
 -(instancetype)initWithFrame:(CGRect)frame originalString:(NSString *)string;
 
++(CGSize)sizeForStringByParser:(NSString *)originalString;
 
 @end

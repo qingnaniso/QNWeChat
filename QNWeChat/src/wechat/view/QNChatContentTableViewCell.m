@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *vatarImage;
 @property (strong, nonatomic) UIImageView *chatContentMaskView;
+@property (nonatomic) BOOL flag;
 
 @end
 @implementation QNChatContentTableViewCell
@@ -32,7 +33,8 @@
 {
     CGFloat height = 0;
     if (model.chatType == QNChatModelWord) {
-        height = 60;
+        CGSize size = [CTView sizeForStringByParser:model.chatContent];
+        height = size.height;
     }
     return height + 2 * kEdgeOffSet;
 }
@@ -41,29 +43,24 @@
 {
     [self.vatarImage setImageWithURL:[NSURL URLWithString:model.vatarURL] placeholder:nil];
     
+    CGSize size = [CTView sizeForStringByParser:model.chatContent];
+    
     [self.chatContentMaskView mas_makeConstraints:^(MASConstraintMaker *make) {
        
         make.right.equalTo(self.vatarImage.mas_left).offset = -10.0f;
         make.top.equalTo(self).offset = 10.0f;
-        make.width.equalTo(@150);
+        make.width.equalTo([NSNumber numberWithFloat:size.width]);
         make.height.equalTo([self cellHeightForContent:model]);
         
     }];
     
-    BOOL flag = NO;
-    for (UIView *view in self.chatContentMaskView.subviews) {
-        
-        if ([view isKindOfClass:[CTView class]]) {
-            flag = YES;
-        }
-    }
-    
-    if (!flag) {
+    if (!self.flag) {
         
         CGRect frame = CGRectMake(2, 2, 150 - 15, [QNChatContentTableViewCell cellHeightForContent:model] - 20);
         CTView *ctView = [[CTView alloc] initWithFrame:frame originalString:model.chatContent];
         ctView.backgroundColor = [UIColor clearColor];
         [self.chatContentMaskView addSubview:ctView];
+        self.flag = YES;
     }
 }
 
@@ -71,7 +68,8 @@
 {
     CGFloat height = 0;
     if (model.chatType == QNChatModelWord) {
-        height = 60;
+        CGSize size = [CTView sizeForStringByParser:model.chatContent];
+        height = size.height;
     }
     return [NSNumber numberWithFloat:height];
 }

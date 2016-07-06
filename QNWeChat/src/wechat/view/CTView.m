@@ -9,6 +9,7 @@
 #import "CTView.h"
 #import <CoreText/CoreText.h>
 #import "MarkupParser.h"
+#import "measureTextTool.h"
 
 @interface CTView ()
 @property (strong, nonatomic) NSString *originalString;
@@ -108,5 +109,16 @@
     CFRelease(path);
 }
 
++(CGSize)sizeForStringByParser:(NSString *)originalString
+{
+    MarkupParser *parser = [[MarkupParser alloc] init];
+
+    NSAttributedString *attString = [parser attrStringFromMarkupForMeasure:originalString];
+    
+    CGSize boundingRect = [[measureTextTool sharedInstance] measure:attString widthLimit:150];
+
+    return boundingRect;
+}
 
 @end
+

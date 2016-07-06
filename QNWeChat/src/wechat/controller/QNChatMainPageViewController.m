@@ -38,6 +38,7 @@
 - (void)initData
 {
     self.chatDataSource = [NSMutableArray array];
+    
 }
 
 - (void)initTableView
@@ -118,7 +119,6 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     QNChatModel *model = self.chatDataSource[indexPath.row];
-    NSLog(@"%f",[QNChatContentTableViewCell cellHeightForContent:model]);
     return [QNChatContentTableViewCell cellHeightForContent:model];
 }
 
