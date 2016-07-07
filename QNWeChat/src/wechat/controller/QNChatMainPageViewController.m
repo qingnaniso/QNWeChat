@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSMutableArray *chatDataSource;
 @property (nonatomic) CGPoint tableViewContentOffSet;
 @property (nonatomic, strong) NSMutableDictionary *cellHeightCacheDic;
+@property (nonatomic) BOOL keyboardShow;
 
 @end
 
@@ -66,6 +67,31 @@
         self.inputView.frame = frame;
         NSLog(@"x=%fy=%f",r1.origin.x,r1.origin.y);
     }];
+    
+    if (self.keyboardShow) {
+        
+    } else {
+        
+        if (self.chatDataSource.count > 0) {
+            
+            NSIndexPath *idx = [NSIndexPath indexPathForRow:(self.chatDataSource.count - 1) inSection:0];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:idx];
+            CGRect cellRect = [cell convertRect:cell.contentView.frame toViewOrWindow:self.view];
+            CGFloat keyboardCutCellY = r1.origin.y - (cellRect.origin.y + cellRect.size.height);
+            
+            if (keyboardCutCellY < 0) {
+                
+                [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(self.view);
+                    make.left.equalTo(self.view);
+                    make.right.equalTo(self.view);
+                    make.bottom.equalTo(self.view).offset = r1.origin.y;
+                }];
+            }
+        }
+    }
+
+    self.keyboardShow = !self.keyboardShow;
 }
 
 - (void)initKeyboardAccessoryView
@@ -86,16 +112,9 @@
         model.chatID = [textContent md2String];
         [weakSelf.chatDataSource addObject:model];
         
-        [weakSelf.tableView reloadData];
+        [weakSelf.tableView insertRow:(weakSelf.chatDataSource.count - 1) inSection:0 withRowAnimation:UITableViewRowAnimationRight];
+        [weakSelf.tableView scrollToRow:(weakSelf.chatDataSource.count - 1) inSection:0 atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         
-        if (weakSelf.chatDataSource.count > 6) {
-            
-            CGPoint point = weakSelf.tableViewContentOffSet;
-            point.y += 44;
-            weakSelf.tableView.contentOffset = point;
-            weakSelf.tableViewContentOffSet = point;
-            
-        }
     };
 }
 
