@@ -123,14 +123,14 @@
         
         //placeholder with blank " "
         NSMutableAttributedString *blankAttr = [[NSMutableAttributedString alloc] initWithString:@"xix"];  //xix placeholder for icon image
-        [blankAttr addAttribute:(NSString *)kCTRunDelegateAttributeName value:(__bridge id)delegate range:NSMakeRange(0, 1)];
+        [blankAttr addAttribute:(NSString *)kCTRunDelegateAttributeName value:(__bridge id)delegate range:NSMakeRange(0, 3)];
         CFRelease(delegate);
         
-        [blankAttr addAttribute:@"imageName" value:obj.iconName range:NSMakeRange(0, 1)];
+        [blankAttr addAttribute:@"imageName" value:obj.iconName range:NSMakeRange(0, 3)];
         
         [markup insertAttributedString:blankAttr atIndex:range.location];
         
-        self.deleteRangeOffSet -= 1;
+        self.deleteRangeOffSet -= 3;
     }];
     
     CTFontRef font = CTFontCreateWithName(CFSTR("ArialMT"), 14, NULL);
