@@ -558,6 +558,39 @@
 			path = common;
 			sourceTree = "<group>";
 		};
+		E0464EF31D2F942E00E47C14 /* keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E0E239C41D195CF200825783 /* QNInputToolView.h */,
+				E0E239C51D195CF200825783 /* QNInputToolView.m */,
+				E0E239C71D1A656100825783 /* QNFacePad.h */,
+				E0E239C81D1A656100825783 /* QNFacePad.m */,
+				E0E239D71D20DB7500825783 /* QNFaceSubPad.h */,
+				E0E239D81D20DB7500825783 /* QNFaceSubPad.m */,
+				E0E239DA1D21260000825783 /* QNFacePadBottomView.h */,
+				E0E239DB1D21260000825783 /* QNFacePadBottomView.m */,
+			);
+			name = keyboard;
+			sourceTree = "<group>";
+		};
+		E0464EF41D2F945900E47C14 /* chatBubble */ = {
+			isa = PBXGroup;
+			children = (
+				E0E239DD1D22524400825783 /* QNChatContentTableViewCell.h */,
+				E0E239DE1D22524400825783 /* QNChatContentTableViewCell.m */,
+				E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */,
+				E0464EA31D2BA4D500E47C14 /* CTView.h */,
+				E0464EA41D2BA4D500E47C14 /* CTView.m */,
+				E0464EAC1D2CE1EE00E47C14 /* measureTextTool.h */,
+				E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */,
+				E0464EA51D2BA4D500E47C14 /* IconFrame.h */,
+				E0464EA61D2BA4D500E47C14 /* IconFrame.m */,
+				E0464EA71D2BA4D500E47C14 /* MarkupParser.h */,
+				E0464EA81D2BA4D500E47C14 /* MarkupParser.m */,
+			);
+			name = chatBubble;
+			sourceTree = "<group>";
+		};
 		E0ABAF4C1D12392700899618 = {
 			isa = PBXGroup;
 			children = (
@@ -839,29 +872,12 @@
 		E0ABAFA41D123CA900899618 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				E0464EF41D2F945900E47C14 /* chatBubble */,
+				E0464EF31D2F942E00E47C14 /* keyboard */,
 				E0ABB1A41D18DC7A00899618 /* selectMenuFromBottom */,
 				E0ABAFB01D1241CB00899618 /* QNWeChatTableViewCell.h */,
 				E0ABAFB11D1241CB00899618 /* QNWeChatTableViewCell.m */,
 				E0ABAFB21D1241CB00899618 /* QNWeChatTableViewCell.xib */,
-				E0E239C41D195CF200825783 /* QNInputToolView.h */,
-				E0E239C51D195CF200825783 /* QNInputToolView.m */,
-				E0E239C71D1A656100825783 /* QNFacePad.h */,
-				E0E239C81D1A656100825783 /* QNFacePad.m */,
-				E0E239D71D20DB7500825783 /* QNFaceSubPad.h */,
-				E0E239D81D20DB7500825783 /* QNFaceSubPad.m */,
-				E0E239DA1D21260000825783 /* QNFacePadBottomView.h */,
-				E0E239DB1D21260000825783 /* QNFacePadBottomView.m */,
-				E0E239DD1D22524400825783 /* QNChatContentTableViewCell.h */,
-				E0E239DE1D22524400825783 /* QNChatContentTableViewCell.m */,
-				E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */,
-				E0464EA31D2BA4D500E47C14 /* CTView.h */,
-				E0464EA41D2BA4D500E47C14 /* CTView.m */,
-				E0464EAC1D2CE1EE00E47C14 /* measureTextTool.h */,
-				E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */,
-				E0464EA51D2BA4D500E47C14 /* IconFrame.h */,
-				E0464EA61D2BA4D500E47C14 /* IconFrame.m */,
-				E0464EA71D2BA4D500E47C14 /* MarkupParser.h */,
-				E0464EA81D2BA4D500E47C14 /* MarkupParser.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
