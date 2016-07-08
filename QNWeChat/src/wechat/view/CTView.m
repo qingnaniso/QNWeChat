@@ -51,7 +51,6 @@
     CTFrameDraw(frame, context);
     
     CFArrayRef lines = CTFrameGetLines(frame);
-    NSLog(@"lines = %li",CFArrayGetCount(lines));
     CGPoint lineOrigins[CFArrayGetCount(lines)];
     CTFrameGetLineOrigins(frame, CFRangeMake(0, 0), lineOrigins);
     
@@ -118,6 +117,12 @@
     CGSize boundingRect = [[measureTextTool sharedInstance] measure:attString widthLimit:200];
 
     return boundingRect;
+}
+
+- (void)setChatString:(NSString *)string
+{
+    self.originalString = [string copy];
+    
 }
 
 @end

@@ -14,4 +14,6 @@
 
 +(CGSize)sizeForStringByParser:(NSString *)originalString;
 
+- (void)setChatString:(NSString *)string;
+
 @end

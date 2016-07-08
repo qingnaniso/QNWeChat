@@ -16,11 +16,12 @@
 @property (strong, nonatomic) UITextField *textField;
 @property (strong, nonatomic) QNInputToolView *inputView;
 @property (strong, nonatomic) NSDictionary *keyBoardDic;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *chatDataSource;
 @property (nonatomic) CGPoint tableViewContentOffSet;
 @property (nonatomic, strong) NSMutableDictionary *cellHeightCacheDic;
 @property (nonatomic) BOOL keyboardShow;
+@property (nonatomic) CGRect keyboardRect;
 
 @end
 
@@ -29,8 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
-    [self initKeyboardAccessoryView];
     [self initTableView];
+    [self initKeyboardAccessoryView];
     self.title = self.personModel.name;
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
@@ -45,8 +46,14 @@
 
 - (void)initTableView
 {
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 50 - 64-5) style:UITableViewStylePlain];
     [self.tableView registerNib:[UINib nibWithNibName:@"QNChatContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"chatContentCellIdentifier"];
     self.automaticallyAdjustsScrollViewInsets = false;  /* fix a top blank area bug in UITableView .. */
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    
 }
 
 - (void)tap
@@ -59,38 +66,30 @@
     self.keyBoardDic = notification.userInfo;
     CGRect rect = [self.keyBoardDic[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
     CGRect r1 = [self.view convertRect:rect fromView:self.view.window];
+    self.keyboardRect = r1;
     
     [UIView animateWithDuration:[self.keyBoardDic[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
         [UIView setAnimationCurve:[self.keyBoardDic[UIKeyboardAnimationCurveUserInfoKey] doubleValue]];
         CGRect frame = self.inputView.frame;
         frame.origin.y = r1.origin.y - frame.size.height;
         self.inputView.frame = frame;
-        NSLog(@"x=%fy=%f",r1.origin.x,r1.origin.y);
     }];
     
     if (self.keyboardShow) {
         
+        [UIView animateWithDuration:[self.keyBoardDic[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+            [UIView setAnimationCurve:[self.keyBoardDic[UIKeyboardAnimationCurveUserInfoKey] doubleValue]];
+            CGRect tableViewRect = self.tableView.frame;
+            tableViewRect.size.height = kScreenHeight - 50 - 64 - 5;
+            self.tableView.frame = tableViewRect;
+        }];
+        
     } else {
         
-        if (self.chatDataSource.count > 0) {
-            
-            NSIndexPath *idx = [NSIndexPath indexPathForRow:(self.chatDataSource.count - 1) inSection:0];
-            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:idx];
-            CGRect cellRect = [cell convertRect:cell.contentView.frame toViewOrWindow:self.view];
-            CGFloat keyboardCutCellY = r1.origin.y - (cellRect.origin.y + cellRect.size.height);
-            
-            if (keyboardCutCellY < 0) {
-                
-                [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.top.equalTo(self.view);
-                    make.left.equalTo(self.view);
-                    make.right.equalTo(self.view);
-                    make.bottom.equalTo(self.view).offset = r1.origin.y;
-                }];
-            }
-        }
-    }
+        [self scrollTableViewWhenChatting:NO];
 
+    }
+ 
     self.keyboardShow = !self.keyboardShow;
 }
 
@@ -112,10 +111,34 @@
         model.chatID = [textContent md2String];
         [weakSelf.chatDataSource addObject:model];
         
-        [weakSelf.tableView insertRow:(weakSelf.chatDataSource.count - 1) inSection:0 withRowAnimation:UITableViewRowAnimationRight];
-        [weakSelf.tableView scrollToRow:(weakSelf.chatDataSource.count - 1) inSection:0 atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        
+        [weakSelf.tableView insertRow:(weakSelf.chatDataSource.count - 1) inSection:0 withRowAnimation:UITableViewRowAnimationBottom];
+        [weakSelf scrollTableViewWhenChatting:YES];
     };
+}
+
+- (void)scrollTableViewWhenChatting:(BOOL)shouldScrollForKeyboardClose
+{
+    UITableViewCell *cell = self.tableView.visibleCells.lastObject;;
+    CGRect cellRect = [cell convertRect:cell.contentView.frame toViewOrWindow:self.view];
+    CGFloat keyboardCutCellY = self.keyboardRect.origin.y - (cellRect.origin.y + cellRect.size.height);
+    
+    if (keyboardCutCellY < 0) {
+        
+        [UIView animateWithDuration:[self.keyBoardDic[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+            [UIView setAnimationCurve:[self.keyBoardDic[UIKeyboardAnimationCurveUserInfoKey] doubleValue]];
+            CGRect tableViewRect = self.tableView.frame;
+            tableViewRect.size.height = kScreenHeight - 50 - 64 - self.keyboardRect.size.height- 5;
+            self.tableView.frame = tableViewRect;
+        } completion:^(BOOL finished) {
+            if (self.chatDataSource.count > 0) {
+                [self.tableView scrollToRow:(self.chatDataSource.count - 1) inSection:0 atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            }
+        }];
+    } else {
+        if (shouldScrollForKeyboardClose) {
+            [self.tableView scrollToRow:(self.chatDataSource.count - 1) inSection:0 atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
+    }
 }
 
 #pragma mark - UITABLEVIEW DELEGATE AND DATASOURCE
@@ -152,7 +175,7 @@
     } else {
         cellHeight = height.floatValue;
     }
-    return cellHeight;
+    return MAX(cellHeight, 64);
 }
 
 - (void)didReceiveMemoryWarning {

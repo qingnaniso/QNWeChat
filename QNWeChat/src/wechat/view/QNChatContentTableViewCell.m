@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *vatarImage;
 @property (strong, nonatomic) UIImageView *chatContentMaskView;
 @property (nonatomic) BOOL flag;
+@property (nonatomic, strong) CTView *ctView;
 
 @end
 @implementation QNChatContentTableViewCell
@@ -23,6 +24,9 @@
     self.chatContentMaskView = [[UIImageView alloc] init];
     self.chatContentMaskView.image = [[UIImage imageNamed:@"chatMask"] stretchableImageWithLeftCapWidth:15 topCapHeight:20];
     [self addSubview:self.chatContentMaskView];
+    self.ctView =  [[CTView alloc] initWithFrame:CGRectZero originalString:@""];
+    [self.chatContentMaskView addSubview:self.ctView];
+    self.ctView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -41,26 +45,24 @@
 
 -(void)updateContent:(QNChatModel *)model
 {
-    if (!self.flag) {
-        [self.vatarImage setImageWithURL:[NSURL URLWithString:model.vatarURL] placeholder:nil];
+
+    [self.vatarImage setImageWithURL:[NSURL URLWithString:model.vatarURL] placeholder:nil];
         
-        CGSize size = [CTView sizeForStringByParser:model.chatContent];
+    CGSize size = [CTView sizeForStringByParser:model.chatContent];
         
-        [self.chatContentMaskView mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.right.equalTo(self.vatarImage.mas_left).offset = -10.0f;
-            make.top.equalTo(self).offset = 10.0f;
-            make.width.equalTo([NSNumber numberWithFloat:size.width]);
-            make.height.equalTo([self cellHeightForContent:model]);
-            
-        }];
+    [self.chatContentMaskView mas_updateConstraints:^(MASConstraintMaker *make) {
         
-        CGRect frame = CGRectMake(2, 2, 200 - 15, [QNChatContentTableViewCell cellHeightForContent:model] - 20);
-        CTView *ctView = [[CTView alloc] initWithFrame:frame originalString:model.chatContent];
-        ctView.backgroundColor = [UIColor clearColor];
-        [self.chatContentMaskView addSubview:ctView];
-        self.flag = YES;
-    }
+        make.right.equalTo(self.vatarImage.mas_left).offset = -10.0f;
+        make.top.equalTo(self).offset = 10.0f;
+        make.width.equalTo([NSNumber numberWithFloat:size.width]);
+        make.height.equalTo([self cellHeightForContent:model]);
+        
+    }];
+    
+    CGRect frame = CGRectMake(2, 2, 200 - 15, [QNChatContentTableViewCell cellHeightForContent:model] - 20);
+    [self.ctView setChatString:model.chatContent];
+    self.ctView.frame = frame;
+    [self.ctView setNeedsDisplay];
 }
 
 - (NSNumber *)cellHeightForContent:(QNChatModel *)model
