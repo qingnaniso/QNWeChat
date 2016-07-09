@@ -8,10 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol QNInputToolViewDelegate;
+
 @interface QNInputToolView : UIView
 
 - (void)makeKeyBoardHidden;
 
-@property (strong, nonatomic) void (^QNInputToolViewSendMessageBlock)(NSString *);
+@property (nonatomic, weak) id<QNInputToolViewDelegate> delegate;
 
 @end
+
+@protocol QNInputToolViewDelegate <NSObject>
+
+@required
+
+- (void)inputToolView:(QNInputToolView *)inputView didSendMessage:(NSString *)message;
+- (void)inputToolView:(QNInputToolView *)inputView didSendPicture:(NSString *)message;
+- (void)inputToolViewDidSendVoice:(QNInputToolView *)inputView;
+- (void)inputToolViewDidEndSendVoice:(QNInputToolView *)inputView;
+
+@end
+
+
+
+
+

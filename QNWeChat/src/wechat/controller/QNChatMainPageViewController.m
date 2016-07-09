@@ -11,7 +11,7 @@
 #import "QNChatModel.h"
 #import "QNChatContentTableViewCell.h"
 
-@interface QNChatMainPageViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface QNChatMainPageViewController () <UITableViewDelegate, UITableViewDataSource, QNInputToolViewDelegate>
 
 @property (strong, nonatomic) UITextField *textField;
 @property (strong, nonatomic) QNInputToolView *inputView;
@@ -100,20 +100,7 @@
     
     self.inputView = [[QNInputToolView alloc] initWithFrame:CGRectMake(0, kScreenHeight - 50, kScreenWidth, 50)];
     [self.view addSubview:self.inputView];
-    WS(weakSelf);
-    self.inputView.QNInputToolViewSendMessageBlock = ^(NSString *textContent){
-        
-        QNChatModel *model = [[QNChatModel alloc] init];
-        model.chatType = QNChatModelWord;
-        model.chatContent = textContent;
-        model.chatFromMe = YES;
-        model.vatarURL = weakSelf.personModel.vatarURL;
-        model.chatID = [textContent md2String];
-        [weakSelf.chatDataSource addObject:model];
-        
-        [weakSelf.tableView insertRow:(weakSelf.chatDataSource.count - 1) inSection:0 withRowAnimation:UITableViewRowAnimationBottom];
-        [weakSelf scrollTableViewWhenChatting:YES];
-    };
+    self.inputView.delegate = self;
 }
 
 - (void)scrollTableViewWhenChatting:(BOOL)shouldScrollForKeyboardClose
@@ -176,6 +163,37 @@
         cellHeight = height.floatValue;
     }
     return MAX(cellHeight, 64);
+}
+
+#pragma mark InputView Delegate
+
+-(void)inputToolView:(QNInputToolView *)inputView didSendMessage:(NSString *)message
+{
+    QNChatModel *model = [[QNChatModel alloc] init];
+    model.chatType = QNChatModelWord;
+    model.chatContent = message;
+    model.chatFromMe = YES;
+    model.vatarURL = self.personModel.vatarURL;
+    model.chatID = [message md2String];
+    [self.chatDataSource addObject:model];
+    
+    [self.tableView insertRow:(self.chatDataSource.count - 1) inSection:0 withRowAnimation:UITableViewRowAnimationBottom];
+    [self scrollTableViewWhenChatting:YES];
+}
+
+-(void)inputToolViewDidSendVoice:(QNInputToolView *)inputView
+{
+    
+}
+
+-(void)inputToolViewDidEndSendVoice:(QNInputToolView *)inputView
+{
+    
+}
+
+-(void)inputToolView:(QNInputToolView *)inputView didSendPicture:(NSString *)message
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

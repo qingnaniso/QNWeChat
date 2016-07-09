@@ -18,7 +18,6 @@
 @property (strong, nonatomic) UIButton *speakButton;
 @property (strong, nonatomic) QNFacePad *facePad;
 @property (strong, nonatomic) NSMutableString *textFieldContent;
-@property (strong, nonatomic) void (^sendMessageBlock)(NSString *);
 @property (strong, nonatomic) void (^sendVoiceBlock)(NSString *);
 @property (strong, nonatomic) void (^sendPictureBlock)(NSString *);
 @end
@@ -74,7 +73,6 @@
         self.speakButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.speakButton setBackgroundImage:[[UIImage imageNamed:@"voiceButtonBgd"] stretchableImageWithLeftCapWidth:10.0f topCapHeight:10.0f] forState:UIControlStateNormal];
         [self.speakButton setTitle:@"按住 说话" forState:UIControlStateNormal];
-        [self.speakButton setTitle:@"松开 结束" forState:UIControlStateHighlighted];
         self.speakButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [self.speakButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [self addSubview:self.speakButton];
@@ -85,7 +83,10 @@
             make.top.equalTo(self).offset = 7;
             make.bottom.equalTo(self).offset = -7;
         }];
-
+        UILongPressGestureRecognizer *pressGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(clickSpeakButtonShort:)];
+        pressGes.minimumPressDuration = 0.3;
+        [self.speakButton addGestureRecognizer:pressGes];
+        
         self.textField.hidden = YES;
         [self.textField resignFirstResponder];
         [self.voiceButton setBackgroundImage:[UIImage imageNamed:@"faceButton"] forState:UIControlStateNormal];
@@ -148,11 +149,6 @@
     
     [self.facePad handelAddButtonClicked:^{
         
-        if (weakSelf.sendMessageBlock) {
-            weakSelf.sendMessageBlock(weakSelf.textField.text);
-            weakSelf.textField.text = @"";
-            weakSelf.textFieldContent = [NSMutableString string];
-        }
         
     } sendButtonClicked:^{
         
@@ -162,8 +158,8 @@
 
 - (void)sendMessage
 {
-    if (self.sendMessageBlock && ![self.textField.text isEqualToString:@""]) {
-        self.sendMessageBlock(self.textField.text);
+    if ([self.delegate respondsToSelector:@selector(inputToolView:didSendMessage:)] && ![self.textField.text isEqualToString:@""]) {
+        [self.delegate inputToolView:self didSendMessage:self.textField.text];
         self.textField.text = @"";
         self.textFieldContent = [NSMutableString string];
     }
@@ -174,14 +170,8 @@
     NSLog(@"show iamge %@", str);
 }
 
--(void)setQNInputToolViewSendMessageBlock:(void (^)(NSString *))QNInputToolViewSendMessageBlock
-{
-    self.sendMessageBlock = QNInputToolViewSendMessageBlock;
-}
-
 - (void)textFieldDeleteCharactor
 {
-    
     NSRange selectedRange = [self.textField selectedRange];
     
     selectedRange.length = 1;
@@ -206,6 +196,23 @@
         selectedRange.location = selectedRange.location - 1;
     }
     return selectedRange;
+}
+
+- (void)clickSpeakButtonShort:(UILongPressGestureRecognizer *)recognizer;
+{
+    UIButton *btn = (UIButton *)recognizer.view;
+    [btn setTitle:@"松开发送" forState:UIControlStateNormal];
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        if ([self.delegate respondsToSelector:@selector(inputToolViewDidSendVoice:)]) {
+            [self.delegate inputToolViewDidSendVoice:self];
+        }
+    }
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        [self.speakButton setTitle:@"按住 说话" forState:UIControlStateNormal];
+        if ([self.delegate respondsToSelector:@selector(inputToolViewDidEndSendVoice:)]) {
+            [self.delegate inputToolViewDidEndSendVoice:self];
+        }
+    }
 }
 
 - (void)addButtonClicked:(UIButton *)btn
