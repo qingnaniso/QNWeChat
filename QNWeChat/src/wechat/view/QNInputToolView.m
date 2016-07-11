@@ -217,7 +217,7 @@
 
 - (void)addButtonClicked:(UIButton *)btn
 {
-    NSLog(@"add button clicked");
+    [self.delegate inputToolViewDelegateFuction];
 }
 
 - (void)faceButtonClicked:(UIButton *)btn

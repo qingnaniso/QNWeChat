@@ -26,6 +26,7 @@
 - (void)inputToolView:(QNInputToolView *)inputView didSendPicture:(NSString *)message;
 - (void)inputToolViewDidSendVoice:(QNInputToolView *)inputView;
 - (void)inputToolViewDidEndSendVoice:(QNInputToolView *)inputView;
+- (void)inputToolViewDelegateFuction;
 
 @end
 
