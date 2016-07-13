@@ -12,6 +12,7 @@
 		E0464EAB1D2BA4D500E47C14 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA81D2BA4D500E47C14 /* MarkupParser.m */; };
 		E0464EAE1D2CE1EE00E47C14 /* measureTextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */; };
 		E0464EF11D2E464500E47C14 /* CommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EF01D2E464500E47C14 /* CommonTool.m */; };
+		E07FA5671D35E5280090DA65 /* QNAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E07FA5661D35E5280090DA65 /* QNAudioManager.m */; };
 		E0ABAF5A1D12392700899618 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABAF591D12392700899618 /* main.m */; };
 		E0ABAF5D1D12392700899618 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABAF5C1D12392700899618 /* AppDelegate.m */; };
 		E0ABAF631D12392700899618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ABAF611D12392700899618 /* Main.storyboard */; };
@@ -202,6 +203,8 @@
 		E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = measureTextTool.m; sourceTree = "<group>"; };
 		E0464EEF1D2E464500E47C14 /* CommonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTool.h; sourceTree = "<group>"; };
 		E0464EF01D2E464500E47C14 /* CommonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTool.m; sourceTree = "<group>"; };
+		E07FA5651D35E5280090DA65 /* QNAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAudioManager.h; sourceTree = "<group>"; };
+		E07FA5661D35E5280090DA65 /* QNAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAudioManager.m; sourceTree = "<group>"; };
 		E0ABAF551D12392700899618 /* QNWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ABAF591D12392700899618 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E0ABAF5B1D12392700899618 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 			children = (
 				E0464EEF1D2E464500E47C14 /* CommonTool.h */,
 				E0464EF01D2E464500E47C14 /* CommonTool.m */,
+				E07FA5651D35E5280090DA65 /* QNAudioManager.h */,
+				E07FA5661D35E5280090DA65 /* QNAudioManager.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1551,6 +1556,7 @@
 				E0ABB1401D12A40B00899618 /* pinyin.c in Sources */,
 				E0464EAB1D2BA4D500E47C14 /* MarkupParser.m in Sources */,
 				E0ABB00B1D12549800899618 /* NSData+ImageContentType.m in Sources */,
+				E07FA5671D35E5280090DA65 /* QNAudioManager.m in Sources */,
 				E0ABB1091D1256C900899618 /* YYTextAttribute.m in Sources */,
 				E0ABB0F11D1256C900899618 /* UIImageView+YYWebImage.m in Sources */,
 				E0ABAF5A1D12392700899618 /* main.m in Sources */,

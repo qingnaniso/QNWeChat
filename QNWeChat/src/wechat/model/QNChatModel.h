@@ -32,6 +32,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSString *vatarURL;
 @property (strong, nonatomic) NSString *gifImageName;
 @property (strong, nonatomic) NSString *videoURL;
+@property (nonatomic) int voiceDuring;
 @property (strong, nonatomic) NSString *voiceURL;
 @property (strong, nonatomic) NSString *imageURL;
 @property (strong, nonatomic) NSString *chatModelInfoTipContent;

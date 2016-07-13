@@ -10,9 +10,9 @@
 #import "QNInputToolView.h"
 #import "QNChatModel.h"
 #import "QNChatContentTableViewCell.h"
-#import <AVFoundation/AVFoundation.h>
+#import "QNAudioManager.h"
 
-@interface QNChatMainPageViewController () <UITableViewDelegate, UITableViewDataSource, QNInputToolViewDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate>
+@interface QNChatMainPageViewController () <UITableViewDelegate, UITableViewDataSource, QNInputToolViewDelegate>
 
 @property (strong, nonatomic) UITextField *textField;
 @property (strong, nonatomic) QNInputToolView *inputView;
@@ -24,9 +24,7 @@
 @property (nonatomic) BOOL keyboardShow;
 @property (nonatomic) CGRect keyboardRect;
 
-@property (nonatomic, strong) AVAudioRecorder *recoder;
-@property (nonatomic, strong) AVAudioPlayer *player;
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) QNAudioManager *audioManager;
 
 @end
 
@@ -35,13 +33,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
-    [self audioSetting];
     [self initTableView];
     [self initKeyboardAccessoryView];
+    self.audioManager = [[QNAudioManager alloc] init];
+    [self.audioManager showAudioWave:YES];
     self.title = self.personModel.name;
+}
 
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
-    [self.view addGestureRecognizer:tap];
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.audioManager stopPlay];
+    [super viewWillDisappear:animated];
 }
 
 - (void)initData
@@ -50,28 +52,13 @@
     self.cellHeightCacheDic = [NSMutableDictionary dictionary];
 }
 
-- (void)audioSetting
-{
-    NSError *erro;
-    self.recoder = [[AVAudioRecorder alloc] initWithURL:[self getSavePath] settings:[self getAudioSetting] error:&erro];
-    NSLog(@"%@",erro);
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[self getSavePath] error:&erro];
-    NSLog(@"%@",erro);
-    self.recoder.delegate = self;
-    self.player.delegate = self;
-    self.player.volume = 1.0;
-    self.recoder.meteringEnabled=YES;
-    self.player.numberOfLoops=0;
-    [self.player prepareToPlay];
-
-}
-
 - (void)initTableView
 {
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 50 - 64-5) style:UITableViewStylePlain];
     [self.tableView registerNib:[UINib nibWithNibName:@"QNChatContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"chatContentCellIdentifier"];
     self.automaticallyAdjustsScrollViewInsets = false;  /* fix a top blank area bug in UITableView .. */
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.delaysContentTouches = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -167,6 +154,16 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    QNChatModel *model = self.chatDataSource[indexPath.row];
+    if (model.chatType == QNChatModelVoice) {
+        [self.audioManager play:[NSURL URLWithString:model.voiceURL]];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     QNChatModel *model = self.chatDataSource[indexPath.row];
@@ -204,17 +201,26 @@
 
 -(void)inputToolViewDidSendVoice:(QNInputToolView *)inputView
 {
-    if (![self.recoder isRecording]) {
-        [self.recoder record];//首次使用应用时如果调用record方法会询问用户是否允许使用麦克风
-        self.timer.fireDate=[NSDate distantPast];
-    }
+    QNChatModel *model = [[QNChatModel alloc] init];
+    model.chatType = QNChatModelVoice;
+    model.chatFromMe = YES;
+    model.vatarURL = self.personModel.vatarURL;
+    model.chatID = [[NSString stringWithFormat:@"%f",[NSDate timeIntervalSinceReferenceDate]] md2String];
+    [self.chatDataSource addObject:model];
+    [self.audioManager recodeStart:model.chatID];
 }
 
 -(void)inputToolViewDidEndSendVoice:(QNInputToolView *)inputView
 {
-    [self setAudioSessionForRecoder];
-    [self.recoder stop];
-    self.timer.fireDate=[NSDate distantFuture];
+    NSURL *url = [self.audioManager recodeEnd];
+    if (url) {
+        NSString *chatID = [url lastPathComponent];
+        QNChatModel *model = [self getModelFromDataSourceByChatID:chatID];
+        model.voiceURL = url.absoluteString;
+        model.voiceDuring = [self.audioManager timeIntervalForFileName:chatID];
+        [self.tableView insertRow:(self.chatDataSource.count - 1) inSection:0 withRowAnimation:UITableViewRowAnimationBottom];
+        [self scrollTableViewWhenChatting:YES];
+    }
 }
 
 -(void)inputToolView:(QNInputToolView *)inputView didSendPicture:(NSString *)message
@@ -224,82 +230,21 @@
 
 -(void)inputToolViewDelegateFuction
 {
-    if (![self.player isPlaying]) {
-        [self setAudioSessionForPlayer];
-        [self.player play];
-    }
+    [self.audioManager play:nil];
 }
 
-#pragma mark - audio setting
-/**
- *  设置音频会话
- */
--(void)setAudioSessionForRecoder{
-    AVAudioSession *audioSession=[AVAudioSession sharedInstance];
-    //设置为播放和录音状态，以便可以在录制完之后播放录音
-    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
-    [audioSession setActive:YES error:nil];
-}
--(void)setAudioSessionForPlayer{
-    AVAudioSession *audioSession=[AVAudioSession sharedInstance];
-    //设置为播放和录音状态，以便可以在录制完之后播放录音
-    [audioSession setCategory :AVAudioSessionCategoryPlayback error:nil];
-}
+#pragma mark - tool function
 
-/**
- *  取得录音文件保存路径
- *
- *  @return 录音文件路径
- */
--(NSURL *)getSavePath{
-    NSString *urlStr=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    urlStr=[urlStr stringByAppendingPathComponent:@"qnwechataudioRecoderFile"];
-    NSLog(@"file path:%@",urlStr);
-    NSURL *url=[NSURL fileURLWithPath:urlStr];
-    return url;
-}
-
-/**
- *  取得录音文件设置
- *
- *  @return 录音设置
- */
--(NSDictionary *)getAudioSetting{
-    NSMutableDictionary *dicM=[NSMutableDictionary dictionary];
-    //设置录音格式
-    [dicM setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
-    //设置录音采样率，8000是电话采样率，对于一般录音已经够了
-    [dicM setObject:@(8000) forKey:AVSampleRateKey];
-    //设置通道,这里采用单声道
-    [dicM setObject:@(1) forKey:AVNumberOfChannelsKey];
-    //每个采样点位数,分为8、16、24、32
-    [dicM setObject:@(8) forKey:AVLinearPCMBitDepthKey];
-    //是否使用浮点数采样
-    [dicM setObject:@(YES) forKey:AVLinearPCMIsFloatKey];
-    //....其他设置等
-    return dicM;
-}
-
-/**
- *  录音声波监控定制器
- *
- *  @return 定时器
- */
--(NSTimer *)timer{
-    if (!_timer) {
-        _timer=[NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(audioPowerChange) userInfo:nil repeats:YES];
-    }
-    return _timer;
-}
-
-/**
- *  录音声波状态设置
- */
--(void)audioPowerChange{
-    [self.recoder updateMeters];//更新测量值
-    float power= [self.recoder averagePowerForChannel:0];//取得第一个通道的音频，注意音频强度范围时-160到0
-    CGFloat progress=(1.0/160.0)*(power+160.0);
-    NSLog(@"progress=%f",progress);
+- (id)getModelFromDataSourceByChatID:(NSString *)chatID
+{
+    __block id model;
+    [self.chatDataSource enumerateObjectsUsingBlock:^(QNChatModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj.chatID isEqualToString:chatID]) {
+            model = obj;
+        }
+    }];
+    return model;
 }
 
 #pragma mark - audio delegate
