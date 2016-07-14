@@ -14,6 +14,17 @@
 
 #define WS(weakSelf)    __weak __typeof(&*self)weakSelf = self
 
+#define kUserInterfaceIdiomIsPhone  (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define kUserInterfaceIdiomIsPad    (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define kUserInterfaceIdiomIsRetina ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define kScreenIs4InchRetina        (kUserInterfaceIdiomIsRetina && ([UIScreen mainScreen].bounds.size.height == 568.0f))
+#define kScreenIsnot35              ([[UIScreen mainScreen] bounds].size.height > 480)
+#define kScreenIs35Inch             ([[UIScreen mainScreen] bounds].size.height == 480)
+
+#define SCREEN_MAX_LENGTH (MAX(kScreenWidth, kScreenHeight))
+#define SCREEN_MIN_LENGTH (MIN(kScreenWidth, kScreenHeight))
+
 #define IS_IPHONE_4_OR_LESS (kUserInterfaceIdiomIsPhone && SCREEN_MAX_LENGTH < 568.0)
 #define IS_IPHONE_5 (kUserInterfaceIdiomIsPhone && SCREEN_MAX_LENGTH == 568.0)
 #define IS_IPHONE_6 (kUserInterfaceIdiomIsPhone && SCREEN_MAX_LENGTH == 667.0)

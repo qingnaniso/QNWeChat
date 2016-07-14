@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E031E1D91D377A4C006D9275 /* QNTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E031E1D81D377A4C006D9275 /* QNTabBarController.m */; };
 		E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA41D2BA4D500E47C14 /* CTView.m */; };
 		E0464EAA1D2BA4D500E47C14 /* IconFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA61D2BA4D500E47C14 /* IconFrame.m */; };
 		E0464EAB1D2BA4D500E47C14 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA81D2BA4D500E47C14 /* MarkupParser.m */; };
@@ -193,6 +194,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E031E1D71D377A4C006D9275 /* QNTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNTabBarController.h; sourceTree = "<group>"; };
+		E031E1D81D377A4C006D9275 /* QNTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNTabBarController.m; sourceTree = "<group>"; };
 		E0464EA31D2BA4D500E47C14 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
 		E0464EA41D2BA4D500E47C14 /* CTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTView.m; sourceTree = "<group>"; };
 		E0464EA51D2BA4D500E47C14 /* IconFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconFrame.h; sourceTree = "<group>"; };
@@ -764,6 +767,8 @@
 				E0ABAFAA1D123F3800899618 /* QNBaseViewController.m */,
 				E0ABB11C1D125D1200899618 /* QNBaseModel.h */,
 				E0ABB11D1D125D1200899618 /* QNBaseModel.m */,
+				E031E1D71D377A4C006D9275 /* QNTabBarController.h */,
+				E031E1D81D377A4C006D9275 /* QNTabBarController.m */,
 			);
 			path = baseClass;
 			sourceTree = "<group>";
@@ -1528,6 +1533,7 @@
 				E0ABB19B1D18DA5300899618 /* MASViewConstraint.m in Sources */,
 				E0ABB1041D1256C900899618 /* YYTextSelectionView.m in Sources */,
 				E0ABB0141D12549800899618 /* UIImage+GIF.m in Sources */,
+				E031E1D91D377A4C006D9275 /* QNTabBarController.m in Sources */,
 				E0E239DC1D21260000825783 /* QNFacePadBottomView.m in Sources */,
 				E0464EAE1D2CE1EE00E47C14 /* measureTextTool.m in Sources */,
 				E0ABB0D61D1256C900899618 /* NSString+YYAdd.m in Sources */,
@@ -1719,6 +1725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QNWeChat/SystermPrefixHeader.pch";
 				INFOPLIST_FILE = QNWeChat/Info.plist;
@@ -1733,6 +1740,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QNWeChat/SystermPrefixHeader.pch";
 				INFOPLIST_FILE = QNWeChat/Info.plist;

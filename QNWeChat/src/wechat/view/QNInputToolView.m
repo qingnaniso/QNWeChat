@@ -259,7 +259,7 @@
 {
 
     self.faceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.faceButton setBackgroundImage:[UIImage imageNamed:@"faceButton"] forState:UIControlStateNormal];
+    [self.faceButton setBackgroundImage:[UIImage imageNamed:@"ToolViewEmotion"] forState:UIControlStateNormal];
     [self.faceButton addTarget:self action:@selector(faceButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.faceButton];
     [self.faceButton mas_makeConstraints:^(MASConstraintMaker *make) {

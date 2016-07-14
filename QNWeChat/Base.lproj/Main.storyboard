@@ -175,7 +175,7 @@
         <scene sceneID="4PN-wD-DzL">
             <objects>
                 <navigationController id="mV0-9K-ePi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="微信" id="06G-m8-HVD"/>
+                    <tabBarItem key="tabBarItem" title="微信" selectedImage="tabbar_contacts" id="06G-m8-HVD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uhx-9w-ajq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -249,7 +249,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="oXG-SF-68X">
             <objects>
-                <tabBarController id="E8N-AH-gAT" sceneMemberID="viewController">
+                <tabBarController id="E8N-AH-gAT" customClass="QNTabBarController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="2q9-DJ-qpx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -267,6 +267,9 @@
             <point key="canvasLocation" x="-454" y="862"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar_contacts" width="27" height="23"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pAV-f4-WDJ"/>
     </inferredMetricsTieBreakers>
