@@ -23,7 +23,6 @@
 @property (nonatomic, strong) NSMutableDictionary *cellHeightCacheDic;
 @property (nonatomic) BOOL keyboardShow;
 @property (nonatomic) CGRect keyboardRect;
-
 @property (nonatomic, strong) QNAudioManager *audioManager;
 
 @end
@@ -99,9 +98,7 @@
     } else {
         
         [self scrollTableViewWhenChatting:NO];
-
     }
- 
     self.keyboardShow = !self.keyboardShow;
 }
 
@@ -165,7 +162,6 @@
         [self.audioManager play:[NSURL URLWithString:model.voiceURL]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
