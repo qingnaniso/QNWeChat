@@ -10,6 +10,7 @@
 
 @interface QNAddressBookContactModel : QNBaseModel
 
+@property (strong, nonatomic) NSNumber *userID;
 @property (strong, nonatomic) NSString *vatarURL;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *sex;

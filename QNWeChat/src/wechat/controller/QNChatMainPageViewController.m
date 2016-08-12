@@ -43,13 +43,14 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self.audioManager stopPlay];
+    [self saveChatRecord];
     [super viewWillDisappear:animated];
 }
 
 - (void)initData
 {
-    self.chatDataSource = [NSMutableArray array];
     self.cellHeightCacheDic = [NSMutableDictionary dictionary];
+    self.chatDataSource = [NSMutableArray arrayWithArray:[[QNDataSource shareDataSource] getWechatMainPageDataSourceByUser:self.personModel.userID]];
 }
 
 - (void)initTableView
@@ -62,6 +63,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
+    if (self.chatDataSource.count > 1) {
+        [self.tableView scrollToRow:(self.chatDataSource.count - 1) inSection:0 atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 }
 
 - (void)tap
@@ -193,6 +197,8 @@
     model.chatFromMe = YES;
     model.vatarURL = self.personModel.vatarURL;
     model.chatID = [message md2String];
+    model.otherPerson = @[self.personModel];
+    model.chatDate = [NSDate date];
     [self.chatDataSource addObject:model];
     
     [self.tableView insertRow:(self.chatDataSource.count - 1) inSection:0 withRowAnimation:UITableViewRowAnimationBottom];
@@ -206,6 +212,7 @@
     model.chatFromMe = YES;
     model.vatarURL = self.personModel.vatarURL;
     model.chatID = [[NSString stringWithFormat:@"%f",[NSDate timeIntervalSinceReferenceDate]] md2String];
+    model.otherPerson = @[self.personModel];
     [self.chatDataSource addObject:model];
     [self.audioManager recodeStart:model.chatID];
 }
@@ -218,6 +225,8 @@
         QNChatModel *model = [self getModelFromDataSourceByChatID:chatID];
         model.voiceURL = url.absoluteString;
         model.voiceDuring = [self.audioManager timeIntervalForFileName:chatID];
+        model.chatDate = [NSDate date];
+        model.chatContent = @"[语音]";
         [self.tableView insertRow:(self.chatDataSource.count - 1) inSection:0 withRowAnimation:UITableViewRowAnimationBottom];
         [self scrollTableViewWhenChatting:YES];
     }
@@ -225,7 +234,7 @@
 
 -(void)inputToolView:(QNInputToolView *)inputView didSendPicture:(NSString *)message
 {
-    
+
 }
 
 -(void)inputToolViewDelegateFuction
@@ -234,6 +243,17 @@
 }
 
 #pragma mark - tool function
+
+- (void)saveChatRecord
+{
+    NSArray *oldArray = [NSMutableArray arrayWithArray:[[QNDataSource shareDataSource] getWechatMainPageDataSourceByUser:self.personModel.userID]];
+    
+    if (self.chatDataSource.count == oldArray.count) {
+        return;
+    }
+    [[QNDataSource shareDataSource] addARecordToUser:self.personModel.userID];
+    [[QNDataSource shareDataSource] addWechatMainPageDataSourceByUser:self.personModel.userID objects:self.chatDataSource];
+}
 
 - (id)getModelFromDataSourceByChatID:(NSString *)chatID
 {

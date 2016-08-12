@@ -49,6 +49,8 @@
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.sectionHeaderHeight = 15;
     self.automaticallyAdjustsScrollViewInsets = false;  /* fix a top blank area bug in UITableView .. */
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
 }
 
 - (void)initSearchBar

@@ -38,6 +38,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSString *chatModelInfoTipContent;
 @property (strong, nonatomic) QNAddressBookContactModel *master;        /* ME is chat master */
 @property (strong, nonatomic) NSArray *otherPerson;
+@property (strong, nonatomic) NSDate *chatDate;
 
 @end
 

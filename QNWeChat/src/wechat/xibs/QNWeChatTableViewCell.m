@@ -8,6 +8,8 @@
 
 #import "QNWeChatTableViewCell.h"
 #import "SDWebImageCompat.h"
+#import "QNAddressBookContactModel.h"
+
 
 @interface QNWeChatTableViewCell ()
 
@@ -28,12 +30,16 @@
     [super setSelected:selected animated:animated];
 }
 
--(void)updateContent:(MainChatRecordModel *)model
+-(void)updateContent:(QNChatModel *)model
 {
-    self.nickNameLabel.text = model.nickName;
-    self.lastChatRecordLabel.text = model.lastChatRecordString;
-    self.timeLabel.text = model.dateString;
-    [self.mainImageView setImageWithURL:[NSURL URLWithString:model.headerImageURL] placeholder:nil];
+    //ignore 1 to many chatModel temporary..
+    
+    NSArray *array = model.otherPerson;
+    QNAddressBookContactModel *person = [array lastObject];
+    self.nickNameLabel.text = person.name;
+    self.lastChatRecordLabel.text = model.chatContent;
+    self.timeLabel.text = [model.chatDate stringWithFormat:@"yy/MM/dd"];
+    [self.mainImageView setImageWithURL:[NSURL URLWithString:person.vatarURL] placeholder:nil];
 }
 
 @end

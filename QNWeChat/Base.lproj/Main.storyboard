@@ -106,7 +106,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="72t-HR-LPt">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vzF-a1-Lmv" id="XWA-RI-kYO"/>
@@ -116,9 +116,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eT1-dw-1ta" firstAttribute="top" secondItem="72t-HR-LPt" secondAttribute="bottom" id="3ok-65-P9P"/>
                             <constraint firstItem="72t-HR-LPt" firstAttribute="leading" secondItem="Q8w-uU-qu3" secondAttribute="leading" id="5NN-Kf-Lp4"/>
                             <constraint firstAttribute="trailing" secondItem="72t-HR-LPt" secondAttribute="trailing" id="Cma-Ii-y93"/>
+                            <constraint firstAttribute="bottom" secondItem="72t-HR-LPt" secondAttribute="bottom" id="Da5-1z-Wxy"/>
                             <constraint firstItem="72t-HR-LPt" firstAttribute="top" secondItem="5BW-B3-4tY" secondAttribute="bottom" id="Nxq-uL-6GX"/>
                         </constraints>
                     </view>
@@ -200,8 +200,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iGN-44-tb9">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iGN-44-tb9">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="CnB-pJ-iLM" id="J3X-Gl-FbR"/>
@@ -213,14 +213,14 @@
                         <constraints>
                             <constraint firstItem="iGN-44-tb9" firstAttribute="top" secondItem="oLJ-lC-L9Q" secondAttribute="bottom" id="A3q-VI-QWB"/>
                             <constraint firstAttribute="trailing" secondItem="iGN-44-tb9" secondAttribute="trailing" id="Eo7-iY-zIy"/>
-                            <constraint firstItem="Ecv-Y7-6BX" firstAttribute="top" secondItem="iGN-44-tb9" secondAttribute="bottom" id="fbc-Yg-bKH"/>
+                            <constraint firstAttribute="bottom" secondItem="iGN-44-tb9" secondAttribute="bottom" id="caX-c6-Hvf"/>
                             <constraint firstItem="iGN-44-tb9" firstAttribute="leading" secondItem="r9k-Xt-epS" secondAttribute="leading" id="n24-Ig-32j"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="微信" id="Rrg-aI-sPr"/>
                     <connections>
                         <outlet property="tableview" destination="iGN-44-tb9" id="apz-sN-hMD"/>
-                        <segue destination="L50-e6-gY5" kind="push" id="9F7-k9-fYT"/>
+                        <segue destination="L50-e6-gY5" kind="push" identifier="wechatListToChatDetail" id="9F7-k9-fYT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckh-3W-oQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -271,6 +271,6 @@
         <image name="tabbar_contacts" width="27" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pAV-f4-WDJ"/>
+        <segue reference="9F7-k9-fYT"/>
     </inferredMetricsTieBreakers>
 </document>

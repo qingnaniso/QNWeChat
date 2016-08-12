@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MainChatRecordModel.h"
+#import "QNChatModel.h"
 
 @interface QNWeChatTableViewCell : UITableViewCell
 
-- (void)updateContent:(MainChatRecordModel *)model;
+- (void)updateContent:(QNChatModel *)model;
 
 @end

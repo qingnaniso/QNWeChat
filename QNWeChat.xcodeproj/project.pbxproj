@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E01CF0BE1D5DB41A003A8F9E /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0B71D5DB41A003A8F9E /* UITableView+FDIndexPathHeightCache.m */; };
+		E01CF0BF1D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0B91D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.m */; };
+		E01CF0C01D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0BB1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m */; };
+		E01CF0C11D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0BD1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		E031E1D91D377A4C006D9275 /* QNTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E031E1D81D377A4C006D9275 /* QNTabBarController.m */; };
 		E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA41D2BA4D500E47C14 /* CTView.m */; };
 		E0464EAA1D2BA4D500E47C14 /* IconFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA61D2BA4D500E47C14 /* IconFrame.m */; };
@@ -194,6 +198,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E01CF0B61D5DB41A003A8F9E /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
+		E01CF0B71D5DB41A003A8F9E /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
+		E01CF0B81D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
+		E01CF0B91D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
+		E01CF0BA1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		E01CF0BB1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		E01CF0BC1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
+		E01CF0BD1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 		E031E1D71D377A4C006D9275 /* QNTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNTabBarController.h; sourceTree = "<group>"; };
 		E031E1D81D377A4C006D9275 /* QNTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNTabBarController.m; sourceTree = "<group>"; };
 		E0464EA31D2BA4D500E47C14 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
@@ -555,6 +567,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E01CF0B51D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				E01CF0B61D5DB41A003A8F9E /* UITableView+FDIndexPathHeightCache.h */,
+				E01CF0B71D5DB41A003A8F9E /* UITableView+FDIndexPathHeightCache.m */,
+				E01CF0B81D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.h */,
+				E01CF0B91D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.m */,
+				E01CF0BA1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.h */,
+				E01CF0BB1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m */,
+				E01CF0BC1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.h */,
+				E01CF0BD1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m */,
+			);
+			path = "UITableView+FDTemplateLayoutCell";
+			sourceTree = "<group>";
+		};
 		E0464EEE1D2E461F00E47C14 /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,6 +692,7 @@
 		E0ABAF8B1D123BFB00899618 /* 3party */ = {
 			isa = PBXGroup;
 			children = (
+				E01CF0B51D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell */,
 				E0ABB17E1D18DA5300899618 /* Masonry */,
 				E0ABB13D1D12A40B00899618 /* Pinyin */,
 				E0ABB01A1D1256C900899618 /* YYKit */,
@@ -1555,8 +1583,11 @@
 				E0ABB1121D1256C900899618 /* YYFileHash.m in Sources */,
 				E0ABB0DE1D1256C900899618 /* UIColor+YYAdd.m in Sources */,
 				E0ABB0D21D1256C900899618 /* NSNumber+YYAdd.m in Sources */,
+				E01CF0BF1D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.m in Sources */,
 				E0ABB1151D1256C900899618 /* YYReachability.m in Sources */,
 				E0ABB15A1D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.m in Sources */,
+				E01CF0BE1D5DB41A003A8F9E /* UITableView+FDIndexPathHeightCache.m in Sources */,
+				E01CF0C01D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				E0ABB0F01D1256C900899618 /* UIButton+YYWebImage.m in Sources */,
 				E0ABB0DB1D1256C900899618 /* UIApplication+YYAdd.m in Sources */,
 				E0ABB1401D12A40B00899618 /* pinyin.c in Sources */,
@@ -1581,6 +1612,7 @@
 				E0ABB11B1D1256C900899618 /* YYWeakProxy.m in Sources */,
 				E0ABB0CE1D1256C900899618 /* NSDate+YYAdd.m in Sources */,
 				E0ABB10E1D1256C900899618 /* YYLabel.m in Sources */,
+				E01CF0C11D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				E0ABB0E41D1256C900899618 /* UIScreen+YYAdd.m in Sources */,
 				E0E239D61D1CD5B700825783 /* QNChatModel.m in Sources */,
 			);

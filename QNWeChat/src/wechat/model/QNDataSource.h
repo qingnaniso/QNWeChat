@@ -14,8 +14,16 @@
 
 + (instancetype)shareDataSource;
 
-- (NSArray *)getWechatMainPageDataSourceByUser;
+- (NSArray *)getWechatMainPageDataSourceByUser:(NSNumber *)userID;  //chat content with some user
 
-- (NSArray *)getAddressBookContactList;
+- (void)addWechatMainPageDataSourceByUser:(NSNumber *)userID objects:(NSArray *)contents;  //add chat record to some user;
+
+- (NSArray *)getAddressBookContactList;  //get all addressbook users
+
+- (void)addARecordToUser:(NSNumber *)userID;
+
+- (BOOL)deleteARecordToUser:(NSNumber *)userID;
+
+- (NSArray *)getCurrentChattingForAllUsers; //return array of userID
 
 @end

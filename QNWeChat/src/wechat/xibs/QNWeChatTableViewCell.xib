@@ -15,45 +15,53 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgb-bB-9ec">
-                        <rect key="frame" x="10" y="63" width="40" height="40"/>
+                        <rect key="frame" x="10" y="8" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Zgb-bB-9ec" secondAttribute="height" multiplier="1:1" id="5ZP-LW-fSo"/>
-                            <constraint firstAttribute="height" constant="40" id="AF4-PR-cFi"/>
+                            <constraint firstAttribute="height" constant="50" id="AF4-PR-cFi"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IJ9-lO-ROE">
-                        <rect key="frame" x="60" y="63" width="33" height="40"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="IJ9-lO-ROE">
+                        <rect key="frame" x="52" y="8" width="39" height="32"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eov-rR-NO2" userLabel="nickNameLabel">
-                                <rect key="frame" x="0.0" y="0.0" width="33" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <rect key="frame" x="0.0" y="0.0" width="39" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUs-lQ-rjD" userLabel="lastChatrRecordLabel">
-                                <rect key="frame" x="0.0" y="26" width="33" height="14"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="16" width="39" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uo2-kr-4fb" userLabel="timeLabel">
-                        <rect key="frame" x="389" y="63" width="29" height="14"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uo2-kr-4fb" userLabel="timeLabel">
+                        <rect key="frame" x="389" y="13" width="29" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Uo2-kr-4fb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IJ9-lO-ROE" secondAttribute="trailing" constant="5" id="09S-x3-rK0"/>
                     <constraint firstItem="IJ9-lO-ROE" firstAttribute="top" secondItem="Zgb-bB-9ec" secondAttribute="top" id="3EC-Ib-nEA"/>
                     <constraint firstItem="Zgb-bB-9ec" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gsk-4u-mhd"/>
-                    <constraint firstItem="Uo2-kr-4fb" firstAttribute="top" secondItem="IJ9-lO-ROE" secondAttribute="top" id="MRt-m1-PGP"/>
+                    <constraint firstItem="Uo2-kr-4fb" firstAttribute="top" secondItem="IJ9-lO-ROE" secondAttribute="top" constant="5" id="MRt-m1-PGP"/>
+                    <constraint firstAttribute="bottom" secondItem="Zgb-bB-9ec" secondAttribute="bottom" constant="8" id="Ore-7A-SXI"/>
+                    <constraint firstItem="Zgb-bB-9ec" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Puc-E7-eF5"/>
                     <constraint firstItem="Zgb-bB-9ec" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="VX0-Fd-Vci"/>
                     <constraint firstItem="IJ9-lO-ROE" firstAttribute="leading" secondItem="Zgb-bB-9ec" secondAttribute="trailing" constant="10" id="b2C-XT-YzS"/>
                     <constraint firstItem="IJ9-lO-ROE" firstAttribute="bottom" secondItem="Zgb-bB-9ec" secondAttribute="bottom" id="ktm-jV-kFT"/>
                     <constraint firstAttribute="trailing" secondItem="Uo2-kr-4fb" secondAttribute="trailing" constant="10" id="xA8-3g-W7b"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Gsk-4u-mhd"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="lastChatRecordLabel" destination="tUs-lQ-rjD" id="MwY-aY-unW"/>

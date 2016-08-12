@@ -19,10 +19,8 @@
 
 - (void)initData
 {
-    self.selectedIndex = 1;
+    self.selectedIndex = 0;
     self.tabBar.tintColor = [UIColor colorWithRed:38.0/255 green:192.0/255 blue:40.0/255 alpha:1.0];
-    self.tabBar.barStyle = UIBarStyleDefault;
-    self.tabBar.translucent = YES;
 }
 
 - (void)initView

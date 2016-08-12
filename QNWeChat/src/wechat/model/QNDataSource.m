@@ -27,15 +27,16 @@
     return dataSource;
 }
 
-/* 微信主页中一级列表数据 */
--(NSArray *)getWechatMainPageDataSourceByUser
+/* top level data on tabbar<wechat> */
+-(NSArray *)getWechatMainPageDataSourceByUser:(NSNumber *)userID
 {
-    return (NSArray *)[self objectForKey:@"WechatMainPageDataSourceList"];
+    return (NSArray *)[self objectForKey:[NSString stringWithFormat:@"WechatMainPageDataSourceList%@",userID]];
 }
 
-- (void)addWechatMainPageDataSourceByUser
+-(void)addWechatMainPageDataSourceByUser:(NSNumber *)userID objects:(NSArray *)contents
 {
-    
+    [self setObject:contents forKey:[NSString stringWithFormat:@"WechatMainPageDataSourceList%@",userID]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"shouldReloadDataForNewChatRecord" object:nil];
 }
 
 -(NSArray *)getAddressBookContactList
@@ -73,7 +74,7 @@
             QNAddressBookContactModel *model = [[QNAddressBookContactModel alloc] init];
             model.vatarURL = obj;
             model.name = nameArray[idx];
-            
+            model.userID = @(model.hash);
             [contactList addObject:model];
         }];
         
@@ -88,4 +89,43 @@
     }
 }
 
+-(void)addARecordToUser:(NSNumber *)userID
+{
+    NSMutableArray *oldRecord = [NSMutableArray arrayWithArray:[self getCurrentChattingForAllUsers]];
+    if ([oldRecord containsObject:userID]) {
+        return;
+    }
+    [oldRecord addObject:userID];
+    [self setObject:oldRecord forKey:@"CurrentChattingForAllUsers"];
+}
+
+-(BOOL)deleteARecordToUser:(NSNumber *)userID
+{
+    NSMutableArray *oldRecord = [NSMutableArray arrayWithArray:[self getCurrentChattingForAllUsers]];
+    if ([oldRecord containsObject:userID]) {
+        [oldRecord removeObject:userID];
+        [self setObject:oldRecord forKey:@"CurrentChattingForAllUsers"];
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+-(NSArray *)getCurrentChattingForAllUsers
+{
+    return (NSArray *)[self objectForKey:@"CurrentChattingForAllUsers"];
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
