@@ -1,3 +1,4 @@
 *.xcscheme
 *.xcuserstate
+*.xcbkptlist
 MoneyMessage/MoneyMessage.xcodeproj/project.xcworkspace/*
