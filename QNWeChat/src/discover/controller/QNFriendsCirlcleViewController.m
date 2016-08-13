@@ -1,36 +1,27 @@
 //
-//  QNBaseViewController.m
+//  QNFriendsCirlcleViewController.m
 //  QNWeChat
 //
-//  Created by smartrookie on 16/6/16.
+//  Created by smartrookie on 16/8/13.
 //  Copyright © 2016年 smartrookie. All rights reserved.
 //
 
-#import "QNBaseViewController.h"
+#import "QNFriendsCirlcleViewController.h"
 
-@interface QNBaseViewController ()
+@interface QNFriendsCirlcleViewController ()
 
 @end
 
-@implementation QNBaseViewController
+@implementation QNFriendsCirlcleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if (!segue.destinationViewController) {
-        NSLog(@"open lately");
-    }
-    [super prepareForSegue:segue sender:sender];
 }
 
 /*

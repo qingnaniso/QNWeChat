@@ -13,6 +13,8 @@
 		E01CF0C11D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0BD1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		E01CF0C41D5EAFE3003A8F9E /* QNDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0C31D5EAFE3003A8F9E /* QNDiscoverViewController.m */; };
 		E01CF0C71D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0C61D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m */; };
+		E01CF0CA1D5EC723003A8F9E /* QNFriendsCirlcleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0C91D5EC723003A8F9E /* QNFriendsCirlcleViewController.m */; };
+		E01CF0CD1D5ECD28003A8F9E /* QNVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0CC1D5ECD28003A8F9E /* QNVideoManager.m */; };
 		E031E1D91D377A4C006D9275 /* QNTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E031E1D81D377A4C006D9275 /* QNTabBarController.m */; };
 		E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA41D2BA4D500E47C14 /* CTView.m */; };
 		E0464EAA1D2BA4D500E47C14 /* IconFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA61D2BA4D500E47C14 /* IconFrame.m */; };
@@ -212,6 +214,10 @@
 		E01CF0C31D5EAFE3003A8F9E /* QNDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDiscoverViewController.m; sourceTree = "<group>"; };
 		E01CF0C51D5EBAE2003A8F9E /* QNDiscoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDiscoverTableViewCell.h; sourceTree = "<group>"; };
 		E01CF0C61D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDiscoverTableViewCell.m; sourceTree = "<group>"; };
+		E01CF0C81D5EC723003A8F9E /* QNFriendsCirlcleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendsCirlcleViewController.h; sourceTree = "<group>"; };
+		E01CF0C91D5EC723003A8F9E /* QNFriendsCirlcleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendsCirlcleViewController.m; sourceTree = "<group>"; };
+		E01CF0CB1D5ECD28003A8F9E /* QNVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoManager.h; sourceTree = "<group>"; };
+		E01CF0CC1D5ECD28003A8F9E /* QNVideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoManager.m; sourceTree = "<group>"; };
 		E031E1D71D377A4C006D9275 /* QNTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNTabBarController.h; sourceTree = "<group>"; };
 		E031E1D81D377A4C006D9275 /* QNTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNTabBarController.m; sourceTree = "<group>"; };
 		E0464EA31D2BA4D500E47C14 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
@@ -449,8 +455,8 @@
 		E0ABB11D1D125D1200899618 /* QNBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNBaseModel.m; sourceTree = "<group>"; };
 		E0ABB11F1D125D4900899618 /* MainChatRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainChatRecordModel.h; sourceTree = "<group>"; };
 		E0ABB1201D125D4900899618 /* MainChatRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainChatRecordModel.m; sourceTree = "<group>"; };
-		E0ABB1221D12720F00899618 /* QNDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDataSource.h; sourceTree = "<group>"; };
-		E0ABB1231D12720F00899618 /* QNDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDataSource.m; sourceTree = "<group>"; };
+		E0ABB1221D12720F00899618 /* QNDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNDataSource.h; path = ../../wechat/model/QNDataSource.h; sourceTree = "<group>"; };
+		E0ABB1231D12720F00899618 /* QNDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNDataSource.m; path = ../../wechat/model/QNDataSource.m; sourceTree = "<group>"; };
 		E0ABB1251D12752900899618 /* SystermPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystermPrefixHeader.pch; sourceTree = "<group>"; };
 		E0ABB1261D1277B200899618 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E0ABB1281D1277C800899618 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -593,8 +599,12 @@
 			children = (
 				E0464EEF1D2E464500E47C14 /* CommonTool.h */,
 				E0464EF01D2E464500E47C14 /* CommonTool.m */,
+				E0ABB1221D12720F00899618 /* QNDataSource.h */,
+				E0ABB1231D12720F00899618 /* QNDataSource.m */,
 				E07FA5651D35E5280090DA65 /* QNAudioManager.h */,
 				E07FA5661D35E5280090DA65 /* QNAudioManager.m */,
+				E01CF0CB1D5ECD28003A8F9E /* QNVideoManager.h */,
+				E01CF0CC1D5ECD28003A8F9E /* QNVideoManager.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -822,6 +832,8 @@
 			children = (
 				E01CF0C21D5EAFE3003A8F9E /* QNDiscoverViewController.h */,
 				E01CF0C31D5EAFE3003A8F9E /* QNDiscoverViewController.m */,
+				E01CF0C81D5EC723003A8F9E /* QNFriendsCirlcleViewController.h */,
+				E01CF0C91D5EC723003A8F9E /* QNFriendsCirlcleViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -911,8 +923,6 @@
 				E0ABB1201D125D4900899618 /* MainChatRecordModel.m */,
 				E0E239D41D1CD5B700825783 /* QNChatModel.h */,
 				E0E239D51D1CD5B700825783 /* QNChatModel.m */,
-				E0ABB1221D12720F00899618 /* QNDataSource.h */,
-				E0ABB1231D12720F00899618 /* QNDataSource.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1599,7 +1609,9 @@
 				E0ABB15A1D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.m in Sources */,
 				E01CF0BE1D5DB41A003A8F9E /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				E01CF0C01D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m in Sources */,
+				E01CF0CA1D5EC723003A8F9E /* QNFriendsCirlcleViewController.m in Sources */,
 				E0ABB0F01D1256C900899618 /* UIButton+YYWebImage.m in Sources */,
+				E01CF0CD1D5ECD28003A8F9E /* QNVideoManager.m in Sources */,
 				E0ABB0DB1D1256C900899618 /* UIApplication+YYAdd.m in Sources */,
 				E0ABB1401D12A40B00899618 /* pinyin.c in Sources */,
 				E0464EAB1D2BA4D500E47C14 /* MarkupParser.m in Sources */,

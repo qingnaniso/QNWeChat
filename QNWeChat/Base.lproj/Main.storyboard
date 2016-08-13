@@ -125,11 +125,31 @@
                     <navigationItem key="navigationItem" title="发现" id="e02-yG-G1B"/>
                     <connections>
                         <outlet property="tableView" destination="wpX-Ul-2gQ" id="hsw-zx-4Rx"/>
+                        <segue destination="ajE-Dc-e1y" kind="push" identifier="discoveryToFriendsCirlcle" id="nxR-ba-o83"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPK-I3-Xyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="971" y="1047"/>
+        </scene>
+        <!--朋友圈-->
+        <scene sceneID="0q6-2F-WlC">
+            <objects>
+                <viewController id="ajE-Dc-e1y" customClass="QNFriendsCirlcleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WuN-Gd-zpD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y5i-cY-j9d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9XI-Ax-fUM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="朋友圈" id="13f-LH-9fx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GWu-HD-Klr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1460" y="1047"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="yrg-Eu-cna">
