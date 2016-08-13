@@ -116,6 +116,22 @@
     return (NSArray *)[self objectForKey:@"CurrentChattingForAllUsers"];
 }
 
+-(NSArray *)getDiscoverDataWithDictionaryArray
+{
+    NSArray *array = @[@[@{@"icon":@"ff_IconShowAlbum",@"name":@"朋友圈"}],
+                       
+                       @[@{@"icon":@"ff_IconQRCode",@"name":@"扫一扫"},
+                         @{@"icon":@"ff_IconShake",@"name":@"摇一摇"}],
+                       
+                       @[@{@"icon":@"ff_IconLocationService",@"name":@"附近的人"},
+                         @{@"icon":@"ff_IconBottle",@"name":@"漂流瓶"}],
+                       
+                       @[@{@"icon":@"MoreExpressionShops",@"name":@"购物"},
+                         @{@"icon":@"MoreGame",@"name":@"游戏"}]
+                       ];
+    return array;
+}
+
 @end
 
 

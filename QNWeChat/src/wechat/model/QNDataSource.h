@@ -26,4 +26,6 @@
 
 - (NSArray *)getCurrentChattingForAllUsers; //return array of userID
 
+- (NSArray *)getDiscoverDataWithDictionaryArray;
+
 @end

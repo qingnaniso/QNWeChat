@@ -11,6 +11,8 @@
 		E01CF0BF1D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0B91D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.m */; };
 		E01CF0C01D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0BB1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m */; };
 		E01CF0C11D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0BD1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m */; };
+		E01CF0C41D5EAFE3003A8F9E /* QNDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0C31D5EAFE3003A8F9E /* QNDiscoverViewController.m */; };
+		E01CF0C71D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0C61D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m */; };
 		E031E1D91D377A4C006D9275 /* QNTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E031E1D81D377A4C006D9275 /* QNTabBarController.m */; };
 		E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA41D2BA4D500E47C14 /* CTView.m */; };
 		E0464EAA1D2BA4D500E47C14 /* IconFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA61D2BA4D500E47C14 /* IconFrame.m */; };
@@ -206,6 +208,10 @@
 		E01CF0BB1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		E01CF0BC1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
 		E01CF0BD1D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
+		E01CF0C21D5EAFE3003A8F9E /* QNDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDiscoverViewController.h; sourceTree = "<group>"; };
+		E01CF0C31D5EAFE3003A8F9E /* QNDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDiscoverViewController.m; sourceTree = "<group>"; };
+		E01CF0C51D5EBAE2003A8F9E /* QNDiscoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDiscoverTableViewCell.h; sourceTree = "<group>"; };
+		E01CF0C61D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDiscoverTableViewCell.m; sourceTree = "<group>"; };
 		E031E1D71D377A4C006D9275 /* QNTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNTabBarController.h; sourceTree = "<group>"; };
 		E031E1D81D377A4C006D9275 /* QNTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNTabBarController.m; sourceTree = "<group>"; };
 		E0464EA31D2BA4D500E47C14 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
@@ -814,6 +820,8 @@
 		E0ABAF991D123CA900899618 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				E01CF0C21D5EAFE3003A8F9E /* QNDiscoverViewController.h */,
+				E01CF0C31D5EAFE3003A8F9E /* QNDiscoverViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -828,6 +836,8 @@
 		E0ABAF9B1D123CA900899618 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				E01CF0C51D5EBAE2003A8F9E /* QNDiscoverTableViewCell.h */,
+				E01CF0C61D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1486,6 +1496,7 @@
 				E0ABB1141D1256C900899618 /* YYKeychain.m in Sources */,
 				E0ABB0D51D1256C900899618 /* NSObject+YYAddForKVO.m in Sources */,
 				E0ABB0CF1D1256C900899618 /* NSDictionary+YYAdd.m in Sources */,
+				E01CF0C41D5EAFE3003A8F9E /* QNDiscoverViewController.m in Sources */,
 				E0ABB0EB1D1256C900899618 /* YYKVStorage.m in Sources */,
 				E0ABB1171D1256C900899618 /* YYThreadSafeArray.m in Sources */,
 				E0ABB1101D1256C900899618 /* YYAsyncLayer.m in Sources */,
@@ -1609,6 +1620,7 @@
 				E0ABB0F31D1256C900899618 /* YYFrameImage.m in Sources */,
 				E0ABB00C1D12549800899618 /* SDImageCache.m in Sources */,
 				E0ABB0D41D1256C900899618 /* NSObject+YYAddForARC.m in Sources */,
+				E01CF0C71D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m in Sources */,
 				E0ABB11B1D1256C900899618 /* YYWeakProxy.m in Sources */,
 				E0ABB0CE1D1256C900899618 /* NSDate+YYAdd.m in Sources */,
 				E0ABB10E1D1256C900899618 /* YYLabel.m in Sources */,
