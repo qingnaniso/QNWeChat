@@ -49,8 +49,8 @@
         NSString *chooseType = self.sendFriendsCirlceMediaTypeDataSource[type];
         
         if ([chooseType isEqualToString:@"小视频"]) {
-            
-            
+        
+            [self performSegueWithIdentifier:@"friendCircleModelToRecordVideo" sender:nil];
             
         } else if ([chooseType isEqualToString:@"拍照"]) {
             

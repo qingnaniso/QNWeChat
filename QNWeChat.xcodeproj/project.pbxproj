@@ -17,6 +17,7 @@
 		E01CF0CD1D5ECD28003A8F9E /* QNVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0CC1D5ECD28003A8F9E /* QNVideoManager.m */; };
 		E01CF0D01D6157AF003A8F9E /* UIBarButtonItem+QNExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0CF1D6157AF003A8F9E /* UIBarButtonItem+QNExtention.m */; };
 		E01CF0D31D615D2A003A8F9E /* QNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0D21D615D2A003A8F9E /* QNBaseNavigationController.m */; };
+		E01CF0D61D6191AF003A8F9E /* QNRecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0D51D6191AF003A8F9E /* QNRecordVideoViewController.m */; };
 		E031E1D91D377A4C006D9275 /* QNTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E031E1D81D377A4C006D9275 /* QNTabBarController.m */; };
 		E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA41D2BA4D500E47C14 /* CTView.m */; };
 		E0464EAA1D2BA4D500E47C14 /* IconFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA61D2BA4D500E47C14 /* IconFrame.m */; };
@@ -224,6 +225,8 @@
 		E01CF0CF1D6157AF003A8F9E /* UIBarButtonItem+QNExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+QNExtention.m"; sourceTree = "<group>"; };
 		E01CF0D11D615D2A003A8F9E /* QNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNBaseNavigationController.h; sourceTree = "<group>"; };
 		E01CF0D21D615D2A003A8F9E /* QNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNBaseNavigationController.m; sourceTree = "<group>"; };
+		E01CF0D41D6191AF003A8F9E /* QNRecordVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNRecordVideoViewController.h; sourceTree = "<group>"; };
+		E01CF0D51D6191AF003A8F9E /* QNRecordVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNRecordVideoViewController.m; sourceTree = "<group>"; };
 		E031E1D71D377A4C006D9275 /* QNTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNTabBarController.h; sourceTree = "<group>"; };
 		E031E1D81D377A4C006D9275 /* QNTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNTabBarController.m; sourceTree = "<group>"; };
 		E0464EA31D2BA4D500E47C14 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
@@ -842,6 +845,8 @@
 				E01CF0C31D5EAFE3003A8F9E /* QNDiscoverViewController.m */,
 				E01CF0C81D5EC723003A8F9E /* QNFriendsCirlcleViewController.h */,
 				E01CF0C91D5EC723003A8F9E /* QNFriendsCirlcleViewController.m */,
+				E01CF0D41D6191AF003A8F9E /* QNRecordVideoViewController.h */,
+				E01CF0D51D6191AF003A8F9E /* QNRecordVideoViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1578,6 +1583,7 @@
 				E0ABB1381D1299B300899618 /* QNAddressBookViewController.m in Sources */,
 				E0ABB1061D1256C900899618 /* NSParagraphStyle+YYText.m in Sources */,
 				E0ABB0D31D1256C900899618 /* NSObject+YYAdd.m in Sources */,
+				E01CF0D61D6191AF003A8F9E /* QNRecordVideoViewController.m in Sources */,
 				E0ABB0E51D1256C900899618 /* UIScrollView+YYAdd.m in Sources */,
 				E0ABB0FC1D1256C900899618 /* YYTextContainerView.m in Sources */,
 				E0ABB0101D12549800899618 /* SDWebImageDownloaderOperation.m in Sources */,

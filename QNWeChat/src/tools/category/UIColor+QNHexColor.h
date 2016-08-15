@@ -14,4 +14,6 @@
 
 + (UIColor *)colorWithHexString:(NSString *)color;
 
++ (UIColor *)colorWithR:(CGFloat)red G:(CGFloat)green B:(CGFloat)blue;
+
 @end

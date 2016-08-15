@@ -147,17 +147,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="朋友圈" id="13f-LH-9fx"/>
                     <connections>
-                        <segue destination="oha-ME-8Dw" kind="modal" identifier="" id="ESz-lm-kG1"/>
+                        <segue destination="4q3-PM-EKG" kind="modal" identifier="friendCircleModelToRecordVideo" modalTransitionStyle="coverVertical" id="ESz-lm-kG1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWu-HD-Klr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1460" y="1047"/>
         </scene>
-        <!--View Controller-->
+        <!--Record Video View Controller-->
         <scene sceneID="7yD-9q-4hT">
             <objects>
-                <viewController id="oha-ME-8Dw" sceneMemberID="viewController">
+                <viewController id="oha-ME-8Dw" customClass="QNRecordVideoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rlz-gX-sHW"/>
                         <viewControllerLayoutGuide type="bottom" id="PdP-9F-0AJ"/>
@@ -167,10 +167,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Z2g-qc-Wdp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFP-O0-CjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1936" y="1042"/>
+            <point key="canvasLocation" x="2468" y="1042"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="yrg-Eu-cna">
@@ -361,6 +362,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8j9-tR-E9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-454" y="862"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="Wfk-gT-LEm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4q3-PM-EKG" customClass="QNBaseNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FeD-EK-07x">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oha-ME-8Dw" kind="relationship" relationship="rootViewController" id="thh-A3-Re4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfQ-u4-bLX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1936" y="1042"/>
         </scene>
     </scenes>
     <resources>

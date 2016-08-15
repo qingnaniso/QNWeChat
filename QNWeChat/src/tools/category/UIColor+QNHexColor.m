@@ -62,5 +62,10 @@
     return [self colorWithHexString:color alpha:1.0f];
 }
 
++ (UIColor *)colorWithR:(CGFloat)red G:(CGFloat)green B:(CGFloat)blue
+{
+    return [UIColor colorWithRed:red / 255. green:green / 255. blue:blue / 255. alpha:1];
+}
+
 
 @end

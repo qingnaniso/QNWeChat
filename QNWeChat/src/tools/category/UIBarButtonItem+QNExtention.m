@@ -23,4 +23,14 @@
     return [[self alloc] initWithCustomView:button];
 }
 
++(instancetype)itemWithTitle:(NSString *)title textColor:(UIColor *)color target:(id)target action:(SEL)action
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:color forState:UIControlStateNormal];
+    [button sizeToFit];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    return [[self alloc] initWithCustomView:button];
+}
+
 @end

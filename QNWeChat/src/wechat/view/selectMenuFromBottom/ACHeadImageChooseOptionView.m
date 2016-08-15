@@ -94,12 +94,11 @@
 #pragma mark - delegate function
 -(void)didSelectChooseHeadImageStyle:(ACChooseHeadImageType)style
 {
-    switch (style) {
-        case ACChooseHeadImageTypeCancel:
-            [self hide];
-            break;
-        default:
-            break;
+    if (style == ACChooseHeadImageTypeCancel) {
+        [self hide];
+    } else {
+        self.actionBlock(style - 1);
+        [self hide];
     }
 }
 
