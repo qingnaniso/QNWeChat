@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 
 typedef enum : NSUInteger {
-    ACChooseHeadImageTypeFromAlbum,
-    ACChooseHeadImageTypeFromTakePicture,
-    ACChooseHeadImageTypeCancel,
+    ACChooseHeadImageTypeCancel
 } ACChooseHeadImageType;
 
 typedef void (^ACHeadImageChooseOptionViewTypeBlock)(ACChooseHeadImageType);
 @interface ACHeadImageChooseOptionView : UIView
+
+@property (strong, nonatomic) NSArray<NSString *> *dataSource;
 
 - (void)show;
 - (void)whenTapped:(void (^)(ACChooseHeadImageType))block;

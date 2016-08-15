@@ -33,7 +33,16 @@
 
 - (void)initTableView
 {
+    self.dataSource = [NSArray array];
     [self.tableView registerNib:[UINib nibWithNibName:@"ACHeadImageChooseOptionCell" bundle:nil] forCellReuseIdentifier:@"ACHeadImageChooseOptionCellIdentifier"];
+}
+
+-(void)setDataSource:(NSArray<NSString *> *)dataSource
+{
+    if (dataSource) {
+        _dataSource = dataSource;
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark uitableview delegate
@@ -46,7 +55,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 2;
+        return self.dataSource.count;
     }
     return 1;
 }
@@ -71,12 +80,10 @@
     
     ACHeadImageChooseOptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ACHeadImageChooseOptionCellIdentifier" forIndexPath:indexPath];
     if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            [cell setTitle:@"视频聊天"];
-        } else {
-            [cell setTitle:@"语音聊天"];
+        if (indexPath.row == self.dataSource.count - 1) {
             [cell hideBottomLine];
         }
+        [cell setTitle:self.dataSource[indexPath.row]];
     } else {
         [cell setTitle:@"取消"];
         [cell hideBottomLine];
@@ -88,7 +95,7 @@
 {
     if (indexPath.section == 0) {
         if ([self.delegate respondsToSelector:@selector(didSelectChooseHeadImageStyle:)]) {
-            [self.delegate didSelectChooseHeadImageStyle:indexPath.row];
+            [self.delegate didSelectChooseHeadImageStyle:indexPath.row + 1];
         }
     } else {
         if ([self.delegate respondsToSelector:@selector(didSelectChooseHeadImageStyle:)]) {

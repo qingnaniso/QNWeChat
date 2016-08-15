@@ -61,7 +61,7 @@
     WS(weakSelf);
     [UIView animateWithDuration:0.2 animations:^{
         CGRect tableViewFrame = _detailView.frame;
-        tableViewFrame.origin.y += 157;
+        tableViewFrame.origin.y += ((self.dataSource.count + 1) * 50 + 7);
         _detailView.frame = tableViewFrame;
         self.alpha = 0.f;
     } completion:^(BOOL finished) {
@@ -79,13 +79,14 @@
 {
     NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"ACHeadImageChooseDetailView" owner:nil options:nil];
     _detailView = array[0];
-    _detailView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 157);
+    _detailView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, (self.dataSource.count + 1) * 50 + 7);
     _detailView.delegate = self;
+    _detailView.dataSource = self.dataSource;
     UIWindow *currentWindow = [UIApplication sharedApplication].windows[0];
     [currentWindow addSubview:_detailView];
     [UIView animateWithDuration:0.2 animations:^{
         CGRect tableViewFrame = _detailView.frame;
-        tableViewFrame.origin.y -= 157;
+        tableViewFrame.origin.y -= ((self.dataSource.count + 1) * 50 + 7);
         _detailView.frame = tableViewFrame;
     }];
 }
@@ -94,14 +95,6 @@
 -(void)didSelectChooseHeadImageStyle:(ACChooseHeadImageType)style
 {
     switch (style) {
-        case ACChooseHeadImageTypeFromAlbum:
-            self.actionBlock(ACChooseHeadImageTypeFromAlbum);
-            [self hide];
-            break;
-        case ACChooseHeadImageTypeFromTakePicture:
-            self.actionBlock(ACChooseHeadImageTypeFromTakePicture);
-            [self hide];
-            break;
         case ACChooseHeadImageTypeCancel:
             [self hide];
             break;

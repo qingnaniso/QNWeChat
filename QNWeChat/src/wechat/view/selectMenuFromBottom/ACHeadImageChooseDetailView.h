@@ -17,5 +17,6 @@
 @interface ACHeadImageChooseDetailView : UIView
 
 @property (nonatomic, weak) id<ACHeadImageChooseDetailViewProtocal> delegate;
+@property (nonatomic, strong) NSArray<NSString *> *dataSource;
 
 @end

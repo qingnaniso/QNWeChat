@@ -15,6 +15,8 @@
 		E01CF0C71D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0C61D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m */; };
 		E01CF0CA1D5EC723003A8F9E /* QNFriendsCirlcleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0C91D5EC723003A8F9E /* QNFriendsCirlcleViewController.m */; };
 		E01CF0CD1D5ECD28003A8F9E /* QNVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0CC1D5ECD28003A8F9E /* QNVideoManager.m */; };
+		E01CF0D01D6157AF003A8F9E /* UIBarButtonItem+QNExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0CF1D6157AF003A8F9E /* UIBarButtonItem+QNExtention.m */; };
+		E01CF0D31D615D2A003A8F9E /* QNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CF0D21D615D2A003A8F9E /* QNBaseNavigationController.m */; };
 		E031E1D91D377A4C006D9275 /* QNTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E031E1D81D377A4C006D9275 /* QNTabBarController.m */; };
 		E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA41D2BA4D500E47C14 /* CTView.m */; };
 		E0464EAA1D2BA4D500E47C14 /* IconFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA61D2BA4D500E47C14 /* IconFrame.m */; };
@@ -218,6 +220,10 @@
 		E01CF0C91D5EC723003A8F9E /* QNFriendsCirlcleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendsCirlcleViewController.m; sourceTree = "<group>"; };
 		E01CF0CB1D5ECD28003A8F9E /* QNVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoManager.h; sourceTree = "<group>"; };
 		E01CF0CC1D5ECD28003A8F9E /* QNVideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoManager.m; sourceTree = "<group>"; };
+		E01CF0CE1D6157AF003A8F9E /* UIBarButtonItem+QNExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+QNExtention.h"; sourceTree = "<group>"; };
+		E01CF0CF1D6157AF003A8F9E /* UIBarButtonItem+QNExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+QNExtention.m"; sourceTree = "<group>"; };
+		E01CF0D11D615D2A003A8F9E /* QNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNBaseNavigationController.h; sourceTree = "<group>"; };
+		E01CF0D21D615D2A003A8F9E /* QNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNBaseNavigationController.m; sourceTree = "<group>"; };
 		E031E1D71D377A4C006D9275 /* QNTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNTabBarController.h; sourceTree = "<group>"; };
 		E031E1D81D377A4C006D9275 /* QNTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNTabBarController.m; sourceTree = "<group>"; };
 		E0464EA31D2BA4D500E47C14 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
@@ -813,6 +819,8 @@
 				E0ABB11D1D125D1200899618 /* QNBaseModel.m */,
 				E031E1D71D377A4C006D9275 /* QNTabBarController.h */,
 				E031E1D81D377A4C006D9275 /* QNTabBarController.m */,
+				E01CF0D11D615D2A003A8F9E /* QNBaseNavigationController.h */,
+				E01CF0D21D615D2A003A8F9E /* QNBaseNavigationController.m */,
 			);
 			path = baseClass;
 			sourceTree = "<group>";
@@ -1296,6 +1304,8 @@
 				E0ABB14C1D13D77F00899618 /* UIColor+QNHexColor.m */,
 				E0E239D11D1BCF6500825783 /* UITextField+ExtentRange.h */,
 				E0E239D21D1BCF6500825783 /* UITextField+ExtentRange.m */,
+				E01CF0CE1D6157AF003A8F9E /* UIBarButtonItem+QNExtention.h */,
+				E01CF0CF1D6157AF003A8F9E /* UIBarButtonItem+QNExtention.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -1599,6 +1609,7 @@
 				E0ABB1AF1D18DC7B00899618 /* ACHeadImageChooseOptionCell.m in Sources */,
 				E0ABB00D1D12549800899618 /* SDWebImageCompat.m in Sources */,
 				E0ABB10C1D1256C900899618 /* YYTextRunDelegate.m in Sources */,
+				E01CF0D01D6157AF003A8F9E /* UIBarButtonItem+QNExtention.m in Sources */,
 				E0ABB0FE1D1256C900899618 /* YYTextEffectWindow.m in Sources */,
 				E0ABB1961D18DA5300899618 /* MASCompositeConstraint.m in Sources */,
 				E0ABB1121D1256C900899618 /* YYFileHash.m in Sources */,
@@ -1633,6 +1644,7 @@
 				E0ABB00C1D12549800899618 /* SDImageCache.m in Sources */,
 				E0ABB0D41D1256C900899618 /* NSObject+YYAddForARC.m in Sources */,
 				E01CF0C71D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m in Sources */,
+				E01CF0D31D615D2A003A8F9E /* QNBaseNavigationController.m in Sources */,
 				E0ABB11B1D1256C900899618 /* YYWeakProxy.m in Sources */,
 				E0ABB0CE1D1256C900899618 /* NSDate+YYAdd.m in Sources */,
 				E0ABB10E1D1256C900899618 /* YYLabel.m in Sources */,

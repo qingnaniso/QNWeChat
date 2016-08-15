@@ -149,6 +149,7 @@
                 [self performSegueWithIdentifier:@"detailToChatMain" sender:self.model];
             } else {
                 ACHeadImageChooseOptionView *optionView = [[ACHeadImageChooseOptionView alloc] initWithFrame:self.view.frame];
+                optionView.dataSource = @[@"视频聊天",@"语音聊天"];
                 [optionView show];
             }
         };

@@ -7,7 +7,7 @@
         <!--我-->
         <scene sceneID="7DQ-QV-dnJ">
             <objects>
-                <navigationController id="37D-ZK-s8a" sceneMemberID="viewController">
+                <navigationController id="37D-ZK-s8a" customClass="QNBaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" id="asy-6Y-ILO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OrI-dl-hMA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -43,7 +43,7 @@
         <!--发现-->
         <scene sceneID="5LJ-HE-vZp">
             <objects>
-                <navigationController id="c9N-0q-UU5" sceneMemberID="viewController">
+                <navigationController id="c9N-0q-UU5" customClass="QNBaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发现" id="qAQ-OD-9bI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCJ-R3-c4Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -146,15 +146,36 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="朋友圈" id="13f-LH-9fx"/>
+                    <connections>
+                        <segue destination="oha-ME-8Dw" kind="modal" identifier="" id="ESz-lm-kG1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWu-HD-Klr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1460" y="1047"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="7yD-9q-4hT">
+            <objects>
+                <viewController id="oha-ME-8Dw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rlz-gX-sHW"/>
+                        <viewControllerLayoutGuide type="bottom" id="PdP-9F-0AJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3i8-2t-OIK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vFP-O0-CjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1936" y="1042"/>
+        </scene>
         <!--通讯录-->
         <scene sceneID="yrg-Eu-cna">
             <objects>
-                <navigationController id="4KA-Km-9QU" sceneMemberID="viewController">
+                <navigationController id="4KA-Km-9QU" customClass="QNBaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="通讯录" id="6qd-EC-w5s"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="56N-Gt-hUJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -249,7 +270,7 @@
         <!--微信-->
         <scene sceneID="4PN-wD-DzL">
             <objects>
-                <navigationController id="mV0-9K-ePi" sceneMemberID="viewController">
+                <navigationController id="mV0-9K-ePi" customClass="QNBaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="微信" selectedImage="tabbar_contacts" id="06G-m8-HVD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uhx-9w-ajq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -275,9 +296,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iGN-44-tb9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="iGN-44-tb9">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="CnB-pJ-iLM" id="J3X-Gl-FbR"/>
                                     <outlet property="delegate" destination="CnB-pJ-iLM" id="s27-V2-X1o"/>

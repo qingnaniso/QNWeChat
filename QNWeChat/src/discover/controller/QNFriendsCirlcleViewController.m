@@ -7,8 +7,12 @@
 //
 
 #import "QNFriendsCirlcleViewController.h"
+#import "UIBarButtonItem+QNExtention.h"
+#import "ACHeadImageChooseOptionView.h"
 
 @interface QNFriendsCirlcleViewController ()
+
+@property (nonatomic, strong) NSArray *sendFriendsCirlceMediaTypeDataSource;
 
 @end
 
@@ -16,7 +20,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initData];
+    [self setupView];
+}
+
+- (void)initData
+{
+    self.sendFriendsCirlceMediaTypeDataSource = @[@"小视频",@"拍照",@"从手机相册选择"];
+}
+
+- (void)setupView
+{
+    [self initNavigationRightItem];
+}
+
+- (void)initNavigationRightItem
+{
+    UIBarButtonItem *item = [UIBarButtonItem itemWithImage:@"barbuttonicon_Camera" highImage:nil target:self action:@selector(rightBarButtonItemClicked:)];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)rightBarButtonItemClicked:(UIButton *)item
+{
+    ACHeadImageChooseOptionView *optionView = [[ACHeadImageChooseOptionView alloc] initWithFrame:self.view.frame];
+    optionView.dataSource = self.sendFriendsCirlceMediaTypeDataSource;
+    [optionView whenTapped:^(ACChooseHeadImageType type) {
+        
+        NSString *chooseType = self.sendFriendsCirlceMediaTypeDataSource[type];
+        
+        if ([chooseType isEqualToString:@"小视频"]) {
+            
+            
+            
+        } else if ([chooseType isEqualToString:@"拍照"]) {
+            
+            
+            
+            
+        } else if ([chooseType isEqualToString:@"从手机相册选择"]) {
+            
+            
+            
+        }
+        
+    }];
+    [optionView show];
 }
 
 - (void)didReceiveMemoryWarning {
