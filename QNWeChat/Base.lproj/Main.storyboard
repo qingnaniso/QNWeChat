@@ -168,10 +168,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z2g-qc-Wdp"/>
+                    <connections>
+                        <segue destination="TTq-xq-Ci3" kind="push" identifier="recordToAddComment" id="d9D-hK-jAy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFP-O0-CjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2468" y="1042"/>
+        </scene>
+        <!--Add Comment On Video View Controller-->
+        <scene sceneID="eby-m9-JDJ">
+            <objects>
+                <viewController id="TTq-xq-Ci3" customClass="QNAddCommentOnVideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ow8-XF-lwZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="6F1-3O-LPt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ea7-ia-uM5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ej2-HD-7md"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iH0-dP-UXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2888" y="1047"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="yrg-Eu-cna">
