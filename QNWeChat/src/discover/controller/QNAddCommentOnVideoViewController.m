@@ -9,6 +9,7 @@
 #import "QNAddCommentOnVideoViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
+#import "UIBarButtonItem+QNExtention.h"
 
 @interface QNAddCommentOnVideoViewController ()
 
@@ -22,6 +23,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initLeftNavigationItem];
     self.playerControl = [[AVPlayerViewController alloc] init];
     self.player = [AVPlayer playerWithURL:self.recordURL];
     self.player.actionAtItemEnd = AVPlayerActionAtItemEndPause;
@@ -35,6 +37,17 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(runLoopTheMovie:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(comeToFroeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+}
+
+- (void)initLeftNavigationItem
+{
+    UIBarButtonItem *leftItem = [UIBarButtonItem itemWithTitle:@"取消" textColor:[UIColor colorWithR:130 G:231 B:70] target:self action:@selector(leftItemClicked:)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+- (void)leftItemClicked:(id)sm
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)runLoopTheMovie:(NSNotification *)notification
@@ -62,7 +75,6 @@
 - (void)comeToFroeground:(NSNotification *)notification
 {
     [self.player play];
-    
 }
 
 @end
