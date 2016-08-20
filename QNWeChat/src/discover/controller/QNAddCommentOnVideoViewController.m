@@ -32,7 +32,7 @@
     self.playerControl.videoGravity = AVLayerVideoGravityResizeAspectFill;
     self.playerControl.showsPlaybackControls = false;
     [self.playerControl.player play];
-    self.playerControl.view.frame = CGRectMake(0, 100, 320, 480);
+    self.playerControl.view.frame = CGRectMake(80, 100, 200, 160);
     [self.view addSubview:self.playerControl.view];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(runLoopTheMovie:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     
