@@ -24,6 +24,7 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:58/255. green:54/255. blue:63/255. alpha:1]];
     [UINavigationBar appearance].titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]};
     [[UINavigationBar appearance] setTranslucent:YES];
+    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];
     return [super awakeFromNib];
 }
 

@@ -66,6 +66,10 @@ typedef enum : NSUInteger {
 
 - (void)configAVCapture
 {
+    if ([UIDevice currentDevice].isSimulator) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
     self.session = [[AVCaptureSession alloc] init];
     
     //configuration
@@ -326,8 +330,15 @@ typedef enum : NSUInteger {
         self.recordButton.transform = CGAffineTransformScale(transform, 1.0, 1.0);
         self.recordButton.alpha = 1.;
         self.processView.backgroundColor = [UIColor blackColor];
+    } completion:^(BOOL finished) {
+        [self.processView.layer removeAllAnimations];
     }];
     self.recordType = movieRecordTypeStandBy;
+}
+
+-(void)setRecordType:(movieRecordType)recordType
+{
+    _recordType = recordType;
 }
 
 - (void)processViewRecordingAnimation
@@ -348,7 +359,7 @@ typedef enum : NSUInteger {
                 self.recordButton.alpha = 1.;
                 self.processView.backgroundColor = [UIColor blackColor];
             }];
-            if (self.recordType == movieRecordTypeRecording) {
+            if (self.recordType == movieRecordTypeRecording && finished) {
                 self.recordType = movieRecordTypeRecordFinish;
                 [self buttonClicked:nil];
             }

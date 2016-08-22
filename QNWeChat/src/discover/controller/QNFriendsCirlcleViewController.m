@@ -9,8 +9,9 @@
 #import "QNFriendsCirlcleViewController.h"
 #import "UIBarButtonItem+QNExtention.h"
 #import "ACHeadImageChooseOptionView.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
-@interface QNFriendsCirlcleViewController ()
+@interface QNFriendsCirlcleViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSArray *sendFriendsCirlceMediaTypeDataSource;
 
@@ -54,12 +55,27 @@
             
         } else if ([chooseType isEqualToString:@"拍照"]) {
             
+            BOOL isCameraSupport = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
             
-            
+            if (isCameraSupport) {
+                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+                [[imagePicker navigationBar] setTintColor:[UIColor whiteColor]];
+                [[imagePicker navigationBar] setBarTintColor:[UIColor blackColor]];
+                [[imagePicker navigationBar] setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+                imagePicker.delegate = self;
+                imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                [self presentViewController:imagePicker animated:YES completion:nil];
+            }
             
         } else if ([chooseType isEqualToString:@"从手机相册选择"]) {
             
-            
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            [[imagePicker navigationBar] setTintColor:[UIColor whiteColor]];
+            [[imagePicker navigationBar] setBarTintColor:[UIColor blackColor]];
+            [[imagePicker navigationBar] setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+            imagePicker.delegate = self;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:imagePicker animated:YES completion:nil];
             
         }
         
@@ -67,6 +83,31 @@
     [optionView show];
 }
 
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:( NSString *)kUTTypeImage]){
+        UIImage *theImage = nil;
+        if ([picker allowsEditing]){
+            theImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        } else {
+            theImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+        }
+        
+    }
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

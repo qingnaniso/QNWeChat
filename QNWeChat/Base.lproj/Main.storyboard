@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="E8N-AH-gAT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--我-->
@@ -135,7 +136,7 @@
         <!--朋友圈-->
         <scene sceneID="0q6-2F-WlC">
             <objects>
-                <viewController id="ajE-Dc-e1y" customClass="QNFriendsCirlcleViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="ajE-Dc-e1y" customClass="QNFriendsCirlcleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WuN-Gd-zpD"/>
                         <viewControllerLayoutGuide type="bottom" id="Y5i-cY-j9d"/>
@@ -143,7 +144,19 @@
                     <view key="view" contentMode="scaleToFill" id="9XI-Ax-fUM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Rf-g9-i6d">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Rf-g9-i6d" firstAttribute="leading" secondItem="9XI-Ax-fUM" secondAttribute="leading" id="86W-z1-ZlS"/>
+                            <constraint firstAttribute="trailing" secondItem="8Rf-g9-i6d" secondAttribute="trailing" id="FRQ-pd-HIG"/>
+                            <constraint firstItem="8Rf-g9-i6d" firstAttribute="top" secondItem="WuN-Gd-zpD" secondAttribute="bottom" id="G9r-Kb-gYm"/>
+                            <constraint firstItem="Y5i-cY-j9d" firstAttribute="top" secondItem="8Rf-g9-i6d" secondAttribute="bottom" id="GQi-rd-lhW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="朋友圈" id="13f-LH-9fx"/>
                     <connections>
@@ -187,9 +200,40 @@
                     <view key="view" contentMode="scaleToFill" id="ea7-ia-uM5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJp-rq-ED0">
+                                <rect key="frame" x="190" y="79" width="120" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SJp-rq-ED0" secondAttribute="height" multiplier="3:2.2" id="hHR-G0-JId"/>
+                                    <constraint firstAttribute="width" constant="120" id="yBx-Iz-mST"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="这一刻的想法..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SGh-Cj-kLc">
+                                <rect key="frame" x="9" y="79" width="173" height="431"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="431" id="4p3-fh-3hS"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SJp-rq-ED0" firstAttribute="leading" secondItem="SGh-Cj-kLc" secondAttribute="trailing" constant="8" id="CnI-7i-9Rz"/>
+                            <constraint firstItem="SGh-Cj-kLc" firstAttribute="top" secondItem="ow8-XF-lwZ" secondAttribute="bottom" constant="15" id="VGa-CX-GaT"/>
+                            <constraint firstAttribute="trailing" secondItem="SJp-rq-ED0" secondAttribute="trailing" constant="10" id="duy-CY-A03"/>
+                            <constraint firstItem="SJp-rq-ED0" firstAttribute="top" secondItem="ow8-XF-lwZ" secondAttribute="bottom" constant="15" id="vhd-0m-1GY"/>
+                            <constraint firstItem="SGh-Cj-kLc" firstAttribute="leading" secondItem="ea7-ia-uM5" secondAttribute="leading" constant="9" id="x6i-mU-BOt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ej2-HD-7md"/>
+                    <connections>
+                        <outlet property="playerContainerView" destination="SJp-rq-ED0" id="5w2-cN-2u0"/>
+                        <outlet property="textView" destination="SGh-Cj-kLc" id="Ddv-Ql-MoY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iH0-dP-UXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
