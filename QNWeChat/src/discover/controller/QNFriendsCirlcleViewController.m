@@ -9,11 +9,13 @@
 #import "QNFriendsCirlcleViewController.h"
 #import "UIBarButtonItem+QNExtention.h"
 #import "ACHeadImageChooseOptionView.h"
+#import "QNFriendCircleHeaderView.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface QNFriendsCirlcleViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSArray *sendFriendsCirlceMediaTypeDataSource;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -33,6 +35,7 @@
 - (void)setupView
 {
     [self initNavigationRightItem];
+    [self setupTableView];
 }
 
 - (void)initNavigationRightItem
@@ -40,6 +43,20 @@
     UIBarButtonItem *item = [UIBarButtonItem itemWithImage:@"barbuttonicon_Camera" highImage:nil target:self action:@selector(rightBarButtonItemClicked:)];
     self.navigationItem.rightBarButtonItem = item;
 }
+
+- (void)setupTableView
+{
+    self.tableView.tableHeaderView = [self createHeaderView:nil];
+    self.tableView.contentInset = UIEdgeInsetsMake(-80, 0, 0, 0);
+}
+
+- (QNFriendCircleHeaderView *)createHeaderView:(NSDictionary *)infoDic
+{
+    QNFriendCircleHeaderView *header = [[QNFriendCircleHeaderView alloc] initWithDic:nil];
+    header.frame = CGRectMake(0, 0, kScreenWidth, 400);
+    return header;
+}
+
 
 - (void)rightBarButtonItemClicked:(UIButton *)item
 {

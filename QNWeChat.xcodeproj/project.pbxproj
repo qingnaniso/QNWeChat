@@ -178,6 +178,7 @@
 		E0ABB1AF1D18DC7B00899618 /* ACHeadImageChooseOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1A91D18DC7B00899618 /* ACHeadImageChooseOptionCell.m */; };
 		E0ABB1B01D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1AA1D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib */; };
 		E0ABB1B11D18DC7B00899618 /* ACHeadImageChooseOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1AC1D18DC7B00899618 /* ACHeadImageChooseOptionView.m */; };
+		E0B2A72E1D6AE1EB00843901 /* QNFriendCircleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B2A72D1D6AE1EB00843901 /* QNFriendCircleHeaderView.m */; };
 		E0E239C61D195CF200825783 /* QNInputToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239C51D195CF200825783 /* QNInputToolView.m */; };
 		E0E239C91D1A656100825783 /* QNFacePad.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239C81D1A656100825783 /* QNFacePad.m */; };
 		E0E239CB1D1A68F800825783 /* faceConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0E239CA1D1A68F800825783 /* faceConfig.plist */; };
@@ -544,6 +545,8 @@
 		E0ABB1AA1D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACHeadImageChooseOptionCell.xib; sourceTree = "<group>"; };
 		E0ABB1AB1D18DC7B00899618 /* ACHeadImageChooseOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHeadImageChooseOptionView.h; sourceTree = "<group>"; };
 		E0ABB1AC1D18DC7B00899618 /* ACHeadImageChooseOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHeadImageChooseOptionView.m; sourceTree = "<group>"; };
+		E0B2A72C1D6AE1EB00843901 /* QNFriendCircleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendCircleHeaderView.h; sourceTree = "<group>"; };
+		E0B2A72D1D6AE1EB00843901 /* QNFriendCircleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendCircleHeaderView.m; sourceTree = "<group>"; };
 		E0E239C41D195CF200825783 /* QNInputToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNInputToolView.h; sourceTree = "<group>"; };
 		E0E239C51D195CF200825783 /* QNInputToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInputToolView.m; sourceTree = "<group>"; };
 		E0E239C71D1A656100825783 /* QNFacePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFacePad.h; sourceTree = "<group>"; };
@@ -871,6 +874,8 @@
 			children = (
 				E01CF0C51D5EBAE2003A8F9E /* QNDiscoverTableViewCell.h */,
 				E01CF0C61D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m */,
+				E0B2A72C1D6AE1EB00843901 /* QNFriendCircleHeaderView.h */,
+				E0B2A72D1D6AE1EB00843901 /* QNFriendCircleHeaderView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1531,6 +1536,7 @@
 				E0ABB0D51D1256C900899618 /* NSObject+YYAddForKVO.m in Sources */,
 				E0ABB0CF1D1256C900899618 /* NSDictionary+YYAdd.m in Sources */,
 				E01CF0C41D5EAFE3003A8F9E /* QNDiscoverViewController.m in Sources */,
+				E0B2A72E1D6AE1EB00843901 /* QNFriendCircleHeaderView.m in Sources */,
 				E0ABB0EB1D1256C900899618 /* YYKVStorage.m in Sources */,
 				E0ABB1171D1256C900899618 /* YYThreadSafeArray.m in Sources */,
 				E0ABB1101D1256C900899618 /* YYAsyncLayer.m in Sources */,

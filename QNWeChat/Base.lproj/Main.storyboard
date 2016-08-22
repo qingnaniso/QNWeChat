@@ -146,20 +146,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Rf-g9-i6d">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8Rf-g9-i6d" firstAttribute="top" secondItem="9XI-Ax-fUM" secondAttribute="top" id="19P-cf-nhy"/>
                             <constraint firstItem="8Rf-g9-i6d" firstAttribute="leading" secondItem="9XI-Ax-fUM" secondAttribute="leading" id="86W-z1-ZlS"/>
                             <constraint firstAttribute="trailing" secondItem="8Rf-g9-i6d" secondAttribute="trailing" id="FRQ-pd-HIG"/>
-                            <constraint firstItem="8Rf-g9-i6d" firstAttribute="top" secondItem="WuN-Gd-zpD" secondAttribute="bottom" id="G9r-Kb-gYm"/>
                             <constraint firstItem="Y5i-cY-j9d" firstAttribute="top" secondItem="8Rf-g9-i6d" secondAttribute="bottom" id="GQi-rd-lhW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="朋友圈" id="13f-LH-9fx"/>
                     <connections>
+                        <outlet property="tableView" destination="8Rf-g9-i6d" id="vfJ-zu-7wS"/>
                         <segue destination="4q3-PM-EKG" kind="modal" identifier="friendCircleModelToRecordVideo" modalTransitionStyle="coverVertical" id="ESz-lm-kG1"/>
                     </connections>
                 </viewController>
