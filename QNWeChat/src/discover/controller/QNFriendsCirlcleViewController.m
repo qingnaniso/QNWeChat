@@ -10,9 +10,11 @@
 #import "UIBarButtonItem+QNExtention.h"
 #import "ACHeadImageChooseOptionView.h"
 #import "QNFriendCircleHeaderView.h"
+#import "QNFriendCircleTableViewCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface QNFriendsCirlcleViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface QNFriendsCirlcleViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *sendFriendsCirlceMediaTypeDataSource;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -46,6 +48,7 @@
 
 - (void)setupTableView
 {
+    [self.tableView registerClass:[QNFriendCircleTableViewCell class] forCellReuseIdentifier:@"QNFriendCircleTableViewCell"];
     self.tableView.tableHeaderView = [self createHeaderView:nil];
     self.tableView.contentInset = UIEdgeInsetsMake(-80, 0, 0, 0);
 }
@@ -57,6 +60,35 @@
     return header;
 }
 
+#pragma mark - UITableView Delegate
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    QNFriendCircleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QNFriendCircleTableViewCell" forIndexPath:indexPath];
+    [cell updateContent:nil];
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [tableView fd_heightForCellWithIdentifier:@"QNFriendCircleTableViewCell" cacheByIndexPath:indexPath configuration:^(QNFriendCircleTableViewCell * cell) {
+        
+        [cell updateContent:nil];
+        
+    }];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
 
 - (void)rightBarButtonItemClicked:(UIButton *)item
 {
@@ -67,7 +99,7 @@
         NSString *chooseType = self.sendFriendsCirlceMediaTypeDataSource[type];
         
         if ([chooseType isEqualToString:@"小视频"]) {
-        
+            
             [self performSegueWithIdentifier:@"friendCircleModelToRecordVideo" sender:nil];
             
         } else if ([chooseType isEqualToString:@"拍照"]) {
@@ -100,7 +132,6 @@
     [optionView show];
 }
 
-#pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];

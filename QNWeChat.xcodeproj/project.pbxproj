@@ -179,6 +179,10 @@
 		E0ABB1B01D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABB1AA1D18DC7B00899618 /* ACHeadImageChooseOptionCell.xib */; };
 		E0ABB1B11D18DC7B00899618 /* ACHeadImageChooseOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABB1AC1D18DC7B00899618 /* ACHeadImageChooseOptionView.m */; };
 		E0B2A72E1D6AE1EB00843901 /* QNFriendCircleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B2A72D1D6AE1EB00843901 /* QNFriendCircleHeaderView.m */; };
+		E0B2A73B1D6BF07700843901 /* QNFriendCircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B2A73A1D6BF07700843901 /* QNFriendCircleTableViewCell.m */; };
+		E0B2A73E1D6C021500843901 /* QNFriendCircleCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B2A73D1D6C021500843901 /* QNFriendCircleCellContentView.m */; };
+		E0B2A7411D6C025500843901 /* QNFriendCircleCellCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B2A7401D6C025500843901 /* QNFriendCircleCellCommentView.m */; };
+		E0B2A7441D6C205000843901 /* QNFriendCircleStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B2A7431D6C205000843901 /* QNFriendCircleStatusView.m */; };
 		E0E239C61D195CF200825783 /* QNInputToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239C51D195CF200825783 /* QNInputToolView.m */; };
 		E0E239C91D1A656100825783 /* QNFacePad.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239C81D1A656100825783 /* QNFacePad.m */; };
 		E0E239CB1D1A68F800825783 /* faceConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0E239CA1D1A68F800825783 /* faceConfig.plist */; };
@@ -547,6 +551,14 @@
 		E0ABB1AC1D18DC7B00899618 /* ACHeadImageChooseOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHeadImageChooseOptionView.m; sourceTree = "<group>"; };
 		E0B2A72C1D6AE1EB00843901 /* QNFriendCircleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendCircleHeaderView.h; sourceTree = "<group>"; };
 		E0B2A72D1D6AE1EB00843901 /* QNFriendCircleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendCircleHeaderView.m; sourceTree = "<group>"; };
+		E0B2A7391D6BF07700843901 /* QNFriendCircleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendCircleTableViewCell.h; sourceTree = "<group>"; };
+		E0B2A73A1D6BF07700843901 /* QNFriendCircleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendCircleTableViewCell.m; sourceTree = "<group>"; };
+		E0B2A73C1D6C021500843901 /* QNFriendCircleCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendCircleCellContentView.h; sourceTree = "<group>"; };
+		E0B2A73D1D6C021500843901 /* QNFriendCircleCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendCircleCellContentView.m; sourceTree = "<group>"; };
+		E0B2A73F1D6C025500843901 /* QNFriendCircleCellCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendCircleCellCommentView.h; sourceTree = "<group>"; };
+		E0B2A7401D6C025500843901 /* QNFriendCircleCellCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendCircleCellCommentView.m; sourceTree = "<group>"; };
+		E0B2A7421D6C205000843901 /* QNFriendCircleStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendCircleStatusView.h; sourceTree = "<group>"; };
+		E0B2A7431D6C205000843901 /* QNFriendCircleStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendCircleStatusView.m; sourceTree = "<group>"; };
 		E0E239C41D195CF200825783 /* QNInputToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNInputToolView.h; sourceTree = "<group>"; };
 		E0E239C51D195CF200825783 /* QNInputToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInputToolView.m; sourceTree = "<group>"; };
 		E0E239C71D1A656100825783 /* QNFacePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFacePad.h; sourceTree = "<group>"; };
@@ -876,6 +888,14 @@
 				E01CF0C61D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m */,
 				E0B2A72C1D6AE1EB00843901 /* QNFriendCircleHeaderView.h */,
 				E0B2A72D1D6AE1EB00843901 /* QNFriendCircleHeaderView.m */,
+				E0B2A7391D6BF07700843901 /* QNFriendCircleTableViewCell.h */,
+				E0B2A73A1D6BF07700843901 /* QNFriendCircleTableViewCell.m */,
+				E0B2A73C1D6C021500843901 /* QNFriendCircleCellContentView.h */,
+				E0B2A73D1D6C021500843901 /* QNFriendCircleCellContentView.m */,
+				E0B2A73F1D6C025500843901 /* QNFriendCircleCellCommentView.h */,
+				E0B2A7401D6C025500843901 /* QNFriendCircleCellCommentView.m */,
+				E0B2A7421D6C205000843901 /* QNFriendCircleStatusView.h */,
+				E0B2A7431D6C205000843901 /* QNFriendCircleStatusView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1517,6 +1537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0ABAF5D1D12392700899618 /* AppDelegate.m in Sources */,
+				E0B2A7441D6C205000843901 /* QNFriendCircleStatusView.m in Sources */,
 				E0ABB0DD1D1256C900899618 /* UIBezierPath+YYAdd.m in Sources */,
 				E0ABB0171D12549800899618 /* UIImageView+HighlightedWebCache.m in Sources */,
 				E0ABB0DF1D1256C900899618 /* UIControl+YYAdd.m in Sources */,
@@ -1565,6 +1586,7 @@
 				E0ABB0E91D1256C900899618 /* YYCache.m in Sources */,
 				E0ABAFB31D1241CB00899618 /* QNWeChatTableViewCell.m in Sources */,
 				E0ABB11A1D1256C900899618 /* YYTransaction.m in Sources */,
+				E0B2A7411D6C025500843901 /* QNFriendCircleCellCommentView.m in Sources */,
 				E0ABB1001D1256C900899618 /* YYTextKeyboardManager.m in Sources */,
 				E0ABB0DC1D1256C900899618 /* UIBarButtonItem+YYAdd.m in Sources */,
 				E0ABB19C1D18DA5300899618 /* NSArray+MASAdditions.m in Sources */,
@@ -1664,10 +1686,12 @@
 				E0ABB0F31D1256C900899618 /* YYFrameImage.m in Sources */,
 				E0ABB00C1D12549800899618 /* SDImageCache.m in Sources */,
 				E0ABB0D41D1256C900899618 /* NSObject+YYAddForARC.m in Sources */,
+				E0B2A73B1D6BF07700843901 /* QNFriendCircleTableViewCell.m in Sources */,
 				E01CF0C71D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m in Sources */,
 				E01CF0D31D615D2A003A8F9E /* QNBaseNavigationController.m in Sources */,
 				E0ABB11B1D1256C900899618 /* YYWeakProxy.m in Sources */,
 				E0ABB0CE1D1256C900899618 /* NSDate+YYAdd.m in Sources */,
+				E0B2A73E1D6C021500843901 /* QNFriendCircleCellContentView.m in Sources */,
 				E0ABB10E1D1256C900899618 /* YYLabel.m in Sources */,
 				E09E38651D644E15006E959A /* QNAddCommentOnVideoViewController.m in Sources */,
 				E01CF0C11D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
