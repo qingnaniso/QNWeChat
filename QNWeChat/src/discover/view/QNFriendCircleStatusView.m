@@ -16,18 +16,11 @@
 @property (strong, nonatomic) UIButton *showCommentLoveButton;
 @property (strong, nonatomic) UIView *assessView;
 @property (nonatomic, assign) BOOL showAssessView;
+@property (nonatomic, strong) UIButton *zanButton;
 
 @end
 
 @implementation QNFriendCircleStatusView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 -(instancetype)initWithDic:(NSDictionary *)dic
 {
@@ -78,12 +71,42 @@
     //assessView
     self.assessView = [[UIView alloc] init];
     [self addSubview:self.assessView];
-    self.assessView.backgroundColor = [UIColor blueColor];
+    self.assessView.backgroundColor = [UIColor colorWithR:76 G:81 B:84];
+    self.assessView.layer.cornerRadius = 3;
     [self.assessView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.showCommentLoveButton.mas_left).offset = -3;
         make.centerY.equalTo(self.showCommentLoveButton.mas_centerY);
         make.width.equalTo(@0);
         make.height.equalTo(@40);
+    }];
+    
+    // zan button
+    self.zanButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.assessView addSubview:self.zanButton];
+    [self.zanButton setTitle:@"赞" forState:UIControlStateNormal];
+    self.zanButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    [self.zanButton setTitleColor:[UIColor colorWithR:242 G:242 B:242] forState:UIControlStateNormal];
+    [self.zanButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [self.zanButton mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.top.equalTo(self.assessView);
+        make.left.equalTo(self.assessView);
+        make.bottom.equalTo(self.assessView.mas_bottom);
+        make.width.equalTo(@0);
+    }];
+    
+    //comment button
+    UIButton *commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.assessView addSubview:commentButton];
+    [commentButton setTitle:@"评论" forState:UIControlStateNormal];
+    [commentButton setTitleColor:[UIColor colorWithR:242 G:242 B:242] forState:UIControlStateNormal];
+    [commentButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    commentButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    [commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.zanButton.mas_right);
+        make.top.equalTo(self.assessView);
+        make.bottom.equalTo(self.assessView.mas_bottom);
+        make.right.equalTo(self.assessView.mas_right);
     }];
 }
 
@@ -96,22 +119,42 @@
 {
     if (!self.showAssessView) {
         
+        //show
         [self.assessView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@120);
+            make.width.equalTo(@150);
         }];
-        [UIView animateWithDuration:0.2 animations:^{
+        [self.zanButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@75);
+        }];
+        
+        [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [self layoutIfNeeded];
-        }];
+
+        } completion:nil];
+        
         self.showAssessView = YES;
+        
     } else {
+        
+        //hide
+        [self.zanButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@0);
+        }];
         [self.assessView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@0);
         }];
+
         [UIView animateWithDuration:0.2 animations:^{
             [self layoutIfNeeded];
         }];
         self.showAssessView = NO;
     }
+}
+
+-(void)hideCommentView
+{
+    self.showAssessView = YES;
+    [self showCommentButtonClicked:nil];
 }
 
 @end

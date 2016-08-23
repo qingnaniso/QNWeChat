@@ -11,5 +11,6 @@
 @interface QNFriendCircleStatusView : UIView
 
 -(instancetype)initWithDic:(NSDictionary *)dic;
+- (void)hideCommentView;
 
 @end

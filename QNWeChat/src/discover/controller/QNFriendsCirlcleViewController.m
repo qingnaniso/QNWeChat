@@ -70,6 +70,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     QNFriendCircleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QNFriendCircleTableViewCell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell updateContent:nil];
     return cell;
 }

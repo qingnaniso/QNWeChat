@@ -54,7 +54,10 @@
 - (void)initRightNavigationItem
 {
     UIBarButtonItem *sendMacroItem = [UIBarButtonItem itemWithTitle:@"发送" textColor:[UIColor colorWithR:130 G:231 B:70] target:self action:@selector(sendMacroVideoItemClicked:)];
-    self.navigationItem.rightBarButtonItem = sendMacroItem;
+    UIBarButtonItem *moreItem = [UIBarButtonItem itemWithImage:@"barbuttonicon_more" highImage:@"barbuttonicon_more" target:self action:@selector(moreItemClicked:)];
+    UIButton *btn = moreItem.customView;
+    [btn setTintColor:[UIColor colorWithR:130 G:231 B:70]];
+    self.navigationItem.rightBarButtonItems = @[sendMacroItem,moreItem];
 }
 
 - (void)initPlayerView
@@ -80,6 +83,11 @@
 }
 
 - (void)sendMacroVideoItemClicked:(UIButton *)btn
+{
+    
+}
+
+- (void)moreItemClicked:(UIButton *)btn
 {
     
 }
