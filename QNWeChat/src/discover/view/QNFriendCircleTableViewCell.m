@@ -67,7 +67,6 @@
         make.left.equalTo(self.nameLabel);
         make.top.equalTo(self.nameLabel.mas_bottom).offset = 10;
         make.right.equalTo(self.contentView.mas_right).offset = -10;
-        make.height.equalTo(@0);
     }];
     
     //status view (time label \ delete button \ showCommentLoveButton)
@@ -95,6 +94,7 @@
 {
     self.headerImageView.backgroundColor = [UIColor lightGrayColor];
     self.nameLabel.text = @"测试姓名呵呵哒";
+    [self.cellContentView updateContent:nil];
 }
 
 @end

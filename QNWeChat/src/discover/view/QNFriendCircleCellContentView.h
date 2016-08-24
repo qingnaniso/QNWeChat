@@ -10,4 +10,6 @@
 
 @interface QNFriendCircleCellContentView : UIView
 
+- (void)updateContent:(id)content;
+
 @end

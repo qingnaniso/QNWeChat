@@ -192,6 +192,7 @@
 		E0E239DC1D21260000825783 /* QNFacePadBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239DB1D21260000825783 /* QNFacePadBottomView.m */; };
 		E0E239E01D22524400825783 /* QNChatContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239DE1D22524400825783 /* QNChatContentTableViewCell.m */; };
 		E0E239E11D22524400825783 /* QNChatContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */; };
+		E0F23E2B1D6D391C00F5887F /* QNFriendCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F23E2A1D6D391C00F5887F /* QNFriendCircleModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -575,6 +576,9 @@
 		E0E239DD1D22524400825783 /* QNChatContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNChatContentTableViewCell.h; sourceTree = "<group>"; };
 		E0E239DE1D22524400825783 /* QNChatContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNChatContentTableViewCell.m; sourceTree = "<group>"; };
 		E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNChatContentTableViewCell.xib; sourceTree = "<group>"; };
+		E0F23E291D6D391C00F5887F /* QNFriendCircleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendCircleModel.h; sourceTree = "<group>"; };
+		E0F23E2A1D6D391C00F5887F /* QNFriendCircleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendCircleModel.m; sourceTree = "<group>"; };
+		E0F23E2C1D6D39BD00F5887F /* QNEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNEnum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -635,6 +639,7 @@
 				E07FA5661D35E5280090DA65 /* QNAudioManager.m */,
 				E01CF0CB1D5ECD28003A8F9E /* QNVideoManager.h */,
 				E01CF0CC1D5ECD28003A8F9E /* QNVideoManager.m */,
+				E0F23E2C1D6D39BD00F5887F /* QNEnum.h */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -877,6 +882,8 @@
 		E0ABAF9A1D123CA900899618 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				E0F23E291D6D391C00F5887F /* QNFriendCircleModel.h */,
+				E0F23E2A1D6D391C00F5887F /* QNFriendCircleModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1660,6 +1667,7 @@
 				E0ABB0D21D1256C900899618 /* NSNumber+YYAdd.m in Sources */,
 				E01CF0BF1D5DB41A003A8F9E /* UITableView+FDKeyedHeightCache.m in Sources */,
 				E0ABB1151D1256C900899618 /* YYReachability.m in Sources */,
+				E0F23E2B1D6D391C00F5887F /* QNFriendCircleModel.m in Sources */,
 				E0ABB15A1D1798D000899618 /* QNDetailProfileVatarImageTableViewCell.m in Sources */,
 				E01CF0BE1D5DB41A003A8F9E /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				E01CF0C01D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell.m in Sources */,

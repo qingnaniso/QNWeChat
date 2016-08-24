@@ -143,7 +143,6 @@
         } else {
             theImage = [info objectForKey:UIImagePickerControllerOriginalImage];
         }
-        
     }
     
     [picker dismissViewControllerAnimated:YES completion:^{

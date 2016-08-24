@@ -10,12 +10,24 @@
 
 @implementation QNFriendCircleCellContentView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
 }
-*/
+
+- (void)updateContent:(id)content
+{
+    UIView *view = [[UIView alloc] init];
+    [self addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+        make.height.equalTo(@180);
+    }];
+    view.backgroundColor = [UIColor lightGrayColor];
+}
 
 @end
