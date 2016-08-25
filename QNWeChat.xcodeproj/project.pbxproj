@@ -193,6 +193,7 @@
 		E0E239E01D22524400825783 /* QNChatContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E239DE1D22524400825783 /* QNChatContentTableViewCell.m */; };
 		E0E239E11D22524400825783 /* QNChatContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */; };
 		E0F23E2B1D6D391C00F5887F /* QNFriendCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F23E2A1D6D391C00F5887F /* QNFriendCircleModel.m */; };
+		E0F23E2F1D6EF04400F5887F /* QNMacroVideoContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F23E2E1D6EF04400F5887F /* QNMacroVideoContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -579,6 +580,8 @@
 		E0F23E291D6D391C00F5887F /* QNFriendCircleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendCircleModel.h; sourceTree = "<group>"; };
 		E0F23E2A1D6D391C00F5887F /* QNFriendCircleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendCircleModel.m; sourceTree = "<group>"; };
 		E0F23E2C1D6D39BD00F5887F /* QNEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNEnum.h; sourceTree = "<group>"; };
+		E0F23E2D1D6EF04400F5887F /* QNMacroVideoContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNMacroVideoContentView.h; sourceTree = "<group>"; };
+		E0F23E2E1D6EF04400F5887F /* QNMacroVideoContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNMacroVideoContentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -899,6 +902,8 @@
 				E0B2A73A1D6BF07700843901 /* QNFriendCircleTableViewCell.m */,
 				E0B2A73C1D6C021500843901 /* QNFriendCircleCellContentView.h */,
 				E0B2A73D1D6C021500843901 /* QNFriendCircleCellContentView.m */,
+				E0F23E2D1D6EF04400F5887F /* QNMacroVideoContentView.h */,
+				E0F23E2E1D6EF04400F5887F /* QNMacroVideoContentView.m */,
 				E0B2A73F1D6C025500843901 /* QNFriendCircleCellCommentView.h */,
 				E0B2A7401D6C025500843901 /* QNFriendCircleCellCommentView.m */,
 				E0B2A7421D6C205000843901 /* QNFriendCircleStatusView.h */,
@@ -1586,6 +1591,7 @@
 				E0ABB1431D138DE700899618 /* QNAddressBookContactModel.m in Sources */,
 				E0ABB0E01D1256C900899618 /* UIDevice+YYAdd.m in Sources */,
 				E0ABB1131D1256C900899618 /* YYGestureRecognizer.m in Sources */,
+				E0F23E2F1D6EF04400F5887F /* QNMacroVideoContentView.m in Sources */,
 				E0ABB0EC1D1256C900899618 /* YYMemoryCache.m in Sources */,
 				E0E239E01D22524400825783 /* QNChatContentTableViewCell.m in Sources */,
 				E0ABB00F1D12549800899618 /* SDWebImageDownloader.m in Sources */,

@@ -10,6 +10,7 @@
 #import "QNFriendCircleCellContentView.h"
 #import "QNFriendCircleCellCommentView.h"
 #import "QNFriendCircleStatusView.h"
+#import "QNMacroVideoContentView.h"
 
 @interface QNFriendCircleTableViewCell ()
 
@@ -90,11 +91,12 @@
     }];
 }
 
-- (void)updateContent:(id)content
+- (void)updateContent:(QNFriendCircleModel *)content
 {
     self.headerImageView.backgroundColor = [UIColor lightGrayColor];
     self.nameLabel.text = @"测试姓名呵呵哒";
-    [self.cellContentView updateContent:nil];
+
+    [self.cellContentView updateContent:content];
 }
 
 @end

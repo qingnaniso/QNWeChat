@@ -11,7 +11,8 @@
 @interface QNFriendCircleModel : QNBaseModel
 
 @property (nonatomic, assign) QNFriendCircleModelType *modelType;
-@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSNumber *modelID;
+@property (nonatomic, strong) NSString *contentText;
 @property (nonatomic, strong) NSURL *videoURL;
 @property (nonatomic, strong) NSArray<NSString *> *photosArray;  //use NSDataSource get the image with array's key.
 @property (nonatomic, strong) NSDictionary *shareInfoDictionary;

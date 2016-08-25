@@ -10,6 +10,7 @@
 
 @interface QNFriendCircleCellContentView : UIView
 
+@property (strong, nonatomic) UILabel *contentLabel;
 - (void)updateContent:(id)content;
 
 @end

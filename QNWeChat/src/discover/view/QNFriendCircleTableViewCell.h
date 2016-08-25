@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QNFriendCircleModel.h"
 
 @interface QNFriendCircleTableViewCell : UITableViewCell
 
-- (void)updateContent:(id)content;
+- (void)updateContent:(QNFriendCircleModel *)content;
 
 @end

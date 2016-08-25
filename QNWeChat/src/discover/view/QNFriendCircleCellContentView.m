@@ -7,6 +7,7 @@
 //
 
 #import "QNFriendCircleCellContentView.h"
+#import "QNFriendCircleModel.h"
 
 @implementation QNFriendCircleCellContentView
 
@@ -14,20 +15,26 @@
 {
     self = [super init];
     if (self) {
-        
+        [self createYYLabel];
     }
     return self;
 }
 
-- (void)updateContent:(id)content
+- (void)createYYLabel
 {
-    UIView *view = [[UIView alloc] init];
-    [self addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-        make.height.equalTo(@180);
+    self.contentLabel = [[UILabel alloc] init];
+    [self addSubview:self.contentLabel];
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self);
+        make.left.equalTo(self);
+        make.right.equalTo(self.mas_right);
     }];
-    view.backgroundColor = [UIColor lightGrayColor];
+    self.contentLabel.numberOfLines = 0;
+}
+
+- (void)updateContent:(QNFriendCircleModel *)content
+{
+    self.contentLabel.text = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试试测试测试测试测试测试测试测试测试测试测试测试测试测试";
 }
 
 @end
