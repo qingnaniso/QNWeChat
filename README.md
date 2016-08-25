@@ -2,7 +2,7 @@
 wechat client project 
 this is project for practise and I will keep Coding until it is done.
 min ios version iOS9.0.
-
+![image](https://github.com/YourAcountName/ProjectName/blob/master/GIFName.gif )  
 
 ----------------TODO---------------
 
