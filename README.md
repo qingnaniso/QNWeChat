@@ -3,6 +3,9 @@ wechat client project
 this is project for practise and I will keep Coding until it is done.
 min ios version iOS9.0.
 
+![image](https://github.com/qingnaniso/QNWeChat/blob/master/weixin2.gif)
+![image](https://github.com/qingnaniso/QNWeChat/blob/master/weixin0.gif)
+![image](https://github.com/qingnaniso/QNWeChat/blob/master/qnweixin3.gif)
 
 ----------------TODO---------------
 
