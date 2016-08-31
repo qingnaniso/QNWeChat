@@ -12,6 +12,7 @@
 #import "QNFriendCircleHeaderView.h"
 #import "QNFriendCircleTableViewCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "QNFriendCircleMacroVideoCell.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface QNFriendsCirlcleViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource>
@@ -48,7 +49,7 @@
 
 - (void)setupTableView
 {
-    [self.tableView registerClass:[QNFriendCircleTableViewCell class] forCellReuseIdentifier:@"QNFriendCircleTableViewCell"];
+    [self.tableView registerClass:[QNFriendCircleMacroVideoCell class] forCellReuseIdentifier:@"QNFriendCircleTableViewCell"];
     self.tableView.tableHeaderView = [self createHeaderView:nil];
     self.tableView.contentInset = UIEdgeInsetsMake(-80, 0, 0, 0);
 }
@@ -69,7 +70,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QNFriendCircleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QNFriendCircleTableViewCell" forIndexPath:indexPath];
+    QNFriendCircleMacroVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QNFriendCircleTableViewCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell updateContent:nil];
     return cell;
@@ -77,7 +78,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView fd_heightForCellWithIdentifier:@"QNFriendCircleTableViewCell" cacheByIndexPath:indexPath configuration:^(QNFriendCircleTableViewCell * cell) {
+    return [tableView fd_heightForCellWithIdentifier:@"QNFriendCircleTableViewCell" cacheByIndexPath:indexPath configuration:^(QNFriendCircleMacroVideoCell * cell) {
         
         [cell updateContent:nil];
         

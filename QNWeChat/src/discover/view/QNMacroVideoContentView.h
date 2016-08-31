@@ -8,6 +8,6 @@
 
 #import "QNFriendCircleCellContentView.h"
 
-@interface QNMacroVideoContentView : QNFriendCircleCellContentView
+@interface QNMacroVideoContentView : UIView
 
 @end

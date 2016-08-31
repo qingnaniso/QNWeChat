@@ -7,7 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+
+/*
+ *
+ * a decorder for macro video.
+ *
+ */
+@class QNVideoManager;
+@protocol QNVideoManagerDelegate <NSObject>
+@required
+- (void)videoManager:(QNVideoManager *)manager newVideoFrameReady:(CMSampleBufferRef)buffer;
+- (void)videoDecoderFinish;
+
+@end
 
 @interface QNVideoManager : NSObject
+
+@property (weak, nonatomic) id<QNVideoManagerDelegate> delegate;
+- (void)updateAsset:(AVAsset *)asset;
 
 @end

@@ -10,19 +10,4 @@
 
 @implementation QNMacroVideoContentView
 
--(void)updateContent:(id)content
-{
-    [super updateContent:content];
-    UIView *view = [[UIView alloc] init];
-    [self addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentLabel.mas_bottom);
-        make.left.equalTo(self);
-        make.right.equalTo(self.mas_right);
-        make.bottom.equalTo(self.mas_bottom);
-        make.height.equalTo(@180);
-    }];
-    view.backgroundColor = [UIColor lightGrayColor];
-}
-
 @end

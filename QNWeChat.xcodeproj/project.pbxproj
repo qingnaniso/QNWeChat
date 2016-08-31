@@ -26,6 +26,7 @@
 		E0464EAE1D2CE1EE00E47C14 /* measureTextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */; };
 		E0464EF11D2E464500E47C14 /* CommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EF01D2E464500E47C14 /* CommonTool.m */; };
 		E07FA5671D35E5280090DA65 /* QNAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E07FA5661D35E5280090DA65 /* QNAudioManager.m */; };
+		E097770B1D767EAD004976E6 /* QNVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E097770A1D767EAD004976E6 /* QNVideoView.m */; };
 		E09E38651D644E15006E959A /* QNAddCommentOnVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E09E38641D644E15006E959A /* QNAddCommentOnVideoViewController.m */; };
 		E0ABAF5A1D12392700899618 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABAF591D12392700899618 /* main.m */; };
 		E0ABAF5D1D12392700899618 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ABAF5C1D12392700899618 /* AppDelegate.m */; };
@@ -194,6 +195,8 @@
 		E0E239E11D22524400825783 /* QNChatContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E239DF1D22524400825783 /* QNChatContentTableViewCell.xib */; };
 		E0F23E2B1D6D391C00F5887F /* QNFriendCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F23E2A1D6D391C00F5887F /* QNFriendCircleModel.m */; };
 		E0F23E2F1D6EF04400F5887F /* QNMacroVideoContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F23E2E1D6EF04400F5887F /* QNMacroVideoContentView.m */; };
+		E0F23E321D6EF65E00F5887F /* QNFriendCircleMacroVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F23E311D6EF65E00F5887F /* QNFriendCircleMacroVideoCell.m */; };
+		E0F23E341D70255400F5887F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F23E331D70255400F5887F /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +254,8 @@
 		E0464EF01D2E464500E47C14 /* CommonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTool.m; sourceTree = "<group>"; };
 		E07FA5651D35E5280090DA65 /* QNAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAudioManager.h; sourceTree = "<group>"; };
 		E07FA5661D35E5280090DA65 /* QNAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAudioManager.m; sourceTree = "<group>"; };
+		E09777091D767EAD004976E6 /* QNVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoView.h; sourceTree = "<group>"; };
+		E097770A1D767EAD004976E6 /* QNVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoView.m; sourceTree = "<group>"; };
 		E09E38631D644E15006E959A /* QNAddCommentOnVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAddCommentOnVideoViewController.h; sourceTree = "<group>"; };
 		E09E38641D644E15006E959A /* QNAddCommentOnVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAddCommentOnVideoViewController.m; sourceTree = "<group>"; };
 		E0ABAF551D12392700899618 /* QNWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -582,6 +587,9 @@
 		E0F23E2C1D6D39BD00F5887F /* QNEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNEnum.h; sourceTree = "<group>"; };
 		E0F23E2D1D6EF04400F5887F /* QNMacroVideoContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNMacroVideoContentView.h; sourceTree = "<group>"; };
 		E0F23E2E1D6EF04400F5887F /* QNMacroVideoContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNMacroVideoContentView.m; sourceTree = "<group>"; };
+		E0F23E301D6EF65E00F5887F /* QNFriendCircleMacroVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFriendCircleMacroVideoCell.h; sourceTree = "<group>"; };
+		E0F23E311D6EF65E00F5887F /* QNFriendCircleMacroVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFriendCircleMacroVideoCell.m; sourceTree = "<group>"; };
+		E0F23E331D70255400F5887F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -589,6 +597,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0F23E341D70255400F5887F /* MediaPlayer.framework in Frameworks */,
 				E01CF0D81D62A226003A8F9E /* AVFoundation.framework in Frameworks */,
 				E0ABB1351D12780300899618 /* libz.tbd in Frameworks */,
 				E0ABB1331D1277FB00899618 /* libsqlite3.0.tbd in Frameworks */,
@@ -642,6 +651,8 @@
 				E07FA5661D35E5280090DA65 /* QNAudioManager.m */,
 				E01CF0CB1D5ECD28003A8F9E /* QNVideoManager.h */,
 				E01CF0CC1D5ECD28003A8F9E /* QNVideoManager.m */,
+				E09777091D767EAD004976E6 /* QNVideoView.h */,
+				E097770A1D767EAD004976E6 /* QNVideoView.m */,
 				E0F23E2C1D6D39BD00F5887F /* QNEnum.h */,
 			);
 			path = common;
@@ -900,6 +911,8 @@
 				E0B2A72D1D6AE1EB00843901 /* QNFriendCircleHeaderView.m */,
 				E0B2A7391D6BF07700843901 /* QNFriendCircleTableViewCell.h */,
 				E0B2A73A1D6BF07700843901 /* QNFriendCircleTableViewCell.m */,
+				E0F23E301D6EF65E00F5887F /* QNFriendCircleMacroVideoCell.h */,
+				E0F23E311D6EF65E00F5887F /* QNFriendCircleMacroVideoCell.m */,
 				E0B2A73C1D6C021500843901 /* QNFriendCircleCellContentView.h */,
 				E0B2A73D1D6C021500843901 /* QNFriendCircleCellContentView.m */,
 				E0F23E2D1D6EF04400F5887F /* QNMacroVideoContentView.h */,
@@ -1013,6 +1026,7 @@
 			children = (
 				E0ABB1341D12780300899618 /* libz.tbd */,
 				E0ABB1321D1277FB00899618 /* libsqlite3.0.tbd */,
+				E0F23E331D70255400F5887F /* MediaPlayer.framework */,
 				E01CF0D71D62A226003A8F9E /* AVFoundation.framework */,
 				E0ABB1301D1277F400899618 /* SystemConfiguration.framework */,
 				E0ABB12E1D1277EC00899618 /* MobileCoreServices.framework */,
@@ -1636,6 +1650,7 @@
 				E01CF0D61D6191AF003A8F9E /* QNRecordVideoViewController.m in Sources */,
 				E0ABB0E51D1256C900899618 /* UIScrollView+YYAdd.m in Sources */,
 				E0ABB0FC1D1256C900899618 /* YYTextContainerView.m in Sources */,
+				E097770B1D767EAD004976E6 /* QNVideoView.m in Sources */,
 				E0ABB0101D12549800899618 /* SDWebImageDownloaderOperation.m in Sources */,
 				E0ABB0FA1D1256C900899618 /* NSObject+YYModel.m in Sources */,
 				E0ABB0D71D1256C900899618 /* NSThread+YYAdd.m in Sources */,
@@ -1703,6 +1718,7 @@
 				E0B2A73B1D6BF07700843901 /* QNFriendCircleTableViewCell.m in Sources */,
 				E01CF0C71D5EBAE2003A8F9E /* QNDiscoverTableViewCell.m in Sources */,
 				E01CF0D31D615D2A003A8F9E /* QNBaseNavigationController.m in Sources */,
+				E0F23E321D6EF65E00F5887F /* QNFriendCircleMacroVideoCell.m in Sources */,
 				E0ABB11B1D1256C900899618 /* YYWeakProxy.m in Sources */,
 				E0ABB0CE1D1256C900899618 /* NSDate+YYAdd.m in Sources */,
 				E0B2A73E1D6C021500843901 /* QNFriendCircleCellContentView.m in Sources */,
