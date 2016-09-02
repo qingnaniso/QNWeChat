@@ -18,16 +18,27 @@
 {
     self = [super init];
     if (self) {
-        self.reader = [[AVAssetReader alloc] initWithAsset:[[AVAsset alloc] init] error:nil];
     }
     return self;
 }
 
--(void)updateAsset:(AVAsset *)asset
+-(void)updateAsset:(AVURLAsset *)asset
 {
     if (!asset) {
         return;
     }
+    NSArray *array = [[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    
+    NSURL *url = [array firstObject];
+    
+    NSURL *path = [url URLByAppendingPathComponent:@"myMovie.mov"];
+    
+    NSError *error;
+    
+    asset = [AVURLAsset assetWithURL:path];
+    
+    self.reader = [[AVAssetReader alloc] initWithAsset:asset error:&error];
+
     NSArray *trackouts = [asset tracksWithMediaType:AVMediaTypeVideo];
     AVAssetTrack *track = [trackouts firstObject];
 //    m_pixelFormatType=kCVPixelFormatType_32BGRA
@@ -40,8 +51,8 @@
     while (self.reader.status == AVAssetReaderStatusReading  && track.nominalFrameRate > 0 ) {
         CMSampleBufferRef videoBuffer = [videoReaderOutput copyNextSampleBuffer];
         [self.delegate videoManager:self newVideoFrameReady:videoBuffer];
+        [NSThread sleepForTimeInterval:0.001];
         CFRelease(videoBuffer);
-        [NSThread sleepForTimeInterval:0.1];
     }
     [self.delegate videoDecoderFinish];
 }

@@ -68,6 +68,10 @@
     self.searchController.searchBar.delegate = self;
     self.searchController.searchBar.backgroundImage = [UIImage imageWithColor:[UIColor colorWithRed:240.0/255 green:240.0/255 blue:246.0/255 alpha:1.0]]; /* remove top and bottom black lines */
     
+    UISearchBar *bar = self.searchController.searchBar;
+    bar.showsBookmarkButton = YES;
+    [bar setImage:[UIImage imageNamed:@"VoiceSearchStartBtn"] forSearchBarIcon:UISearchBarIconBookmark state:UIControlStateNormal];
+    
     UITextField *searchField = [self.searchController.searchBar valueForKey:@"searchField"];    /* set edit cursor color which come from wechat ios client. */
     [searchField setTintColor:[UIColor colorWithRed:38.0/255 green:192.0/255 blue:40.0/255 alpha:1.0]];
 }

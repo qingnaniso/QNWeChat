@@ -25,6 +25,6 @@
 @interface QNVideoManager : NSObject
 
 @property (weak, nonatomic) id<QNVideoManagerDelegate> delegate;
-- (void)updateAsset:(AVAsset *)asset;
+- (void)updateAsset:(AVURLAsset *)asset;
 
 @end
