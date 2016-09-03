@@ -166,6 +166,7 @@
                     <connections>
                         <outlet property="tableView" destination="8Rf-g9-i6d" id="vfJ-zu-7wS"/>
                         <segue destination="4q3-PM-EKG" kind="modal" identifier="friendCircleModelToRecordVideo" modalTransitionStyle="coverVertical" id="ESz-lm-kG1"/>
+                        <segue destination="o1A-ct-bLx" kind="modal" identifier="friendsCirlcleToSendText" id="Mk5-cz-SxD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWu-HD-Klr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -192,7 +193,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFP-O0-CjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2468" y="1042"/>
+            <point key="canvasLocation" x="2458" y="1042"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="3vk-0t-EaZ">
+            <objects>
+                <navigationController id="o1A-ct-bLx" customClass="QNBaseNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xSx-OI-YKQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SL5-jn-26Z" kind="relationship" relationship="rootViewController" id="jTa-cR-gVG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGd-7r-OFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1936" y="1804"/>
+        </scene>
+        <!--发表文字-->
+        <scene sceneID="j0l-7t-diq">
+            <objects>
+                <viewController id="SL5-jn-26Z" customClass="QNSendPureTextOnFCViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hFV-U7-sEO"/>
+                        <viewControllerLayoutGuide type="bottom" id="rZF-DZ-QI0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8xb-uD-BRb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGC-3B-PCz" customClass="YYTextView">
+                                <rect key="frame" x="20" y="84" width="280" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="NwA-Kb-biD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zGC-3B-PCz" secondAttribute="trailing" constant="20" id="IG2-q1-Lsk"/>
+                            <constraint firstItem="zGC-3B-PCz" firstAttribute="leading" secondItem="8xb-uD-BRb" secondAttribute="leading" constant="20" id="WHD-N6-TUL"/>
+                            <constraint firstItem="zGC-3B-PCz" firstAttribute="top" secondItem="hFV-U7-sEO" secondAttribute="bottom" constant="20" id="pTf-LU-Z72"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="发表文字" id="VZ1-8m-WRP"/>
+                    <connections>
+                        <outlet property="textView" destination="zGC-3B-PCz" id="xzi-wa-PA6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qy6-cd-YaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2458" y="1804"/>
         </scene>
         <!--Add Comment On Video View Controller-->
         <scene sceneID="eby-m9-JDJ">
@@ -242,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iH0-dP-UXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2888" y="1047"/>
+            <point key="canvasLocation" x="2984" y="1042"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="yrg-Eu-cna">

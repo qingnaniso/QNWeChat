@@ -45,6 +45,18 @@
 {
     UIBarButtonItem *item = [UIBarButtonItem itemWithImage:@"barbuttonicon_Camera" highImage:nil target:self action:@selector(rightBarButtonItemClicked:)];
     self.navigationItem.rightBarButtonItem = item;
+    
+    UIView *view = item.customView;
+    
+    UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(sendTextGesture:)];
+    [view addGestureRecognizer:gesture];
+}
+
+- (void)sendTextGesture:(UIGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        [self performSegueWithIdentifier:@"friendsCirlcleToSendText" sender:nil];
+    }
 }
 
 - (void)setupTableView
@@ -65,7 +77,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 20;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

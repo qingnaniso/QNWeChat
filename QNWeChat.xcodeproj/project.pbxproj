@@ -25,6 +25,7 @@
 		E0464EAB1D2BA4D500E47C14 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EA81D2BA4D500E47C14 /* MarkupParser.m */; };
 		E0464EAE1D2CE1EE00E47C14 /* measureTextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */; };
 		E0464EF11D2E464500E47C14 /* CommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EF01D2E464500E47C14 /* CommonTool.m */; };
+		E04A273E1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E04A273D1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.m */; };
 		E07FA5671D35E5280090DA65 /* QNAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E07FA5661D35E5280090DA65 /* QNAudioManager.m */; };
 		E097770B1D767EAD004976E6 /* QNVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E097770A1D767EAD004976E6 /* QNVideoView.m */; };
 		E09E38651D644E15006E959A /* QNAddCommentOnVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E09E38641D644E15006E959A /* QNAddCommentOnVideoViewController.m */; };
@@ -252,6 +253,8 @@
 		E0464EAD1D2CE1EE00E47C14 /* measureTextTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = measureTextTool.m; sourceTree = "<group>"; };
 		E0464EEF1D2E464500E47C14 /* CommonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTool.h; sourceTree = "<group>"; };
 		E0464EF01D2E464500E47C14 /* CommonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTool.m; sourceTree = "<group>"; };
+		E04A273C1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSendPureTextOnFCViewController.h; sourceTree = "<group>"; };
+		E04A273D1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSendPureTextOnFCViewController.m; sourceTree = "<group>"; };
 		E07FA5651D35E5280090DA65 /* QNAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAudioManager.h; sourceTree = "<group>"; };
 		E07FA5661D35E5280090DA65 /* QNAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAudioManager.m; sourceTree = "<group>"; };
 		E09777091D767EAD004976E6 /* QNVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoView.h; sourceTree = "<group>"; };
@@ -889,6 +892,8 @@
 				E01CF0D51D6191AF003A8F9E /* QNRecordVideoViewController.m */,
 				E09E38631D644E15006E959A /* QNAddCommentOnVideoViewController.h */,
 				E09E38641D644E15006E959A /* QNAddCommentOnVideoViewController.m */,
+				E04A273C1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.h */,
+				E04A273D1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1726,6 +1731,7 @@
 				E09E38651D644E15006E959A /* QNAddCommentOnVideoViewController.m in Sources */,
 				E01CF0C11D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				E0ABB0E41D1256C900899618 /* UIScreen+YYAdd.m in Sources */,
+				E04A273E1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.m in Sources */,
 				E0E239D61D1CD5B700825783 /* QNChatModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
