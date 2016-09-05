@@ -132,6 +132,49 @@
     return array;
 }
 
+
+-(NSArray<QNFriendCircleModel *> *)getFriendCircleData
+{
+    return (NSArray *)[self objectForKey:@"FriendCircleData"];
+}
+
+-(void)addFriendCircleData:(id)data completionBlock:(void (^)())block
+{
+    if (!data) {
+        return;
+    }
+    
+    NSMutableArray *oldArray = [NSMutableArray arrayWithArray:[self getFriendCircleData]];
+    if ([oldArray containsObject:data]) {
+        return;
+    } else {
+        [oldArray insertObject:data atIndex:0];
+    }
+    [self setObject:oldArray forKey:@"FriendCircleData" withBlock:^{
+        if (block) {
+            block();
+        }
+    }];
+}
+
+-(void)removeFriendCircleData:(id)data completionBlock:(void (^)())block
+{
+    if (!data) {
+        return;
+    }
+    NSMutableArray *oldArray = [NSMutableArray arrayWithArray:[self getFriendCircleData]];
+    if ([oldArray containsObject:data]) {
+        [oldArray removeObject:data];
+    } else {
+        return;
+    }
+    [self setObject:oldArray forKey:@"FriendCircleData" withBlock:^{
+        if (block) {
+            block();
+        }
+    }];
+}
+
 @end
 
 

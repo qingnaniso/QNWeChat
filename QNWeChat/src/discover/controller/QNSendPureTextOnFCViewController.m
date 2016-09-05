@@ -8,6 +8,7 @@
 
 #import "QNSendPureTextOnFCViewController.h"
 #import "UIBarButtonItem+QNExtention.h"
+#import "QNFriendCircleModel.h"
 
 @interface QNSendPureTextOnFCViewController ()
 
@@ -33,14 +34,13 @@
 {
     UIBarButtonItem *rightItem = [UIBarButtonItem itemWithTitle:@"发送" textColor:Globle_WeChat_Color target:self action:@selector(rightItemButtonClicked:)];
     self.navigationItem.rightBarButtonItem = rightItem;
-    UIBarButtonItem *leftItem = [UIBarButtonItem itemWithTitle:@"取消" textColor:[UIColor whiteColor] target:self action:@selector(leftItemButtonClicked:)];
+    UIBarButtonItem *leftItem = [UIBarButtonItem itemWithTitle:@"取消" textColor:[UIColor whiteColor] target:self action:@selector(leftItemButtonClicked:completion:)];
     self.navigationItem.leftBarButtonItem = leftItem;
 }
 
 - (void)setupTextView
 {
     [self.textView becomeFirstResponder];
-//    self.textView.inputAccessoryView =
     UIView *accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
     accessoryView.backgroundColor = [UIColor whiteColor];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -51,14 +51,25 @@
     self.textView.inputAccessoryView = accessoryView;
 }
 
-- (void)leftItemButtonClicked:(UIButton *)btn
+- (void)leftItemButtonClicked:(UIButton *)btn completion:(void(^)())completionBlock
 {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        if (completionBlock) {
+            completionBlock();
+        }
+    }];
 }
 
 - (void)rightItemButtonClicked:(UIButton *)btn
 {
-    
+    if ([self.textView.text isNotBlank]) {
+        QNFriendCircleModel *model = [[QNFriendCircleModel alloc] init];
+        [model addPureText:self.textView.text completionBlock:^{
+            [self leftItemButtonClicked:nil completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:QNFriendCirlceDataSourceChanged object:nil];
+            }];
+        }];
+    }
 }
 
 - (void)keyboardAccessoryButtonClicked:(UIButton *)btn

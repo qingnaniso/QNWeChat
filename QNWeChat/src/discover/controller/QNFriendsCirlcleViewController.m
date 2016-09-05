@@ -13,12 +13,15 @@
 #import "QNFriendCircleTableViewCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "QNFriendCircleMacroVideoCell.h"
+#import "QNFriendCirclePureTextCell.h"
+#import "QNFriendCircleModel.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface QNFriendsCirlcleViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource>
+@interface QNFriendsCirlcleViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource, QNFriendCircleTableViewCellDelegate>
 
 @property (nonatomic, strong) NSArray *sendFriendsCirlceMediaTypeDataSource;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *dataSource;
 
 @end
 
@@ -33,6 +36,8 @@
 - (void)initData
 {
     self.sendFriendsCirlceMediaTypeDataSource = @[@"小视频",@"拍照",@"从手机相册选择"];
+    self.dataSource = [NSMutableArray arrayWithArray:[[QNDataSource shareDataSource] getFriendCircleData]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataSourceChanged) name:QNFriendCirlceDataSourceChanged object:nil];
 }
 
 - (void)setupView
@@ -61,9 +66,12 @@
 
 - (void)setupTableView
 {
-    [self.tableView registerClass:[QNFriendCircleMacroVideoCell class] forCellReuseIdentifier:@"QNFriendCircleTableViewCell"];
+    [self.tableView registerClass:[QNFriendCircleMacroVideoCell class] forCellReuseIdentifier:@"QNFriendCircleMacroVideoCell"];
+    [self.tableView registerClass:[QNFriendCirclePureTextCell class] forCellReuseIdentifier:@"QNFriendCirclePureTextCell"];
+
     self.tableView.tableHeaderView = [self createHeaderView:nil];
     self.tableView.contentInset = UIEdgeInsetsMake(-80, 0, 0, 0);
+    [self.tableView reloadData];
 }
 
 - (QNFriendCircleHeaderView *)createHeaderView:(NSDictionary *)infoDic
@@ -73,28 +81,90 @@
     return header;
 }
 
+- (void)dataSourceChanged
+{
+    self.dataSource = [NSMutableArray arrayWithArray:[[QNDataSource shareDataSource] getFriendCircleData]];
+    [self.tableView reloadData];
+}
+
+#pragma mark - TableView Cell Delegate
+
+-(void)deleteData:(QNFriendCircleModel *)model cell:(QNFriendCircleTableViewCell *)cell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+
+    
+    [[QNDataSource shareDataSource] removeFriendCircleData:model completionBlock:^{
+        if ([self.dataSource containsObject:model]) {
+            [self.dataSource removeObject:model];
+        } else {
+            NSLog(@"datasource do not contains model");
+        }
+        [self.tableView deleteRow:indexPath.row inSection:indexPath.section withRowAnimation:UITableViewRowAnimationRight];
+//        [self.tableView reloadData];
+    }];
+
+}
+
 #pragma mark - UITableView Delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.dataSource.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QNFriendCircleMacroVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QNFriendCircleTableViewCell" forIndexPath:indexPath];
+    QNFriendCircleTableViewCell *cell = [self cellForModelIndex:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell updateContent:nil];
+    [cell updateContent:self.dataSource[indexPath.row]];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView fd_heightForCellWithIdentifier:@"QNFriendCircleTableViewCell" cacheByIndexPath:indexPath configuration:^(QNFriendCircleMacroVideoCell * cell) {
+    NSString *identifier = [self identifierForCellAtIndexPath:indexPath];
+    
+    if (identifier) {
+//        return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(QNFriendCircleTableViewCell * cell) {
+//            
+//            [cell updateContent:self.dataSource[indexPath.row]];
+//            
+//        }];
         
-        [cell updateContent:nil];
-        
-    }];
+        return [tableView fd_heightForCellWithIdentifier:identifier configuration:^(QNFriendCircleTableViewCell *cell) {
+            [cell updateContent:self.dataSource[indexPath.row]];
+        }];
+    } else {
+        return 0;
+    }
+
+}
+
+- (QNFriendCircleTableViewCell *)cellForModelIndex:(NSIndexPath *)indexPath
+{
+    QNFriendCircleTableViewCell *cell;
+    QNFriendCircleModel *model = self.dataSource[indexPath.row];
+    if (model.modelType == modelTypeText) {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"QNFriendCirclePureTextCell" forIndexPath:indexPath];
+    } else if (model.modelType == modelTypeMacroVideo) {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"QNFriendCircleMacroVideoCell" forIndexPath:indexPath];
+    }
+    cell.delegate = self;
+    return cell;
+}
+
+- (NSString *)identifierForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *pureTextIdentifier = @"QNFriendCirclePureTextCell";
+    static NSString *macroVideoIdentifier = @"QNFriendCircleMacroVideoCell";
+    QNFriendCircleModel *model = self.dataSource[indexPath.row];
+    if (model.modelType == modelTypeText) {
+        return pureTextIdentifier;
+    } else if (model.modelType == modelTypeMacroVideo) {
+        return macroVideoIdentifier;
+    }
+    return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YYLabel.h"
 
 @interface QNFriendCircleCellContentView : UIView
 

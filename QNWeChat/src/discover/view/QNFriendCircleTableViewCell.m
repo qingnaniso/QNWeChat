@@ -10,6 +10,8 @@
 
 @interface QNFriendCircleTableViewCell ()
 
+@property (strong, nonatomic) QNFriendCircleModel *model;
+
 @end
 
 @implementation QNFriendCircleTableViewCell
@@ -31,6 +33,7 @@
 
 - (void)setupSubviews
 {
+    WS(weakSelf);
     //vatar
     self.headerImageView = [[UIImageView alloc] init];
     [self.contentView addSubview:self.headerImageView];
@@ -69,6 +72,11 @@
         make.right.equalTo(self.contentView.mas_right).offset = -10;
         make.height.equalTo(@30);
     }];
+    self.statusView.deleteBlock = ^(){
+        if ([weakSelf.delegate respondsToSelector:@selector(deleteData:cell:)]) {
+            [weakSelf.delegate deleteData:weakSelf.model cell:weakSelf];
+        }
+    };
     
     //comment view
     self.commentView = [[QNFriendCircleCellCommentView alloc] init];
@@ -83,6 +91,7 @@
 
 - (void)updateContent:(QNFriendCircleModel *)content
 {
+    self.model = content;
     self.headerImageView.backgroundColor = [UIColor lightGrayColor];
     self.nameLabel.text = @"测试姓名呵呵哒";
 

@@ -10,4 +10,18 @@
 
 @implementation QNFriendCircleModel
 
+-(void)addPureText:(NSString *)text completionBlock:(void (^)())completionBlock
+{
+    self.contentText = text;
+    self.modelID = [text md5String];
+    self.modelDate = [NSDate date];
+    self.formatDateString = @"刚刚";
+    self.modelType = modelTypeText;
+    [[QNDataSource shareDataSource] addFriendCircleData:self completionBlock:^{
+        if (completionBlock) {
+            completionBlock();
+        }
+    }];
+}
+
 @end

@@ -112,7 +112,9 @@
 
 - (void)deleteButtonClicked:(UIButton *)btn
 {
-    NSLog(@"delete");
+    if (self.deleteBlock) {
+        self.deleteBlock();
+    }
 }
 
 - (void)showCommentButtonClicked:(UIButton *)btn

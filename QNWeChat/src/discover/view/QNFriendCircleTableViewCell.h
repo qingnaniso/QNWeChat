@@ -13,6 +13,16 @@
 #import "QNFriendCircleStatusView.h"
 #import "QNMacroVideoContentView.h"
 
+@class QNFriendCircleTableViewCell;
+
+@protocol QNFriendCircleTableViewCellDelegate <NSObject>
+
+@required
+
+- (void)deleteData:(QNFriendCircleModel *)model cell:(QNFriendCircleTableViewCell *)cell;
+
+@end
+
 @interface QNFriendCircleTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) UIImageView *headerImageView;
@@ -20,6 +30,7 @@
 @property (strong, nonatomic) QNFriendCircleCellContentView *cellContentView;
 @property (strong, nonatomic) QNFriendCircleCellCommentView *commentView;
 @property (strong, nonatomic) QNFriendCircleStatusView *statusView;
+@property (weak, nonatomic) id<QNFriendCircleTableViewCellDelegate> delegate;
 
 - (void)updateContent:(QNFriendCircleModel *)content;
 

@@ -24,17 +24,18 @@
 {
     self.contentLabel = [[UILabel alloc] init];
     [self addSubview:self.contentLabel];
+    self.contentLabel.numberOfLines = 0;
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self);
         make.left.equalTo(self);
         make.right.equalTo(self.mas_right);
     }];
-    self.contentLabel.numberOfLines = 0;
 }
 
 - (void)updateContent:(QNFriendCircleModel *)content
 {
-    self.contentLabel.text = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试试测试测试测试测试测试测试测试测试测试测试测试测试测试";
+    self.contentLabel.text = content.contentText;
+//    [self setNeedsLayout];
 }
 
 @end

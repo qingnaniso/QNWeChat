@@ -22,6 +22,7 @@
 #import "UIColor+QNHexColor.h"
 #import "Masonry.h"
 #import "QNEnum.h"
+#import "QNGlobleNotificationKey.h"
 
 #endif
 

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /* global datasource when have no network request */
-
+@class QNFriendCircleModel;
 @interface QNDataSource : YYCache
 
 + (instancetype)shareDataSource;
@@ -27,5 +27,11 @@
 - (NSArray *)getCurrentChattingForAllUsers; //return array of userID
 
 - (NSArray *)getDiscoverDataWithDictionaryArray;
+
+- (NSArray<QNFriendCircleModel *> *)getFriendCircleData;
+
+- (void)addFriendCircleData:(id)data completionBlock:(void (^)())block;
+
+- (void)removeFriendCircleData:(id)data completionBlock:(void (^)())block;
 
 @end

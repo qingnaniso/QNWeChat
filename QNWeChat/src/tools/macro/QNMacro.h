@@ -37,4 +37,5 @@
 #define NSLogSize(size) NSLog(@"%s w:%.4f, h:%.4f", #size, size.width, size.height)
 #define NSLogPoint(point) NSLog(@"%s x:%.4f, y:%.4f", #point, point.x, point.y)
 
+//Globle Color
 #define Globle_WeChat_Color [UIColor colorWithR:130 G:231 B:70]
