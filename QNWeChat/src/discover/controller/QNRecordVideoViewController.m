@@ -373,7 +373,7 @@ typedef enum : NSUInteger {
     
     NSURL *url = [array firstObject];
     
-    NSURL *filePath = [url URLByAppendingPathComponent:@"myMovie.mov"];
+    NSURL *filePath = [url URLByAppendingPathComponent:[NSString stringWithFormat:@"myMovie%@.mov",[[NSDate date] stringWithISOFormat]]];
     
     [self.output startRecordingToOutputFileURL:filePath recordingDelegate:self];
     

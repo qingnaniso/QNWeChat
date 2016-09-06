@@ -63,6 +63,7 @@
 - (void)rightItemButtonClicked:(UIButton *)btn
 {
     if ([self.textView.text isNotBlank]) {
+        [self.textView resignFirstResponder];
         QNFriendCircleModel *model = [[QNFriendCircleModel alloc] init];
         [model addPureText:self.textView.text completionBlock:^{
             [self leftItemButtonClicked:nil completion:^{

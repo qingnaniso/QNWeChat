@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
 #import "UIBarButtonItem+QNExtention.h"
+#import "QNFriendCircleModel.h"
 
 @interface QNAddCommentOnVideoViewController ()
 
@@ -78,13 +79,16 @@
 
 - (void)setupInputView
 {
-    
     [self.inputView becomeFirstResponder];
 }
 
 - (void)sendMacroVideoItemClicked:(UIButton *)btn
 {
-    
+    QNFriendCircleModel *model = [[QNFriendCircleModel alloc] init];
+    [model addMacroVideoWithURL:self.recordURL contentText:self.textView.text];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:QNFriendCirlceDataSourceChanged object:nil];
+    }];
 }
 
 - (void)moreItemClicked:(UIButton *)btn

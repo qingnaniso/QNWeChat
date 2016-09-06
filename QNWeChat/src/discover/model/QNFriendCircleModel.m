@@ -13,7 +13,7 @@
 -(void)addPureText:(NSString *)text completionBlock:(void (^)())completionBlock
 {
     self.contentText = text;
-    self.modelID = [text md5String];
+    self.modelID = [[NSString stringWithFormat:@"%@%@",text,[[NSDate date] stringWithISOFormat]] md5String];
     self.modelDate = [NSDate date];
     self.formatDateString = @"刚刚";
     self.modelType = modelTypeText;
@@ -21,6 +21,19 @@
         if (completionBlock) {
             completionBlock();
         }
+    }];
+}
+
+-(void)addMacroVideoWithURL:(NSURL *)fileURL contentText:(NSString *)contentText
+{
+    self.modelID = [fileURL.absoluteString md5String];
+    self.modelDate = [NSDate date];
+    self.formatDateString = @"刚刚";
+    self.modelType = modelTypeMacroVideo;
+    self.contentText = contentText;
+    self.videoURL = fileURL;
+    [[QNDataSource shareDataSource] addFriendCircleData:self completionBlock:^{
+        
     }];
 }
 

@@ -20,5 +20,6 @@
 @property (nonatomic, strong) NSString *formatDateString;
 
 - (void)addPureText:(NSString *)text completionBlock:(void (^)())completionBlock;
+- (void)addMacroVideoWithURL:(NSURL *)fileURL contentText:(NSString *)contentText;
 
 @end

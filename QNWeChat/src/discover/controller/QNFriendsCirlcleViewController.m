@@ -71,6 +71,8 @@
 
     self.tableView.tableHeaderView = [self createHeaderView:nil];
     self.tableView.contentInset = UIEdgeInsetsMake(-80, 0, 0, 0);
+    self.tableView.fd_debugLogEnabled = YES;
+    self.tableView.estimatedRowHeight = 100;
     [self.tableView reloadData];
 }
 
@@ -93,17 +95,13 @@
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
 
-    
-    [[QNDataSource shareDataSource] removeFriendCircleData:model completionBlock:^{
-        if ([self.dataSource containsObject:model]) {
-            [self.dataSource removeObject:model];
-        } else {
-            NSLog(@"datasource do not contains model");
-        }
-        [self.tableView deleteRow:indexPath.row inSection:indexPath.section withRowAnimation:UITableViewRowAnimationRight];
-//        [self.tableView reloadData];
-    }];
-
+    [[QNDataSource shareDataSource] removeFriendCircleData:model completionBlock:nil];
+    if ([self.dataSource containsObject:model]) {
+        [self.dataSource removeObject:model];
+    } else {
+        NSLog(@"datasource do not contains model");
+    }
+    [self.tableView deleteRow:indexPath.row inSection:indexPath.section withRowAnimation:UITableViewRowAnimationRight];
 }
 
 #pragma mark - UITableView Delegate
@@ -126,15 +124,12 @@
     NSString *identifier = [self identifierForCellAtIndexPath:indexPath];
     
     if (identifier) {
-//        return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(QNFriendCircleTableViewCell * cell) {
-//            
-//            [cell updateContent:self.dataSource[indexPath.row]];
-//            
-//        }];
-        
-        return [tableView fd_heightForCellWithIdentifier:identifier configuration:^(QNFriendCircleTableViewCell *cell) {
+        return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(QNFriendCircleTableViewCell * cell) {
+            
             [cell updateContent:self.dataSource[indexPath.row]];
+            
         }];
+        
     } else {
         return 0;
     }
