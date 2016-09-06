@@ -20,6 +20,7 @@
 @required
 
 - (void)deleteData:(QNFriendCircleModel *)model cell:(QNFriendCircleTableViewCell *)cell;
+- (void)showLove:(QNFriendCircleModel *)model cell:(QNFriendCircleTableViewCell *)cell;
 
 @end
 

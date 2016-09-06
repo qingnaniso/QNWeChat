@@ -43,6 +43,7 @@
         make.width.equalTo(@44);
         make.top.equalTo(self.contentView).offset = 12;
     }];
+    self.headerImageView.backgroundColor = [UIColor lightGrayColor];
     
     //user name
     self.nameLabel = [[UILabel alloc] init];
@@ -76,6 +77,18 @@
         if ([weakSelf.delegate respondsToSelector:@selector(deleteData:cell:)]) {
             [weakSelf.delegate deleteData:weakSelf.model cell:weakSelf];
         }
+        [weakSelf.statusView hideCommentView];
+    };
+    
+    self.statusView.loveBlock = ^(){
+        if ([weakSelf.delegate respondsToSelector:@selector(showLove:cell:)]) {
+            [weakSelf.delegate showLove:weakSelf.model cell:weakSelf];
+        }
+        [weakSelf.statusView hideCommentView];
+    };
+    
+    self.statusView.commentBlock = ^(){
+        
     };
     
     //comment view
@@ -87,15 +100,16 @@
         make.right.equalTo(self.contentView.mas_right).offset = -10;
         make.bottom.equalTo(self.contentView.mas_bottom).offset = -10;
     }];
+    [self.contentView bringSubviewToFront:self.statusView];
 }
 
 - (void)updateContent:(QNFriendCircleModel *)content
 {
     self.model = content;
-    self.headerImageView.backgroundColor = [UIColor lightGrayColor];
     self.nameLabel.text = @"测试姓名呵呵哒";
 
     [self.cellContentView updateContent:content];
+    [self.commentView updateLoverList:content.loverList];
 }
 
 @end

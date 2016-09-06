@@ -104,6 +104,18 @@
     [self.tableView deleteRow:indexPath.row inSection:indexPath.section withRowAnimation:UITableViewRowAnimationRight];
 }
 
+-(void)showLove:(QNFriendCircleModel *)model cell:(QNFriendCircleTableViewCell *)cell
+{
+    if (!model.ILoveThis) {
+        model.loverList = @[@"1",@"2"];
+    } else {
+        model.loverList = nil;
+    }
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
+    model.ILoveThis = !model.ILoveThis;
+}
+
 #pragma mark - UITableView Delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

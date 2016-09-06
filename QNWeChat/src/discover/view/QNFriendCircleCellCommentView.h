@@ -10,4 +10,11 @@
 
 @interface QNFriendCircleCellCommentView : UIView
 
+/* myself action */
+- (void)showLove;
+- (void)hideLove;
+
+/* others */
+- (void)updateLoverList:(NSArray *)lovers;
+
 @end

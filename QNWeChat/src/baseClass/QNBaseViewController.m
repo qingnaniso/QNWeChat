@@ -33,6 +33,11 @@
     [super prepareForSegue:segue sender:sender];
 }
 
+- (void)dealloc
+{
+    NSLog(@"dealloc class is %@",[self class]);
+}
+
 /*
 #pragma mark - Navigation
 

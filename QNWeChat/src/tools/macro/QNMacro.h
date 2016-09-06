@@ -39,3 +39,4 @@
 
 //Globle Color
 #define Globle_WeChat_Color [UIColor colorWithR:130 G:231 B:70]
+#define Globle_WeChat_UserNameLabel_Color [UIColor colorWithR:88 G:108 B:148]

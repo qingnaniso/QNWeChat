@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSDictionary *shareInfoDictionary;
 @property (nonatomic, strong) NSDate *modelDate;
 @property (nonatomic, strong) NSString *formatDateString;
+@property (nonatomic, strong) NSArray *loverList;
+@property (nonatomic, assign) BOOL ILoveThis;
 
 - (void)addPureText:(NSString *)text completionBlock:(void (^)())completionBlock;
 - (void)addMacroVideoWithURL:(NSURL *)fileURL contentText:(NSString *)contentText;

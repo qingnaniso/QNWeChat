@@ -11,6 +11,8 @@
 @interface QNFriendCircleStatusView : UIView
 
 @property (strong, nonatomic) void (^deleteBlock)();
+@property (strong, nonatomic) void (^loveBlock)();
+@property (strong, nonatomic) void (^commentBlock)();
 
 -(instancetype)initWithDic:(NSDictionary *)dic;
 - (void)hideCommentView;

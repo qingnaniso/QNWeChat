@@ -84,11 +84,11 @@
     self.zanButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.assessView addSubview:self.zanButton];
     [self.zanButton setTitle:@"赞" forState:UIControlStateNormal];
+    [self.zanButton addTarget:self action:@selector(loveButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.zanButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [self.zanButton setTitleColor:[UIColor colorWithR:242 G:242 B:242] forState:UIControlStateNormal];
     [self.zanButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [self.zanButton mas_makeConstraints:^(MASConstraintMaker *make) {
-
         make.top.equalTo(self.assessView);
         make.left.equalTo(self.assessView);
         make.bottom.equalTo(self.assessView.mas_bottom);
@@ -101,6 +101,7 @@
     [commentButton setTitle:@"评论" forState:UIControlStateNormal];
     [commentButton setTitleColor:[UIColor colorWithR:242 G:242 B:242] forState:UIControlStateNormal];
     [commentButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [commentButton addTarget:self action:@selector(commentButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     commentButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.zanButton.mas_right);
@@ -114,6 +115,20 @@
 {
     if (self.deleteBlock) {
         self.deleteBlock();
+    }
+}
+
+- (void)loveButtonClicked:(UIButton *)btn
+{
+    if (self.loveBlock) {
+        self.loveBlock();
+    }
+}
+
+- (void)commentButtonClicked:(UIButton *)btn
+{
+    if (self.commentBlock) {
+        self.commentBlock();
     }
 }
 
