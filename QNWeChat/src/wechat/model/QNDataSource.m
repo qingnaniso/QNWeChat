@@ -8,6 +8,7 @@
 
 #import "QNDataSource.h"
 #import "QNAddressBookContactModel.h"
+#import "QNFriendCircleModel.h"
 
 @interface QNDataSource ()
 
@@ -173,6 +174,46 @@
             block();
         }
     }];
+}
+
+-(void)updateFriendCircleDataByModelID:(NSString *)modelID withModel:(QNFriendCircleModel *)model
+{
+    if (!modelID || !model || ![model isKindOfClass:[QNFriendCircleModel class]]) {
+        NSLog(@"update model wrong");
+        return;
+    }
+    
+    __block QNFriendCircleModel *savedModel = nil;
+    __block NSUInteger savedModelIndex = -1;
+    NSMutableArray *oldArray = [NSMutableArray arrayWithArray:[self getFriendCircleData]];
+    [oldArray enumerateObjectsUsingBlock:^(QNFriendCircleModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.modelID isEqualToString:modelID]) {
+            savedModel = obj;
+            savedModelIndex = idx;
+            *stop = YES;
+        }
+    }];
+    
+    if (savedModelIndex > -1 && savedModel) {
+        [oldArray replaceObjectAtIndex:savedModelIndex withObject:model];
+        [self setObject:oldArray forKey:@"FriendCircleData"];
+    } else {
+        NSLog(@"model unfound");
+    }
+
+}
+
+-(QNFriendCircleModel *)getModelFromCacheByModelID:(NSString *)modelID
+{
+    __block QNFriendCircleModel *savedModel = nil;
+    NSMutableArray *oldArray = [NSMutableArray arrayWithArray:[self getFriendCircleData]];
+    [oldArray enumerateObjectsUsingBlock:^(QNFriendCircleModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.modelID isEqualToString:modelID]) {
+            savedModel = obj;
+            *stop = YES;
+        }
+    }];
+    return savedModel ?: nil;
 }
 
 @end

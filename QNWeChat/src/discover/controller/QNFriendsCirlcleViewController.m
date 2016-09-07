@@ -15,13 +15,21 @@
 #import "QNFriendCircleMacroVideoCell.h"
 #import "QNFriendCirclePureTextCell.h"
 #import "QNFriendCircleModel.h"
+#import "QNInputToolView.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface QNFriendsCirlcleViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource, QNFriendCircleTableViewCellDelegate>
+@interface QNFriendsCirlcleViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource, QNFriendCircleTableViewCellDelegate,QNInputToolViewDelegate>
 
 @property (nonatomic, strong) NSArray *sendFriendsCirlceMediaTypeDataSource;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *dataSource;
+@property (strong, nonatomic) QNInputToolView *inputView;
+@property (strong, nonatomic) NSDictionary *keyBoardDic;
+@property (assign, nonatomic) BOOL keyboardShow;
+@property (assign, nonatomic) CGRect keyboardRect;
+@property (weak, nonatomic) UIView *coverView;
+@property (weak, nonatomic) QNFriendCircleTableViewCell *currentEditCell;
+@property (assign, nonatomic) CGPoint oldContentOffSet;
 
 @end
 
@@ -43,6 +51,7 @@
 - (void)setupView
 {
     [self initNavigationRightItem];
+    [self initKeyboardAccessoryView];
     [self setupTableView];
 }
 
@@ -52,9 +61,58 @@
     self.navigationItem.rightBarButtonItem = item;
     
     UIView *view = item.customView;
-    
+
     UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(sendTextGesture:)];
     [view addGestureRecognizer:gesture];
+}
+
+- (void)initKeyboardAccessoryView
+{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(keyNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    self.inputView = [[QNInputToolView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, 50)];
+    [self.view addSubview:self.inputView];
+    [self.inputView simpleMode];
+    self.inputView.delegate = self;
+}
+
+- (void)keyNotification:(NSNotification *)notification
+{
+    self.keyBoardDic = notification.userInfo;
+    CGRect rect = [self.keyBoardDic[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    CGRect r1 = [self.view convertRect:rect fromView:self.view.window];
+    self.keyboardRect = r1;
+    
+    [UIView animateWithDuration:[self.keyBoardDic[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        [UIView setAnimationCurve:[self.keyBoardDic[UIKeyboardAnimationCurveUserInfoKey] doubleValue]];
+        
+        CGRect frame = self.inputView.frame;
+
+        if (self.keyboardShow) {
+            frame.origin.y = r1.origin.y;
+            self.inputView.frame = frame;
+        } else {
+            frame.origin.y = r1.origin.y - frame.size.height;
+            self.inputView.frame = frame;
+            self.tableView.contentOffset = CGPointMake(0, (self.currentEditCell.bottom - (r1.origin.y - frame.size.height)));
+        }
+        if (!self.coverView) {
+            __block UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, frame.origin.y)];
+            self.coverView = coverView;
+            [self.view addSubview:coverView];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+                [self.inputView makeKeyBoardHidden];
+                 [UIView animateWithDuration:[self.keyBoardDic[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+                     self.tableView.contentOffset = self.oldContentOffSet;
+                 }];
+                [coverView removeFromSuperview];
+                coverView = nil;
+            }];
+            [coverView addGestureRecognizer:tap];
+        }
+    }];
+    self.keyboardShow = !self.keyboardShow;
 }
 
 - (void)sendTextGesture:(UIGestureRecognizer *)gesture
@@ -89,6 +147,18 @@
     [self.tableView reloadData];
 }
 
+#pragma mark - InputView Delegate
+
+- (void)inputToolView:(QNInputToolView *)inputView didSendMessage:(NSString *)message
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:self.currentEditCell];
+    QNFriendCircleModel *model = self.dataSource[indexPath.row];
+    [model addCommentToModel:message];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
+    });
+}
+
 #pragma mark - TableView Cell Delegate
 
 -(void)deleteData:(QNFriendCircleModel *)model cell:(QNFriendCircleTableViewCell *)cell
@@ -106,14 +176,16 @@
 
 -(void)showLove:(QNFriendCircleModel *)model cell:(QNFriendCircleTableViewCell *)cell
 {
-    if (!model.ILoveThis) {
-        model.loverList = @[@"1",@"2"];
-    } else {
-        model.loverList = nil;
-    }
+    [model LoveThisModel];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
-    model.ILoveThis = !model.ILoveThis;
+}
+
+-(void)comment:(QNFriendCircleModel *)model cell:(QNFriendCircleTableViewCell *)cell
+{
+    self.oldContentOffSet = self.tableView.contentOffset;
+    self.currentEditCell = cell;
+    [self.inputView showKeyboard];
 }
 
 #pragma mark - UITableView Delegate
@@ -137,15 +209,11 @@
     
     if (identifier) {
         return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(QNFriendCircleTableViewCell * cell) {
-            
             [cell updateContent:self.dataSource[indexPath.row]];
-            
         }];
-        
     } else {
         return 0;
     }
-
 }
 
 - (QNFriendCircleTableViewCell *)cellForModelIndex:(NSIndexPath *)indexPath
@@ -216,7 +284,6 @@
             imagePicker.delegate = self;
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:imagePicker animated:YES completion:nil];
-            
         }
         
     }];
@@ -250,15 +317,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

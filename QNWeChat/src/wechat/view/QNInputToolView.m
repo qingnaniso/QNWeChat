@@ -54,6 +54,35 @@
     }];
 }
 
+-(void)showKeyboard
+{
+    [self.textField becomeFirstResponder];
+}
+
+-(void)simpleMode
+{
+    [self.voiceButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@0);
+    }];
+    [self.addButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@0);
+    }];
+    
+    [self.faceButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.addButton).offset = 0;
+    }];
+    
+    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.voiceButton).offset = 0;
+        make.right.equalTo(self.addButton).offset = 0;
+    }];
+    
+    self.faceButton.enabled = NO;
+    
+    [self setNeedsLayout];
+    [self setNeedsDisplay];
+}
+
 - (void)initVoiceButton
 {
     self.voiceButton = [UIButton buttonWithType:UIButtonTypeCustom];

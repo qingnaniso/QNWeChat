@@ -12,11 +12,17 @@
 @class QNFriendCircleModel;
 @interface QNDataSource : YYCache
 
+/* init */
+
 + (instancetype)shareDataSource;
+
+/* main page */
 
 - (NSArray *)getWechatMainPageDataSourceByUser:(NSNumber *)userID;  //chat content with some user
 
 - (void)addWechatMainPageDataSourceByUser:(NSNumber *)userID objects:(NSArray *)contents;  //add chat record to some user;
+
+/* addressBook methods */
 
 - (NSArray *)getAddressBookContactList;  //get all addressbook users
 
@@ -28,10 +34,16 @@
 
 - (NSArray *)getDiscoverDataWithDictionaryArray;
 
+/* Friend Circle methods*/
+
 - (NSArray<QNFriendCircleModel *> *)getFriendCircleData;
 
 - (void)addFriendCircleData:(id)data completionBlock:(void (^)())block;
 
 - (void)removeFriendCircleData:(id)data completionBlock:(void (^)())block;
+
+- (void)updateFriendCircleDataByModelID:(NSString *)modelID withModel:(QNFriendCircleModel *)model;
+
+- (QNFriendCircleModel *)getModelFromCacheByModelID:(NSString *)modelID;
 
 @end

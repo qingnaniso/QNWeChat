@@ -12,9 +12,13 @@
 
 @interface QNInputToolView : UIView
 
+@property (nonatomic, weak) id<QNInputToolViewDelegate> delegate;
+
 - (void)makeKeyBoardHidden;
 
-@property (nonatomic, weak) id<QNInputToolViewDelegate> delegate;
+- (void)showKeyboard;
+
+- (void)simpleMode;
 
 @end
 
@@ -23,6 +27,9 @@
 @required
 
 - (void)inputToolView:(QNInputToolView *)inputView didSendMessage:(NSString *)message;
+
+@optional
+
 - (void)inputToolView:(QNInputToolView *)inputView didSendPicture:(NSString *)message;
 - (void)inputToolViewDidSendVoice:(QNInputToolView *)inputView;
 - (void)inputToolViewDidEndSendVoice:(QNInputToolView *)inputView;

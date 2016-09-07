@@ -21,7 +21,15 @@
 @property (nonatomic, strong) NSArray *loverList;
 @property (nonatomic, assign) BOOL ILoveThis;
 
+/* @{@"commentPerson":@"personName",@"commentContent":@"blablabla...",@"commentedPerson":@"personName"} */
+@property (nonatomic, strong) NSArray <NSDictionary *> *commentArray;
+
+/* create model method */
 - (void)addPureText:(NSString *)text completionBlock:(void (^)())completionBlock;
 - (void)addMacroVideoWithURL:(NSURL *)fileURL contentText:(NSString *)contentText;
+
+/* update model method */
+- (void)LoveThisModel;
+- (void)addCommentToModel:(NSString *)commentString;
 
 @end

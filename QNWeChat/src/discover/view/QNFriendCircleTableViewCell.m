@@ -88,7 +88,10 @@
     };
     
     self.statusView.commentBlock = ^(){
-        
+        if ([weakSelf.delegate respondsToSelector:@selector(comment:cell:)]) {
+            [weakSelf.delegate comment:weakSelf.model cell:weakSelf];
+        }
+        [weakSelf.statusView hideCommentView];
     };
     
     //comment view
@@ -109,7 +112,7 @@
     self.nameLabel.text = @"测试姓名呵呵哒";
 
     [self.cellContentView updateContent:content];
-    [self.commentView updateLoverList:content.loverList];
+    [self.commentView updateContent:content];
 }
 
 @end

@@ -8,10 +8,12 @@
 
 #import "QNFriendCircleCellCommentView.h"
 #import "YYLabel.h"
+#import "QNFriendCircleModel.h"
 
 @interface QNFriendCircleCellCommentView ()
 
 @property (strong, nonatomic) YYLabel *loverLabel;
+@property (strong, nonatomic) QNFriendCircleModel *model;
 
 @end
 
@@ -45,20 +47,77 @@
     return self;
 }
 
+-(void)updateContent:(QNFriendCircleModel *)model
+{
+    self.model = model;
+    [self updateLoverList:model.loverList];
+    [self updateCommentView:model];
+    
+}
+
 -(void)updateLoverList:(NSArray *)lovers
 {
-    if (lovers && lovers.count > 0) {
+    if (self.model.ILoveThis) {
         self.loverLabel.text = @"测试姓名呵呵哒";
         [self.loverLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset = 10;
             make.top.equalTo(self).offset = 5;
-            make.bottom.equalTo(self).offset = -5;
         }];
     } else {
         [self.loverLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];
         self.loverLabel.text = @"";
+    }
+}
+
+- (void)updateCommentView:(QNFriendCircleModel *)model;
+{
+    if (model.commentArray.count > 0) {
+        
+        __block YYLabel *lastLabel = nil;
+        
+        [model.commentArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+
+            YYLabel *label = [[YYLabel alloc] init];
+            [self addSubview:label];
+            
+            label.text = [NSString stringWithFormat:@"%@:%@",obj[@"commentPerson"],obj[@"commentContent"]];
+            
+            if (idx == 0) {
+                [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(self.loverLabel.mas_bottom).offset = 2;
+                    make.left.equalTo(self).offset = 10;
+                    make.right.equalTo(self.mas_right);
+                }];
+                lastLabel = label;
+            } else {
+                [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(lastLabel.mas_bottom).offset = 2;
+                    make.left.equalTo(self).offset = 10;
+                    make.right.equalTo(self.mas_right);
+                }];
+                
+                lastLabel = label;
+            }
+        }];
+        
+        [lastLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.mas_bottom);
+        }];
+        
+    } else {
+        if (self.model.ILoveThis) {
+            [self.loverLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(self).offset = -5;
+            }];
+        }else {
+            [self.loverLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(self);
+            }];
+            self.loverLabel.text = @"";
+        }
+
     }
 }
 
