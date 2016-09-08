@@ -5,8 +5,6 @@ min ios version iOS9.0.
 
 ![image](https://github.com/qingnaniso/QNWeChat/blob/master/weixin0.gif)
 
-![image](https://github.com/qingnaniso/QNWeChat/blob/master/qnweixin3.gif)
-
 ![image](https://github.com/qingnaniso/QNWeChat/blob/master/2016-09-06 11_56_58.gif)
 
 
