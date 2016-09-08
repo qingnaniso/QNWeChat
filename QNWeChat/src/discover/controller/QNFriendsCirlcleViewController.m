@@ -41,11 +41,24 @@
     [self setupView];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataSourceChanged) name:QNFriendCirlceDataSourceChanged object:nil];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(keyNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
 - (void)initData
 {
     self.sendFriendsCirlceMediaTypeDataSource = @[@"小视频",@"拍照",@"从手机相册选择"];
     self.dataSource = [NSMutableArray arrayWithArray:[[QNDataSource shareDataSource] getFriendCircleData]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataSourceChanged) name:QNFriendCirlceDataSourceChanged object:nil];
 }
 
 - (void)setupView
@@ -68,9 +81,6 @@
 
 - (void)initKeyboardAccessoryView
 {
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(keyNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
     self.inputView = [[QNInputToolView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, 50)];
     [self.view addSubview:self.inputView];
     [self.inputView simpleMode];

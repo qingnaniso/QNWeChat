@@ -34,7 +34,7 @@
 {
     UIBarButtonItem *rightItem = [UIBarButtonItem itemWithTitle:@"发送" textColor:Globle_WeChat_Color target:self action:@selector(rightItemButtonClicked:)];
     self.navigationItem.rightBarButtonItem = rightItem;
-    UIBarButtonItem *leftItem = [UIBarButtonItem itemWithTitle:@"取消" textColor:[UIColor whiteColor] target:self action:@selector(leftItemButtonClicked:completion:)];
+    UIBarButtonItem *leftItem = [UIBarButtonItem itemWithTitle:@"取消" textColor:[UIColor whiteColor] target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = leftItem;
 }
 
@@ -51,6 +51,12 @@
     self.textView.inputAccessoryView = accessoryView;
 }
 
+- (void)cancel
+{
+    [self.textView resignFirstResponder];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)leftItemButtonClicked:(UIButton *)btn completion:(void(^)())completionBlock
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
@@ -58,6 +64,7 @@
             completionBlock();
         }
     }];
+    
 }
 
 - (void)rightItemButtonClicked:(UIButton *)btn
