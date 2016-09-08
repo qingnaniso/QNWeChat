@@ -72,9 +72,8 @@
         make.right.equalTo(self.addButton).offset = 0;
     }];
     
-    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.voiceButton).offset = 0;
-        make.right.equalTo(self.addButton).offset = 0;
     }];
     
     self.faceButton.enabled = NO;

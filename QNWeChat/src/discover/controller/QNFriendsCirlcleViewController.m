@@ -129,8 +129,6 @@
 
     self.tableView.tableHeaderView = [self createHeaderView:nil];
     self.tableView.contentInset = UIEdgeInsetsMake(-80, 0, 0, 0);
-    self.tableView.fd_debugLogEnabled = YES;
-    self.tableView.estimatedRowHeight = 100;
     [self.tableView reloadData];
 }
 
@@ -157,6 +155,9 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
     });
+    [self.inputView makeKeyBoardHidden];
+    [self.coverView removeFromSuperview];
+    self.coverView = nil;
 }
 
 #pragma mark - TableView Cell Delegate

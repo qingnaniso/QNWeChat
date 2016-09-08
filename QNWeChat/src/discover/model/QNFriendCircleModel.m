@@ -58,8 +58,7 @@
     if (oldComment.count > 0) {
         NSMutableArray *oldArray = [NSMutableArray arrayWithArray:self.commentArray];
         NSDictionary *dic = @{@"commentPerson":@"测试姓名呵呵哒",@"commentContent":commentString,@"commentedPerson":@""};
-        NSArray *newArray = @[dic];
-        [oldArray insertObject:newArray atIndex:0];
+        [oldArray insertObject:dic atIndex:0];
         self.commentArray = oldArray;
     } else {
         NSDictionary *dic = @{@"commentPerson":@"测试姓名呵呵哒",@"commentContent":commentString,@"commentedPerson":@""};

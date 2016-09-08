@@ -9,12 +9,5 @@
 #import <UIKit/UIKit.h>
 @class QNFriendCircleModel;
 @interface QNFriendCircleCellCommentView : UIView
-
-/* myself action */
-- (void)showLove;
-- (void)hideLove;
-
-/* others */
-- (void)updateLoverList:(NSArray *)lovers; //deprecadeted
 - (void)updateContent:(QNFriendCircleModel *)model;
 @end
