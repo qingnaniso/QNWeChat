@@ -1,6 +1,6 @@
 # QNWeChat
 ## Wechat client project 
-> iOS version after iOS9.0 
+> iOS9.0 or later required
 
 ![image](https://github.com/qingnaniso/QNWeChat/blob/master/weixin0.gif)
 
@@ -10,6 +10,12 @@
 
 ![image](https://github.com/qingnaniso/QNWeChat/blob/master/2016-09-08 11_49_17.gif)
 
+## Main Features
+
+* Chat
+* Send expressions and voice and video
+* Full feature of Wechat Friend Circle 
+* Contact List 
 
 ## TODO
 
