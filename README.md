@@ -1,11 +1,11 @@
 # QNWeChat
-## Wechat client project 
+
 > iOS9.0 or later required
 
 ## Main Features
 
 * Chat
-* Send expressions and voice and video
+* Send expressions voice and video
 * Full feature of Wechat Friend Circle 
 * Contact List 
 
