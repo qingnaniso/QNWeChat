@@ -11,10 +11,14 @@
 ![image](https://github.com/qingnaniso/QNWeChat/blob/master/2016-09-08 11_49_17.gif)
 
 
-----------------TODO---------------
+## TODO
 
 * Contact View searchBar
 * Cancel bugs when recording a macro video
 * Chat keyboard can't slow down
 * Pick photos from alum system view not ok
 * Take picture view orientation wrong
+
+## Contact
+* QQ:458858553
+* Email:qiqingnan@126.com
