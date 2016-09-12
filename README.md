@@ -1,6 +1,6 @@
 # QNWeChat
 ## Wechat client project 
-** iOS version after iOS9.0 **
+> iOS version after iOS9.0 
 
 ![image](https://github.com/qingnaniso/QNWeChat/blob/master/weixin0.gif)
 
