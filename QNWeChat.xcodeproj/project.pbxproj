@@ -27,6 +27,9 @@
 		E0464EF11D2E464500E47C14 /* CommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E0464EF01D2E464500E47C14 /* CommonTool.m */; };
 		E04A273E1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E04A273D1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.m */; };
 		E07FA5671D35E5280090DA65 /* QNAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E07FA5661D35E5280090DA65 /* QNAudioManager.m */; };
+		E08C51131DE6C41F00590BD3 /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = E08C510E1DE6C41F00590BD3 /* Documentation.html */; };
+		E08C51141DE6C41F00590BD3 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E08C51101DE6C41F00590BD3 /* GCDAsyncSocket.m */; };
+		E08C51151DE6C41F00590BD3 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E08C51121DE6C41F00590BD3 /* GCDAsyncUdpSocket.m */; };
 		E097770B1D767EAD004976E6 /* QNVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E097770A1D767EAD004976E6 /* QNVideoView.m */; };
 		E09A79991D7D1077003A489D /* QNFriendCirclePureTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E09A79981D7D1077003A489D /* QNFriendCirclePureTextCell.m */; };
 		E09E38651D644E15006E959A /* QNAddCommentOnVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E09E38641D644E15006E959A /* QNAddCommentOnVideoViewController.m */; };
@@ -258,6 +261,11 @@
 		E04A273D1D7A6A7400D7B7CE /* QNSendPureTextOnFCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSendPureTextOnFCViewController.m; sourceTree = "<group>"; };
 		E07FA5651D35E5280090DA65 /* QNAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAudioManager.h; sourceTree = "<group>"; };
 		E07FA5661D35E5280090DA65 /* QNAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAudioManager.m; sourceTree = "<group>"; };
+		E08C510E1DE6C41F00590BD3 /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
+		E08C510F1DE6C41F00590BD3 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		E08C51101DE6C41F00590BD3 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		E08C51111DE6C41F00590BD3 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		E08C51121DE6C41F00590BD3 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		E09777091D767EAD004976E6 /* QNVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoView.h; sourceTree = "<group>"; };
 		E097770A1D767EAD004976E6 /* QNVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoView.m; sourceTree = "<group>"; };
 		E09A79961D7D0CAC003A489D /* QNGlobleNotificationKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGlobleNotificationKey.h; sourceTree = "<group>"; };
@@ -699,6 +707,18 @@
 			name = chatBubble;
 			sourceTree = "<group>";
 		};
+		E08C510D1DE6C41F00590BD3 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				E08C510E1DE6C41F00590BD3 /* Documentation.html */,
+				E08C510F1DE6C41F00590BD3 /* GCDAsyncSocket.h */,
+				E08C51101DE6C41F00590BD3 /* GCDAsyncSocket.m */,
+				E08C51111DE6C41F00590BD3 /* GCDAsyncUdpSocket.h */,
+				E08C51121DE6C41F00590BD3 /* GCDAsyncUdpSocket.m */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
 		E0ABAF4C1D12392700899618 = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +785,7 @@
 		E0ABAF8B1D123BFB00899618 /* 3party */ = {
 			isa = PBXGroup;
 			children = (
+				E08C510D1DE6C41F00590BD3 /* GCD */,
 				E01CF0B51D5DB41A003A8F9E /* UITableView+FDTemplateLayoutCell */,
 				E0ABB17E1D18DA5300899618 /* Masonry */,
 				E0ABB13D1D12A40B00899618 /* Pinyin */,
@@ -1499,6 +1520,8 @@
 				TargetAttributes = {
 					E0ABAF541D12392700899618 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6RYBF9HWN4;
+						ProvisioningStyle = Automatic;
 					};
 					E0ABAF6D1D12392700899618 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1550,6 +1573,7 @@
 				E0E239E11D22524400825783 /* QNChatContentTableViewCell.xib in Resources */,
 				E0ABAF631D12392700899618 /* Main.storyboard in Resources */,
 				E0E239CB1D1A68F800825783 /* faceConfig.plist in Resources */,
+				E08C51131DE6C41F00590BD3 /* Documentation.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1663,6 +1687,7 @@
 				E01CF0D61D6191AF003A8F9E /* QNRecordVideoViewController.m in Sources */,
 				E0ABB0E51D1256C900899618 /* UIScrollView+YYAdd.m in Sources */,
 				E0ABB0FC1D1256C900899618 /* YYTextContainerView.m in Sources */,
+				E08C51151DE6C41F00590BD3 /* GCDAsyncUdpSocket.m in Sources */,
 				E097770B1D767EAD004976E6 /* QNVideoView.m in Sources */,
 				E0ABB0101D12549800899618 /* SDWebImageDownloaderOperation.m in Sources */,
 				E0ABB0FA1D1256C900899618 /* NSObject+YYModel.m in Sources */,
@@ -1670,6 +1695,7 @@
 				E0464EA91D2BA4D500E47C14 /* CTView.m in Sources */,
 				E0ABB0E71D1256C900899618 /* UITextField+YYAdd.m in Sources */,
 				E0ABB1671D17A3C100899618 /* QNDetailPersonalAlbumTableViewCell.m in Sources */,
+				E08C51141DE6C41F00590BD3 /* GCDAsyncSocket.m in Sources */,
 				E0ABB0F91D1256C900899618 /* YYWebImageOperation.m in Sources */,
 				E0ABB10A1D1256C900899618 /* YYTextParser.m in Sources */,
 				E0E239C61D195CF200825783 /* QNInputToolView.m in Sources */,
@@ -1815,7 +1841,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 458858553@qq.com (GFRZXUQNZH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 458858553@qq.com (GFRZXUQNZH)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1859,7 +1886,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 458858553@qq.com (GFRZXUQNZH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 458858553@qq.com (GFRZXUQNZH)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1884,6 +1912,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6RYBF9HWN4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QNWeChat/3party",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QNWeChat/SystermPrefixHeader.pch";
 				INFOPLIST_FILE = QNWeChat/Info.plist;
@@ -1899,6 +1933,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6RYBF9HWN4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QNWeChat/3party",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QNWeChat/SystermPrefixHeader.pch";
 				INFOPLIST_FILE = QNWeChat/Info.plist;

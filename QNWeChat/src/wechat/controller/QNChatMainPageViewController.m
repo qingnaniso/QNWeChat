@@ -11,8 +11,9 @@
 #import "QNChatModel.h"
 #import "QNChatContentTableViewCell.h"
 #import "QNAudioManager.h"
+#import "GCDAsyncSocket.h"
 
-@interface QNChatMainPageViewController () <UITableViewDelegate, UITableViewDataSource, QNInputToolViewDelegate>
+@interface QNChatMainPageViewController () <UITableViewDelegate, UITableViewDataSource, QNInputToolViewDelegate,GCDAsyncSocketDelegate>
 
 @property (strong, nonatomic) UITextField *textField;
 @property (strong, nonatomic) QNInputToolView *inputView;
@@ -24,6 +25,7 @@
 @property (nonatomic) BOOL keyboardShow;
 @property (nonatomic) CGRect keyboardRect;
 @property (nonatomic, strong) QNAudioManager *audioManager;
+@property (nonatomic, strong) GCDAsyncSocket *socket;
 
 @end
 
@@ -50,6 +52,14 @@
 {
     self.cellHeightCacheDic = [NSMutableDictionary dictionary];
     self.chatDataSource = [NSMutableArray arrayWithArray:[[QNDataSource shareDataSource] getWechatMainPageDataSourceByUser:self.personModel.userID]];
+    self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    NSError *error;
+    [self.socket connectToHost:@"192.168.1.100" onPort:12345 error:&error];
+    if (error) {
+        NSLog(@"%@",error);
+    } else {
+        [self.socket writeData:[[NSString stringWithFormat:@"iam:%@",self.personModel.name] dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:200];
+    }
 }
 
 - (void)initTableView
@@ -199,6 +209,8 @@
     
     [self.tableView insertRow:(self.chatDataSource.count - 1) inSection:0 withRowAnimation:UITableViewRowAnimationBottom];
     [self scrollTableViewWhenChatting:YES];
+    
+    [self.socket writeData:[[NSString stringWithFormat:@"msg:%@",message] dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:201];
 }
 
 -(void)inputToolViewDidSendVoice:(QNInputToolView *)inputView
@@ -236,6 +248,27 @@
 -(void)inputToolViewDelegateFuction
 {
     [self.audioManager play:nil];
+}
+
+#pragma mark - GCDAsnySocket Delegate
+
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
+{
+    NSLog(@"connected success! host is %@",host);
+}
+
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(nullable NSError *)err
+{
+    NSLog(@"socket error %@",err);
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
+{
+    [self.socket readDataWithTimeout:-1 tag:tag];
+}
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag;
+{
+    NSLog(@"read data %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 
 #pragma mark - tool function
