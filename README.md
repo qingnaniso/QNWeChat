@@ -1,7 +1,27 @@
 # QNWeChat
-wechat client project 
-this is project for practise and I will keep Coding until it is done.
-min ios version iOS9.0.
+
+> iOS9.0 or later required
+
+## Main Features
+
+* Chat
+* Send expressions voice and video
+* Full feature of Wechat Friend Circle 
+* Contact List 
+
+## TODO
+
+* Contact View searchBar
+* Cancel bugs when recording a macro video
+* Chat keyboard can't slow down
+* Pick photos from alum system view not ok
+* Take picture view orientation wrong
+
+## Contact
+* QQ:458858553
+* Email:qiqingnan@126.com
+
+## Show
 
 ![image](https://github.com/qingnaniso/QNWeChat/blob/master/weixin0.gif)
 
@@ -10,12 +30,3 @@ min ios version iOS9.0.
 ![image](https://github.com/qingnaniso/QNWeChat/blob/master/2016-09-08 11_48_02.gif)
 
 ![image](https://github.com/qingnaniso/QNWeChat/blob/master/2016-09-08 11_49_17.gif)
-
-
-----------------TODO---------------
-
-1. Contact View searchBar
-2. Cancel bugs when recording a macro video
-3. Chat keyboard can't slow down
-4. Pick photos from alum system view not ok
-5. Take picture view orientation wrong
